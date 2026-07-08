@@ -1,0 +1,41 @@
+/* ============================================================
+   06-PAMERAN.CSS
+   Halaman Pameran: lorong carousel lemari display, hotspot
+   tap-to-detail, dan navigasi panah/dots di bawah.
+   ============================================================ */
+#pameran{padding:0;position:relative;overflow:hidden;}
+#pameran.active{display:block;}
+.lorong-pameran{position:absolute;top:168px;bottom:90px;left:0;right:0;display:flex;align-items:center;justify-content:center;overflow:hidden;z-index:5}
+.lorong-pameran::before,.lorong-pameran::after{content:'';position:absolute;top:0;bottom:0;width:9vw;z-index:30;pointer-events:none}
+.lorong-pameran::before{left:0;background:linear-gradient(to right,rgba(10,6,2,.95),transparent)}
+.lorong-pameran::after{right:0;background:linear-gradient(to left,rgba(10,6,2,.95),transparent)}
+.display-lemari{position:absolute;left:50%;width:74vw;max-width:980px;transition:transform .65s cubic-bezier(.4,0,.2,1),opacity .65s cubic-bezier(.4,0,.2,1),filter .65s ease;will-change:transform,opacity;transform-origin:center}
+.display-lemari.pos-active{transform:translateX(-50%) scale(1);z-index:10;opacity:1;filter:none;pointer-events:auto}
+.display-lemari.pos-prev{transform:translateX(calc(-50% - 70vw)) scale(.8);z-index:6;opacity:.52;filter:brightness(.55);pointer-events:auto;cursor:pointer}
+.display-lemari.pos-next{transform:translateX(calc(-50% + 70vw)) scale(.8);z-index:6;opacity:.52;filter:brightness(.55);pointer-events:auto;cursor:pointer}
+.display-lemari.pos-far-left{transform:translateX(calc(-50% - 135vw)) scale(.65);z-index:2;opacity:0;pointer-events:none}
+.display-lemari.pos-far-right{transform:translateX(calc(-50% + 135vw)) scale(.65);z-index:2;opacity:0;pointer-events:none}
+.lemari-wrapper{position:relative;border-radius:10px;overflow:hidden;border:1px solid rgba(245,214,115,0.42);box-shadow:0 0 0 1px rgba(200,160,30,.14),0 28px 70px rgba(0,0,0,.9),inset 0 0 40px rgba(0,0,0,.45)}
+.lemari-wrapper::before{content:'';position:absolute;top:0;left:6%;right:6%;height:2px;background:linear-gradient(to right,transparent,rgba(255,240,200,.85) 30%,rgba(255,255,255,.95) 50%,rgba(255,240,200,.85) 70%,transparent);z-index:5;filter:blur(.8px)}
+.lemari-wrapper::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1.5px;background:var(--gold-grad);z-index:5;opacity:.55}
+.gambar-lemari{width:100%;display:block;max-height:calc(100vh - 260px);object-fit:cover}
+.hotspot{position:absolute;z-index:20;cursor:pointer;border-radius:6px}
+.hotspot-glow{position:absolute;inset:-4px;border:2px solid transparent;border-radius:10px;transition:all .25s ease;pointer-events:none}
+.hotspot:hover .hotspot-glow{border-color:rgba(237,216,74,.9);box-shadow:0 0 14px rgba(237,216,74,.65),0 0 28px rgba(237,216,74,.28),inset 0 0 14px rgba(237,216,74,.07);background:rgba(237,216,74,.04)}
+.hotspot-plus{position:absolute;top:7px;right:7px;width:22px;height:22px;background:rgba(200,160,30,.92);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#0d0904;font-size:15px;font-weight:700;line-height:1;opacity:0;transform:scale(.65);transition:all .22s ease;pointer-events:none;z-index:5}
+.hotspot:hover .hotspot-plus{opacity:1;transform:scale(1)}
+.hotspot-label{position:absolute;bottom:-26px;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(13,9,4,.92);border:1px solid rgba(200,160,30,.38);border-radius:4px;padding:2px 8px;font-family:'Cinzel',serif;font-size:.58rem;color:var(--gold);letter-spacing:1.5px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:30}
+.hotspot:hover .hotspot-label{opacity:1}
+.pameran-nav{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;background:rgba(8,5,1,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(200,160,30,.22);border-radius:50px;padding:9px 18px;z-index:50;box-shadow:0 4px 28px rgba(0,0,0,.7),0 0 0 1px rgba(200,160,30,.07)}
+.nav-arrow{width:36px;height:36px;border:1px solid rgba(200,160,30,.38);background:transparent;color:var(--gold);font-size:20px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;line-height:1}
+.nav-arrow:hover{background:var(--gold);color:#0d0904;box-shadow:var(--shadow-gold);border-color:var(--gold)}
+.nav-arrow:active{transform:scale(.9)}
+.nav-dots{display:flex;align-items:center;gap:4px}
+.nav-dot{width:32px;height:32px;cursor:pointer;flex-shrink:0;border-radius:50%;border:1.5px solid rgba(200,160,30,.25);background:rgba(10,7,3,.6);display:flex;align-items:center;justify-content:center;padding:5px;opacity:.38;transition:all .28s cubic-bezier(.4,0,.2,1);position:relative}
+.nav-dot img{width:100%;height:100%;object-fit:contain;display:block;filter:brightness(0.7) sepia(1) saturate(1.5) hue-rotate(5deg);transition:filter .28s ease}
+.nav-dot.active{opacity:1;border-color:var(--gold);background:rgba(30,18,3,.85);box-shadow:0 0 10px rgba(237,216,74,.55),0 0 20px rgba(237,216,74,.22),inset 0 0 8px rgba(237,216,74,.08);transform:scale(1.18)}
+.nav-dot.active img{filter:brightness(1.1) sepia(0.6) saturate(2.5) hue-rotate(5deg) drop-shadow(0 0 4px rgba(237,216,74,.8))}
+.nav-dot:hover:not(.active){opacity:.62;border-color:rgba(200,160,30,.5);transform:scale(1.08)}
+.lemari-placeholder{width:100%;aspect-ratio:16/9;max-height:calc(100vh - 260px);min-height:220px;background:repeating-linear-gradient(45deg,rgba(200,160,30,0.04) 0 12px,rgba(200,160,30,0.012) 12px 24px),linear-gradient(135deg,#1a1005,#0d0904);border:2px dashed rgba(200,160,30,.32);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--muted);}
+.lemari-placeholder .ph-icon{font-size:2.2rem;opacity:.5}
+.lemari-placeholder .ph-text{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:1.5px;text-align:center;padding:0 20px;line-height:1.6}

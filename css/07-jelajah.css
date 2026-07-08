@@ -1,0 +1,106 @@
+/* ============================================================
+   07-JELAJAH.CSS
+   Halaman Jelajah: grid lemari + node QR interaktif, status
+   scan/kuis, dan bottom bar (progress + tombol scan/panduan).
+   ============================================================ */
+#jelajah{padding:0;position:relative;overflow:hidden;}
+#jelajah.active{display:block;}
+
+.jelajah-inner{
+    position:absolute;top:168px;bottom:80px;left:0;right:0;
+    display:flex;flex-direction:column;align-items:center;
+    overflow-y:auto;overflow-x:hidden;
+    z-index:5;padding:10px 80px 20px;
+    scrollbar-width:thin;scrollbar-color:rgba(200,160,30,.3) transparent;
+}
+.jelajah-inner::-webkit-scrollbar{width:5px}
+.jelajah-inner::-webkit-scrollbar-thumb{background:rgba(200,160,30,.3);border-radius:3px}
+
+.jelajah-grid-container{width:100%;max-width:1000px;overflow-x:auto;overflow-y:hidden;display:flex;align-items:center;scrollbar-width:none;-ms-overflow-style:none;}
+.jelajah-grid-container::-webkit-scrollbar{display:none}
+.jelajah-grid{display:flex;gap:20px;padding:10px 10px 20px;margin:auto;}
+
+/* Cabinet card */
+.j-display-box{display:flex;flex-direction:column;align-items:center;gap:12px;min-width:220px;flex-shrink:0;}
+.j-cabinet{width:220px;min-height:160px;background:linear-gradient(160deg,#1e1208,#0d0702);border:1px solid rgba(200,160,30,.35);border-radius:12px;box-shadow:0 0 0 1px rgba(200,160,30,.08),0 16px 40px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,240,200,.15);position:relative;display:flex;align-items:flex-end;justify-content:space-evenly;padding:20px 14px;gap:10px;}
+.j-cabinet::before{content:'';position:absolute;top:0;left:6%;right:6%;height:2px;background:linear-gradient(to right,transparent,rgba(255,240,200,.6) 30%,rgba(255,255,255,.8) 50%,rgba(255,240,200,.6) 70%,transparent);z-index:2;filter:blur(.5px)}
+.j-cabinet::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1.5px;background:var(--gold-grad);opacity:.45;z-index:2}
+.j-cabinet-label{position:absolute;top:10px;left:50%;transform:translateX(-50%);font-family:'Cinzel',serif;font-size:.55rem;color:var(--gold);letter-spacing:1.5px;opacity:.7;white-space:nowrap;}
+
+.j-node{
+    width:58px;height:58px;border-radius:50%;cursor:pointer;position:relative;z-index:5;
+    transition:transform .2s,box-shadow .2s;
+    background:radial-gradient(circle at 35% 35%,#2a1a06,#1a0e03);
+    border:2px solid rgba(200,160,30,.5);
+    box-shadow:0 4px 10px rgba(0,0,0,.7),inset 0 -4px 8px rgba(0,0,0,.4),inset 0 2px 4px rgba(255,255,255,.06);
+    overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+}
+.j-node-icon{
+    width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;
+    pointer-events:none;
+    position:relative;z-index:2;
+}
+.j-node-svg-fallback{
+    width:60%;height:60%;opacity:.45;pointer-events:none;
+    fill:var(--gold-pale);position:absolute;
+}
+.j-node:hover{transform:scale(1.12);box-shadow:0 0 14px rgba(237,216,74,.45),0 6px 14px rgba(0,0,0,.7)}
+
+.j-node-status{
+    position:absolute;bottom:-5px;right:-5px;
+    width:20px;height:20px;border-radius:50%;
+    border:2px solid rgba(13,9,4,.9);
+    display:flex;align-items:center;justify-content:center;
+    font-size:9px;font-weight:700;z-index:10;
+    background:rgba(30,18,5,.95);
+    transition:all .3s;
+}
+.j-node-status.scanned{background:rgba(100,180,100,.9);color:#0d0904;}
+.j-node-status.quiz-done{background:linear-gradient(135deg,#e8c035,#f8e880);color:#0d0904;}
+
+.j-node.gold{
+    background:radial-gradient(circle at 30% 30%,#fff7cc,#e8c035,#9a7010,#5a4008);
+    border:2px solid #edd84a;
+    box-shadow:0 0 18px rgba(237,216,74,.75),0 0 36px rgba(237,216,74,.35),inset 0 -3px 5px rgba(122,92,11,.5);
+    animation:goldShine 2s infinite alternate;
+}
+.j-node.gold .j-node-icon{filter:brightness(1.25) saturate(1.5) drop-shadow(0 0 4px rgba(237,216,74,.6));}
+@keyframes goldShine{from{box-shadow:0 0 10px rgba(237,216,74,.5),0 0 20px rgba(237,216,74,.2)}to{box-shadow:0 0 22px rgba(237,216,74,.9),0 0 44px rgba(237,216,74,.45)}}
+
+.j-node.scanned-only{
+    border-color:rgba(100,180,100,.7);
+    box-shadow:0 0 12px rgba(100,200,100,.4),0 4px 10px rgba(0,0,0,.7);
+}
+.j-node.scanned-only .j-node-icon{filter:brightness(1.1);}
+
+.j-label-btn{border:1px solid rgba(200,160,30,.4);background:rgba(13,9,4,0.75);color:var(--cream);font-family:'Cinzel',serif;font-size:.7rem;padding:6px 18px;border-radius:20px;letter-spacing:1px;box-shadow:0 4px 12px rgba(0,0,0,.5);transition:all .2s;cursor:default;}
+
+/* Jelajah bottom bar */
+.jelajah-bottom-bar{position:absolute;bottom:0;left:0;right:0;height:80px;background:rgba(8,5,1,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(200,160,30,.2);display:flex;align-items:center;justify-content:space-between;padding:0 60px 0 80px;z-index:30;box-shadow:0 -4px 24px rgba(0,0,0,.6);}
+.prog-group{display:flex;flex-direction:column;gap:6px;min-width:180px;}
+.prog-bar-bg{width:100%;height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;}
+.prog-bar-fill{height:100%;width:0%;background:var(--gold-grad);transition:width .5s ease;border-radius:3px;}
+.prog-text{font-family:'Cinzel',serif;font-size:.62rem;color:var(--muted);letter-spacing:1px;}
+.jelajah-quiz-group{display:flex;flex-direction:column;align-items:flex-end;gap:8px;}
+.jelajah-quiz-group #text-quiz{text-align:right;}
+.quiz-bar{width:160px;}
+.icon-24{width:24px;height:24px;object-fit:contain;display:block;}
+.jelajah-right-group{display:flex;align-items:center;gap:16px;}
+
+.btn-scan-all{display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--gold-grad);border:none;border-radius:50px;padding:10px 28px;cursor:pointer;box-shadow:0 0 20px rgba(200,160,30,.4),0 8px 24px rgba(0,0,0,.6);transition:all .25s;position:relative;}
+.btn-scan-all:hover{transform:scale(1.06);box-shadow:0 0 32px rgba(200,160,30,.7),0 10px 30px rgba(0,0,0,.7);}
+.btn-scan-all:active{transform:scale(.97);}
+.btn-scan-all .scan-icon{font-size:1.4rem;line-height:1;}
+.btn-scan-all .scan-label{font-family:'Cinzel',serif;font-size:.6rem;font-weight:700;color:#0d0904;letter-spacing:2px;white-space:nowrap;}
+.btn-scan-pulse{position:absolute;inset:-4px;border-radius:50px;border:2px solid rgba(237,216,74,.6);animation:scanPulse 2s ease-in-out infinite;}
+@keyframes scanPulse{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:0;transform:scale(1.12)}}
+
+.btn-tutorial-small{background:transparent;border:1px solid rgba(200,160,30,.3);color:var(--muted);font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:1.5px;padding:8px 16px;border-radius:20px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px;}
+.btn-tutorial-small:hover{border-color:var(--gold);color:var(--gold);}
+
+/* Quiz & answer buttons */
+.btn-jawaban{background:rgba(200,160,30,0.08);border:1px solid rgba(200,160,30,.35);color:var(--cream);padding:12px 16px;border-radius:8px;font-family:'Cormorant Garamond',serif;font-size:1rem;cursor:pointer;transition:all .2s;text-align:left;}
+.btn-jawaban:hover{background:rgba(200,160,30,.18);border-color:var(--gold);}
+.btn-jawaban.benar-anim{background:rgba(50,200,80,.25);border-color:#4caf50;color:#7fff7f}
+.btn-jawaban.salah-anim{background:rgba(200,50,50,.25);border-color:#f44336;color:#ff8080}

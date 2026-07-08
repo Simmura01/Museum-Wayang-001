@@ -1,0 +1,93 @@
+/* ============================================================
+   10-RESPONSIVE.CSS
+   Semua media query (tablet & mobile) untuk seluruh halaman.
+   HARUS di-load PALING TERAKHIR agar override berhasil.
+   ============================================================ */
+@media(max-width:768px){
+    .section-title-header{padding:74px 40px 12px}
+    .lorong-pameran{top:138px;bottom:88px;}
+    .jelajah-inner{top:138px;bottom:150px;padding:10px 10px 20px;}
+    .pencapaian-inner{top:138px;padding:14px 16px 30px;}
+    .floor-nav-panel{left:6px;top:108px;padding:10px 6px;gap:8px}
+    .floor-btn{width:32px;height:32px;font-size:.8rem}
+    .floor-nav-label{display:none}
+    .room-minimap{right:6px;bottom:80px;min-width:140px;padding:9px 10px}
+    #jelajah-minimap{bottom:160px}
+    .minimap-room{font-size:.5rem;padding:8px 4px}
+    #beranda{padding-top:80px}
+    #nav-menu{top:10px;padding:5px 6px}
+    .nav-btn{font-size:.58rem;padding:7px 12px}
+    .welcome-text h1{font-size:1.2rem}
+    .corner-ornament{width:80px;height:80px}
+    .mascot-frame-wrapper{transform:translate(-50%,-58%)}
+    .display-lemari{width:88vw}
+    .display-lemari.pos-prev{transform:translateX(calc(-50% - 85vw)) scale(.78)}
+    .display-lemari.pos-next{transform:translateX(calc(-50% + 85vw)) scale(.78)}
+    .modal-img{max-height:200px}
+    .detail-card{max-width:94vw}
+    .detail-body{flex-direction:column;padding:14px 16px 4px}
+    .detail-img-col{flex:0 0 auto;max-width:100%;margin:0 auto}
+    .detail-img-col .modal-img{max-height:220px}
+    .detail-tab-text{max-height:none}
+
+    /* Pameran: navigasi bawah (panah + titik carousel) */
+    .pameran-nav{
+        bottom:14px;
+        max-width:94vw;
+        padding:7px 10px;
+        gap:6px;
+    }
+    .nav-arrow{width:30px;height:30px;font-size:16px}
+    .nav-dots{
+        max-width:52vw;
+        overflow-x:auto;
+        scrollbar-width:none;
+        -webkit-overflow-scrolling:touch;
+    }
+    .nav-dots::-webkit-scrollbar{display:none}
+    .nav-dot{width:26px;height:26px;padding:4px}
+
+    /* Jelajah: bar bawah (scan / progress / panduan)
+       Baris 1: progress scan + progress kuis (sejajar)
+       Baris 2: tombol Scan + tombol Panduan (sejajar) */
+    .jelajah-bottom-bar{
+        height:auto;
+        min-height:110px;
+        padding:10px 14px;
+        flex-wrap:wrap;
+        align-content:center;
+        justify-content:center;
+        align-items:center;
+        gap:8px 16px;
+        row-gap:12px;
+    }
+    .prog-group{min-width:0;flex:1 1 130px;order:1}
+    .jelajah-right-group{display:contents}
+    .jelajah-quiz-group{min-width:0;flex:1 1 130px;order:2;align-items:flex-start;gap:6px}
+    .jelajah-quiz-group #text-quiz{text-align:left}
+    .quiz-bar{width:100%;max-width:none}
+    .btn-scan-all{order:3;flex:0 0 auto}
+    .btn-scan-all .scan-label{font-size:.52rem;}
+    .btn-tutorial-small{order:4;flex:0 0 auto;font-size:.55rem;padding:9px 16px}
+
+    .pencapaian-grid{grid-template-columns:1fr 1fr;}
+    .hukum-card{padding:26px 22px}
+    .hukum-list-text{font-size:.9rem}
+}
+
+/* Ponsel layar sangat kecil */
+@media(max-width:400px){
+    .jelajah-bottom-bar{padding:8px 8px;gap:6px 10px;min-height:96px}
+    .prog-group,.jelajah-quiz-group{flex:1 1 46%}
+    .quiz-bar{max-width:none}
+    .btn-scan-all{padding:8px 18px}
+    .btn-scan-all .scan-label{font-size:.46rem}
+    .btn-tutorial-small{padding:8px 12px;font-size:.5rem}
+    .icon-24{width:18px;height:18px}
+    #jelajah-minimap{bottom:150px;min-width:120px;padding:8px 8px}
+    .jelajah-inner{bottom:158px}
+    .pameran-nav{padding:6px 8px;gap:5px}
+    .nav-arrow{width:28px;height:28px;font-size:14px}
+    .nav-dot{width:24px;height:24px}
+    .prog-text{font-size:.52rem}
+}

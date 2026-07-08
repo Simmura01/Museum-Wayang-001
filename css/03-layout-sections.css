@@ -1,0 +1,12 @@
+/* ============================================================
+   03-LAYOUT-SECTIONS.CSS
+   Kerangka umum #main-app dan .section — dipakai oleh SEMUA
+   halaman (Beranda, Pameran, Jelajah, Pencapaian). File-file
+   CSS per halaman (04, 06, 07, 08) menumpuk di atas aturan ini.
+   ============================================================ */
+#main-app{display:none;width:100vw;height:100vh;position:relative;overflow:hidden}
+.section{display:none;width:100%;height:100%;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 20px 20px;overflow-y:auto}
+.section.active{display:flex;animation:secFade .5s ease forwards}
+@keyframes secFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section h2{font-family:'Cinzel Decorative',serif;color:var(--gold);font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:18px;letter-spacing:3px;text-shadow:0 2px 22px rgba(200,160,30,.4)}
+.section p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;max-width:560px;line-height:1.7;color:var(--cream);opacity:.85}

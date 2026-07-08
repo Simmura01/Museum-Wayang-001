@@ -1,0 +1,73 @@
+/* ============================================================
+   08-PENCAPAIAN.CSS
+   Halaman Pencapaian: kartu achievement/badge (4 pencapaian)
+   + gaya untuk modal detail pencapaian.
+   ============================================================ */
+#pencapaian{padding:0;position:relative;overflow:hidden;}
+#pencapaian.active{display:block;}
+
+.pencapaian-inner{
+    position:absolute;top:168px;bottom:0;left:0;right:0;
+    overflow-y:auto;overflow-x:hidden;
+    z-index:5;
+    padding:20px 60px 40px;
+    display:flex;flex-direction:column;align-items:center;
+    scrollbar-width:thin;scrollbar-color:rgba(200,160,30,.3) transparent;
+}
+.pencapaian-inner::-webkit-scrollbar{width:5px}
+.pencapaian-inner::-webkit-scrollbar-thumb{background:rgba(200,160,30,.3);border-radius:3px}
+
+.pencapaian-desc{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--cream);opacity:.8;line-height:1.65;max-width:560px;text-align:center;margin-bottom:30px;}
+.pencapaian-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;max-width:960px;width:100%;}
+.achievement-card{background:rgba(10,6,2,.6);border:1px solid rgba(200,160,30,.22);border-radius:14px;padding:24px 20px;text-align:center;transition:all .25s ease;position:relative;overflow:hidden;backdrop-filter:blur(8px);cursor:pointer;}
+.achievement-card:hover{transform:translateY(-3px);border-color:rgba(200,160,30,.5);box-shadow:0 14px 34px rgba(0,0,0,.5);}
+.achievement-card:active{transform:translateY(-1px) scale(.98);}
+.ach-hidden-detail{display:none;}
+.ach-tap-hint{font-family:'Cinzel',serif;font-size:.5rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;opacity:.7;margin-top:2px;}
+.achievement-card::before{content:'';position:absolute;top:0;left:20%;right:20%;height:1px;background:var(--gold-grad);opacity:.35;}
+.achievement-card.unlocked{border-color:rgba(200,160,30,.6);box-shadow:0 0 0 1px rgba(200,160,30,.12),0 16px 40px rgba(0,0,0,.5),0 0 30px rgba(200,160,30,.12);}
+.achievement-card.unlocked::before{opacity:.7;}
+.achievement-card.locked{opacity:.5;filter:grayscale(.5);}
+
+.achievement-icon-wrap{
+    width:64px;height:64px;
+    margin:0 auto 14px;
+    position:relative;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;
+    background:rgba(200,160,30,.08);
+    border:1px solid rgba(200,160,30,.2);
+}
+.achievement-card.unlocked .achievement-icon-wrap{
+    background:rgba(200,160,30,.15);
+    border-color:rgba(237,216,74,.5);
+    box-shadow:0 0 18px rgba(237,216,74,.3),0 0 36px rgba(237,216,74,.12);
+}
+.achievement-icon-img{
+    width:44px;height:44px;object-fit:contain;display:block;
+    filter:drop-shadow(0 0 6px rgba(200,160,30,.2));
+    transition:filter .3s;
+}
+.achievement-card.unlocked .achievement-icon-img{
+    filter:drop-shadow(0 0 10px rgba(237,216,74,.6)) brightness(1.15);
+}
+.achievement-icon-svg{width:44px;height:44px;display:none;margin:auto;}
+.achievement-icon-img.hidden{display:none;}
+.achievement-icon-img.hidden + .achievement-icon-svg{display:block;opacity:.6;}
+.achievement-card.unlocked .achievement-icon-img.hidden + .achievement-icon-svg{opacity:1;filter:drop-shadow(0 0 10px rgba(237,216,74,.5));}
+
+.achievement-status{display:inline-block;font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:1.5px;padding:4px 16px;border-radius:14px;margin-bottom:14px;background:rgba(255,255,255,.06);color:var(--muted);}
+.achievement-card.unlocked .achievement-status{background:var(--gold-grad);color:#0d0904;font-weight:700;}
+.achievement-title{font-family:'Cinzel Decorative',serif;color:var(--gold);font-size:1rem;letter-spacing:1.5px;margin-bottom:10px;}
+.achievement-desc{font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--cream);opacity:.85;line-height:1.55;margin-bottom:14px;}
+.achievement-progress{font-family:'Cinzel',serif;font-size:.58rem;color:var(--muted);letter-spacing:1px;}
+.achievement-prog-bar{height:3px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;margin-top:8px;}
+.achievement-prog-fill{height:100%;width:0%;background:var(--gold-grad);border-radius:2px;transition:width .6s ease;}
+.achievement-card.unlocked .achievement-prog-fill{width:100%!important;}
+.pd-icon-wrap.unlocked{
+    background:rgba(200,160,30,.15);
+    border-color:rgba(237,216,74,.5);
+    box-shadow:0 0 18px rgba(237,216,74,.3),0 0 36px rgba(237,216,74,.12);
+}
+.pd-icon-wrap.unlocked .achievement-icon-img{filter:drop-shadow(0 0 10px rgba(237,216,74,.6)) brightness(1.15);}
+.pd-icon-wrap.unlocked .achievement-icon-img.hidden + .achievement-icon-svg{opacity:1;filter:drop-shadow(0 0 10px rgba(237,216,74,.5));}
+#pd-status.unlocked{background:var(--gold-grad);color:#0d0904;font-weight:700;}
