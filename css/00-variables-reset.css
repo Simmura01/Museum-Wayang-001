@@ -4,6 +4,9 @@
    + CSS reset dasar + import font.
    ============================================================ */
 :root {
+
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-top: env(safe-area-inset-top, 0px);
     --bg: #0d0904;
     --bg-mid: #1a1005;
     --gold: #c8a020;
@@ -15,5 +18,23 @@
     --shadow-gold: 0 0 22px rgba(210,160,30,0.45);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;overflow:hidden}
-body{font-family:'Cormorant Garamond',serif;background:#0d0904;color:var(--cream);}
+html{
+    width:100%;height:100%;
+    /* Fallback bertingkat untuk Safari iOS */
+    height: -webkit-fill-available;
+    height: 100dvh;
+    overflow:hidden;
+}
+body{
+    width:100%;height:100%;
+    height:-webkit-fill-available;
+    height:100dvh;
+    overflow:hidden;
+    font-family:'Cormorant Garamond',serif;
+    background:#0d0904;color:var(--cream);
+    /* Cegah overscroll/bounce di iOS agar konten tidak keluar layar */
+    overscroll-behavior:none;
+    -webkit-overflow-scrolling:auto;
+    /* Pastikan touch tap responsif */
+    -webkit-tap-highlight-color:transparent;
+}

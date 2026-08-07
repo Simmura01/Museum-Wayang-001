@@ -2,7 +2,10 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="theme-color" content="#0d0904">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Digitalisasi Museum Wayang</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
@@ -106,6 +109,79 @@
                 <li><span class="hukum-list-text"><strong>Menjaga Persahabatan Budaya &amp; Kerja Sama Regional</strong> — Pasal 35 dan Pasal 43 huruf i &amp; j UU No. 5 Tahun 2017 mengamanatkan diplomasi budaya serta peningkatan kerja sama internasional di bidang kebudayaan.</span><a class="btn-hukum" href="https://peraturan.bpk.go.id/Details/37642/uu-no-5-tahun-2017" target="_blank" rel="noopener" onclick="markHukumClicked('uu5-2017-diplomasi')">LIHAT UU NO. 5/2017 (PASAL 35)</a></li>
             </ul>
             <div class="hukum-tagline">Menjaga Warisan Nusantara<br>Melalui Hukum</div>
+        </div>
+
+        <!-- SECTION ARTIKEL -->
+        <div class="beranda-section-title"><span class="title-ornament">❧&ensp;</span>Artikel Wayang<span class="title-ornament">&ensp;❧</span></div>
+        <div class="artikel-scroll-wrapper">
+            <div class="artikel-row" id="artikel-row">
+
+                <!-- Artikel 1: Sejarah Wayang -->
+                <div class="artikel-card" onclick="bukaArtikel('sejarah')">
+                    <div class="artikel-card-img-wrap">
+                        <div class="artikel-card-badge">📜 Sejarah</div>
+                        <div class="artikel-card-img-placeholder">
+                            <span class="artikel-img-icon">🎭</span>
+                        </div>
+                    </div>
+                    <div class="artikel-card-body">
+                        <h3 class="artikel-card-title">Sejarah &amp; Asal-Usul Wayang Nusantara</h3>
+                        <p class="artikel-card-preview">Wayang merupakan seni pertunjukan yang telah hadir sejak lebih dari seribu tahun lalu di tanah Nusantara, menjadi cerminan jiwa dan filsafat masyarakat...</p>
+                        <div class="artikel-tap-hint">👆 Ketuk untuk detail</div>
+                    </div>
+                </div>
+
+                <!-- Artikel 2: UNESCO -->
+                <div class="artikel-card" onclick="bukaArtikel('unesco')">
+                    <div class="artikel-card-img-wrap">
+                        <div class="artikel-card-badge">🌐 Internasional</div>
+                        <div class="artikel-card-img-placeholder">
+                            <span class="artikel-img-icon">🏛️</span>
+                        </div>
+                    </div>
+                    <div class="artikel-card-body">
+                        <h3 class="artikel-card-title">Wayang &amp; Pengakuan UNESCO 2003</h3>
+                        <p class="artikel-card-preview">Pada 7 November 2003, UNESCO secara resmi menetapkan Wayang sebagai Masterpiece of the Oral and Intangible Heritage of Humanity...</p>
+                        <div class="artikel-tap-hint">👆 Ketuk untuk detail</div>
+                    </div>
+                </div>
+
+                <!-- Artikel 3: Melestarikan Wayang (BARU) -->
+                <div class="artikel-card artikel-card-featured" onclick="bukaArtikel('pelestarian')">
+                    <div class="artikel-card-img-wrap">
+                        <div class="artikel-card-badge">🌿 Pelestarian</div>
+                        <div class="artikel-card-img-placeholder">
+                            <span class="artikel-img-icon">🛡️</span>
+                        </div>
+                    </div>
+                    <div class="artikel-card-body">
+                        <h3 class="artikel-card-title">Melestarikan Wayang: Warisan Budaya untuk Generasi Mendatang</h3>
+                        <p class="artikel-card-preview">Pelestarian wayang bukan sekadar menjaga benda seni — ini adalah ikhtiar menjaga identitas bangsa, nilai luhur, dan kearifan lokal yang tertuang dalam landasan hukum...</p>
+                        <div class="artikel-tap-hint">👆 Ketuk untuk detail</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Akhir Section Artikel -->
+    </div>
+
+    <!-- MODAL DETAIL ARTIKEL -->
+    <div id="modal-artikel" class="modal-zoom" style="z-index:1050;">
+        <div class="modal-card artikel-modal-card">
+            <div class="modal-head">
+                <div>
+                    <div class="modal-nama" id="artikel-modal-judul">Judul Artikel</div>
+                    <div class="modal-sub" id="artikel-modal-kategori">Kategori</div>
+                </div>
+                <button class="modal-close" onclick="tutupArtikel()">✕</button>
+            </div>
+            <div class="artikel-modal-body" id="artikel-modal-body">
+                <!-- Konten artikel akan diisi oleh JavaScript -->
+            </div>
+            <div class="modal-foot">
+                <button class="btn-detail" onclick="tutupArtikel()">TUTUP</button>
+            </div>
         </div>
     </div>
 
@@ -469,5 +545,6 @@
 <script src="js/06-jelajah.js"></script>
 <script src="js/07-pencapaian.js"></script>
 <script src="js/08-init.js"></script>
+<script src="js/09-artikel.js"></script>
 </body>
 </html>

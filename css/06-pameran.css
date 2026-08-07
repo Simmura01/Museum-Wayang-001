@@ -5,20 +5,76 @@
    ============================================================ */
 #pameran{padding:0;position:relative;overflow:hidden;}
 #pameran.active{display:block;}
-.lorong-pameran{position:absolute;top:168px;bottom:90px;left:0;right:0;display:flex;align-items:center;justify-content:center;overflow:hidden;z-index:5}
+
+/* Lorong: area antara header dan nav bawah — semua elemen di dalamnya di-center */
+.lorong-pameran{
+    position:absolute;
+    /* top mengikuti tinggi section-title-header (≈ header + padding) */
+    top:155px;
+    bottom:calc(100px + var(--safe-bottom));
+    left:0;right:0;
+    display:flex;
+    align-items:center;       /* vertikal tengah */
+    justify-content:center;   /* horizontal tengah */
+    overflow:hidden;
+    z-index:5;
+}
 .lorong-pameran::before,.lorong-pameran::after{content:'';position:absolute;top:0;bottom:0;width:9vw;z-index:30;pointer-events:none}
 .lorong-pameran::before{left:0;background:linear-gradient(to right,rgba(10,6,2,.95),transparent)}
 .lorong-pameran::after{right:0;background:linear-gradient(to left,rgba(10,6,2,.95),transparent)}
-.display-lemari{position:absolute;left:50%;width:74vw;max-width:980px;transition:transform .65s cubic-bezier(.4,0,.2,1),opacity .65s cubic-bezier(.4,0,.2,1),filter .65s ease;will-change:transform,opacity;transform-origin:center}
-.display-lemari.pos-active{transform:translateX(-50%) scale(1);z-index:10;opacity:1;filter:none;pointer-events:auto}
-.display-lemari.pos-prev{transform:translateX(calc(-50% - 70vw)) scale(.8);z-index:6;opacity:.52;filter:brightness(.55);pointer-events:auto;cursor:pointer}
-.display-lemari.pos-next{transform:translateX(calc(-50% + 70vw)) scale(.8);z-index:6;opacity:.52;filter:brightness(.55);pointer-events:auto;cursor:pointer}
-.display-lemari.pos-far-left{transform:translateX(calc(-50% - 135vw)) scale(.65);z-index:2;opacity:0;pointer-events:none}
-.display-lemari.pos-far-right{transform:translateX(calc(-50% + 135vw)) scale(.65);z-index:2;opacity:0;pointer-events:none}
-.lemari-wrapper{position:relative;border-radius:10px;overflow:hidden;border:1px solid rgba(245,214,115,0.42);box-shadow:0 0 0 1px rgba(200,160,30,.14),0 28px 70px rgba(0,0,0,.9),inset 0 0 40px rgba(0,0,0,.45)}
+
+/* Lemari: tidak lagi fixed top — ikut center dari lorong-pameran */
+.display-lemari{
+    position:absolute;
+    left:50%;
+    /* top:50% + translateY(-50%) memastikan lemari selalu tengah vertikal */
+    top:50%;
+    width:74vw;
+    max-width:980px;
+    transition:transform .65s cubic-bezier(.4,0,.2,1),opacity .65s cubic-bezier(.4,0,.2,1),filter .65s ease;
+    will-change:transform,opacity;
+    transform-origin:center;
+}
+.display-lemari.pos-active{
+    transform:translate(-50%,-50%) scale(1);
+    z-index:10;opacity:1;filter:none;pointer-events:auto;
+}
+.display-lemari.pos-prev{
+    transform:translate(calc(-50% - 70vw),-50%) scale(.8);
+    z-index:6;opacity:.52;filter:brightness(.55);pointer-events:auto;cursor:pointer;
+}
+.display-lemari.pos-next{
+    transform:translate(calc(-50% + 70vw),-50%) scale(.8);
+    z-index:6;opacity:.52;filter:brightness(.55);pointer-events:auto;cursor:pointer;
+}
+.display-lemari.pos-far-left{
+    transform:translate(calc(-50% - 135vw),-50%) scale(.65);
+    z-index:2;opacity:0;pointer-events:none;
+}
+.display-lemari.pos-far-right{
+    transform:translate(calc(-50% + 135vw),-50%) scale(.65);
+    z-index:2;opacity:0;pointer-events:none;
+}
+
+.lemari-wrapper{
+    position:relative;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid rgba(245,214,115,0.42);
+    box-shadow:0 0 0 1px rgba(200,160,30,.14),0 28px 70px rgba(0,0,0,.9),inset 0 0 40px rgba(0,0,0,.45);
+}
 .lemari-wrapper::before{content:'';position:absolute;top:0;left:6%;right:6%;height:2px;background:linear-gradient(to right,transparent,rgba(255,240,200,.85) 30%,rgba(255,255,255,.95) 50%,rgba(255,240,200,.85) 70%,transparent);z-index:5;filter:blur(.8px)}
 .lemari-wrapper::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1.5px;background:var(--gold-grad);z-index:5;opacity:.55}
-.gambar-lemari{width:100%;display:block;max-height:calc(100vh - 260px);object-fit:cover}
+
+/* Gambar lemari: fleksibel mengisi tinggi area yang tersedia */
+.gambar-lemari{
+    width:100%;
+    display:block;
+    /* Tinggi maksimal = ruang antara header dan nav bawah dikurangi sedikit margin */
+    max-height:calc(100dvh - 280px);
+    height:auto;
+    object-fit:contain;   /* contain agar tidak terpotong */
+}
 .hotspot{position:absolute;z-index:20;cursor:pointer;border-radius:6px}
 .hotspot-glow{position:absolute;inset:-4px;border:2px solid transparent;border-radius:10px;transition:all .25s ease;pointer-events:none}
 .hotspot:hover .hotspot-glow{border-color:rgba(237,216,74,.9);box-shadow:0 0 14px rgba(237,216,74,.65),0 0 28px rgba(237,216,74,.28),inset 0 0 14px rgba(237,216,74,.07);background:rgba(237,216,74,.04)}
@@ -26,7 +82,7 @@
 .hotspot:hover .hotspot-plus{opacity:1;transform:scale(1)}
 .hotspot-label{position:absolute;bottom:-26px;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(13,9,4,.92);border:1px solid rgba(200,160,30,.38);border-radius:4px;padding:2px 8px;font-family:'Cinzel',serif;font-size:.58rem;color:var(--gold);letter-spacing:1.5px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:30}
 .hotspot:hover .hotspot-label{opacity:1}
-.pameran-nav{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;background:rgba(8,5,1,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(200,160,30,.22);border-radius:50px;padding:9px 18px;z-index:50;box-shadow:0 4px 28px rgba(0,0,0,.7),0 0 0 1px rgba(200,160,30,.07)}
+.pameran-nav{position:absolute;bottom:max(20px, calc(18px + var(--safe-bottom)));left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;background:rgba(8,5,1,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(200,160,30,.22);border-radius:50px;padding:9px 18px;z-index:50;box-shadow:0 4px 28px rgba(0,0,0,.7),0 0 0 1px rgba(200,160,30,.07)}
 .nav-arrow{width:36px;height:36px;border:1px solid rgba(200,160,30,.38);background:transparent;color:var(--gold);font-size:20px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;line-height:1}
 .nav-arrow:hover{background:var(--gold);color:#0d0904;box-shadow:var(--shadow-gold);border-color:var(--gold)}
 .nav-arrow:active{transform:scale(.9)}

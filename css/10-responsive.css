@@ -2,92 +2,473 @@
    10-RESPONSIVE.CSS
    Semua media query (tablet & mobile) untuk seluruh halaman.
    HARUS di-load PALING TERAKHIR agar override berhasil.
+   Target utama: Samsung A12 (~412×892px) & iPhone (375–430px)
    ============================================================ */
-@media(max-width:768px){
-    .section-title-header{padding:74px 40px 12px}
-    .lorong-pameran{top:138px;bottom:88px;}
-    .jelajah-inner{top:138px;bottom:150px;padding:10px 10px 20px;}
-    .pencapaian-inner{top:138px;padding:14px 16px 30px;}
-    .floor-nav-panel{left:6px;top:108px;padding:10px 6px;gap:8px}
-    .floor-btn{width:32px;height:32px;font-size:.8rem}
-    .floor-nav-label{display:none}
-    .room-minimap{right:6px;bottom:80px;min-width:140px;padding:9px 10px}
-    #jelajah-minimap{bottom:160px}
-    .minimap-room{font-size:.5rem;padding:8px 4px}
-    #beranda{padding-top:80px}
-    #nav-menu{top:10px;padding:5px 6px}
-    .nav-btn{font-size:.58rem;padding:7px 12px}
-    .welcome-text h1{font-size:1.2rem}
-    .corner-ornament{width:80px;height:80px}
-    .mascot-frame-wrapper{transform:translate(-50%,-58%)}
-    .display-lemari{width:88vw}
-    .display-lemari.pos-prev{transform:translateX(calc(-50% - 85vw)) scale(.78)}
-    .display-lemari.pos-next{transform:translateX(calc(-50% + 85vw)) scale(.78)}
-    .modal-img{max-height:200px}
-    .detail-card{max-width:94vw}
-    .detail-body{flex-direction:column;padding:14px 16px 4px}
-    .detail-img-col{flex:0 0 auto;max-width:100%;margin:0 auto}
-    .detail-img-col .modal-img{max-height:220px}
-    .detail-tab-text{max-height:none}
 
-    /* Pameran: navigasi bawah (panah + titik carousel) */
-    .pameran-nav{
-        bottom:14px;
-        max-width:94vw;
-        padding:7px 10px;
-        gap:6px;
+/* ──────────────────────────────────────────────────────────────
+   PERBAIKAN GLOBAL — safe-area & overflow
+   ────────────────────────────────────────────────────────────── */
+@supports (padding: env(safe-area-inset-bottom)) {
+    :root {
+        --safe-bottom: env(safe-area-inset-bottom, 0px);
+        --safe-top: env(safe-area-inset-top, 0px);
     }
-    .nav-arrow{width:30px;height:30px;font-size:16px}
-    .nav-dots{
-        max-width:52vw;
-        overflow-x:auto;
-        scrollbar-width:none;
-        -webkit-overflow-scrolling:touch;
-    }
-    .nav-dots::-webkit-scrollbar{display:none}
-    .nav-dot{width:26px;height:26px;padding:4px}
-
-    /* Jelajah: bar bawah (scan / progress / panduan)
-       Baris 1: progress scan + progress kuis (sejajar)
-       Baris 2: tombol Scan + tombol Panduan (sejajar) */
-    .jelajah-bottom-bar{
-        height:auto;
-        min-height:110px;
-        padding:10px 14px;
-        flex-wrap:wrap;
-        align-content:center;
-        justify-content:center;
-        align-items:center;
-        gap:8px 16px;
-        row-gap:12px;
-    }
-    .prog-group{min-width:0;flex:1 1 130px;order:1}
-    .jelajah-right-group{display:contents}
-    .jelajah-quiz-group{min-width:0;flex:1 1 130px;order:2;align-items:flex-start;gap:6px}
-    .jelajah-quiz-group #text-quiz{text-align:left}
-    .quiz-bar{width:100%;max-width:none}
-    .btn-scan-all{order:3;flex:0 0 auto}
-    .btn-scan-all .scan-label{font-size:.52rem;}
-    .btn-tutorial-small{order:4;flex:0 0 auto;font-size:.55rem;padding:9px 16px}
-
-    .pencapaian-grid{grid-template-columns:1fr 1fr;}
-    .hukum-card{padding:26px 22px}
-    .hukum-list-text{font-size:.9rem}
 }
 
-/* Ponsel layar sangat kecil */
-@media(max-width:400px){
-    .jelajah-bottom-bar{padding:8px 8px;gap:6px 10px;min-height:96px}
-    .prog-group,.jelajah-quiz-group{flex:1 1 46%}
-    .quiz-bar{max-width:none}
-    .btn-scan-all{padding:8px 18px}
-    .btn-scan-all .scan-label{font-size:.46rem}
-    .btn-tutorial-small{padding:8px 12px;font-size:.5rem}
-    .icon-24{width:18px;height:18px}
-    #jelajah-minimap{bottom:150px;min-width:120px;padding:8px 8px}
-    .jelajah-inner{bottom:158px}
-    .pameran-nav{padding:6px 8px;gap:5px}
-    .nav-arrow{width:28px;height:28px;font-size:14px}
-    .nav-dot{width:24px;height:24px}
-    .prog-text{font-size:.52rem}
+/* ──────────────────────────────────────────────────────────────
+   TABLET (≤ 900px)
+   ────────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    /* Kurangi padding horizontal lorong & jelajah */
+    .jelajah-inner { padding: 10px 40px 20px; }
+    .pencapaian-inner { padding: 20px 40px calc(40px + var(--safe-bottom)); }
+    .room-minimap { min-width: 160px; }
+    .detail-card { max-width: 96vw; }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   MOBILE UMUM (≤ 768px)
+   Mencakup: Samsung A12 (412px), iPhone 14 Pro (393px),
+             iPhone SE (375px), iPhone 12/13 (390px)
+   ────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+    /* ── Welcome screen ── */
+    .corner-ornament { width: 70px; height: 70px; }
+    .border-line-h { left: 70px; right: 70px; }
+    .border-line-v { top: 70px; bottom: 70px; }
+    .welcome-top-title { font-size: .72rem; letter-spacing: 3px; top: 18px; }
+    .mascot-frame-wrapper { transform: translate(-50%, -56%); }
+    .wayang-mascot { width: 190px; height: 270px; }
+    .welcome-text { top: 76%; }
+    .welcome-text h1 { font-size: 1.15rem; }
+    /* Bottom gold bar: pastikan tidak terpotong oleh safe-area */
+    .bottom-gold-bar {
+        bottom: max(16px, calc(12px + var(--safe-bottom)));
+        width: 90%;
+        padding: 9px 14px;
+        gap: 10px;
+    }
+    .bar-icon { height: 18px; }
+    .bar-text { font-size: .62rem; letter-spacing: 1px; }
+
+    /* ── Navigasi atas ── */
+    #nav-menu {
+        top: max(8px, calc(4px + var(--safe-top)));
+        padding: 5px 6px;
+        gap: 2px;
+        max-width: 96vw;
+    }
+    .nav-btn { font-size: .58rem; padding: 7px 10px; letter-spacing: .8px; }
+
+    /* ── Beranda ── */
+    #beranda { padding-top: max(70px, calc(60px + var(--safe-top))); }
+    #beranda .beranda-card {
+        padding: 22px 20px;
+        max-width: 95vw;
+        font-size: .95rem;
+    }
+    .stats-row { gap: 10px; margin: 20px auto 6px; }
+    .stat-card { min-width: 120px; padding: 14px 12px; flex: 1 1 40%; }
+    .stat-icon { width: 34px; height: 34px; }
+    .stat-number { font-size: 1.1rem; }
+    .stat-label { font-size: .52rem; }
+    .scroll-indicator { margin: 14px 0 4px; font-size: .56rem; }
+    .beranda-section-title { font-size: clamp(1rem, 4.5vw, 1.4rem); margin: 14px 0 12px; }
+    .hukum-card { padding: 20px 16px; margin: 0 auto 50px; max-width: 95vw; }
+    .hukum-card h3 { font-size: .92rem; }
+    .hukum-card p { font-size: .9rem; }
+    .hukum-list-text { font-size: .84rem; }
+    .btn-hukum { font-size: .54rem; padding: 6px 12px; }
+    .hukum-tagline { font-size: .88rem; margin-top: 22px; }
+
+    /* ── Header section (Pameran/Jelajah/Pencapaian) ── */
+    .section-title-header {
+        padding: max(70px, calc(60px + var(--safe-top))) 50px 12px;
+    }
+    .section-title-header h2 { letter-spacing: 3px; }
+    .current-view-sub { font-size: .54rem; letter-spacing: 1.8px; }
+
+    /* ── Floor nav panel ── */
+    .floor-nav-panel {
+        left: 6px;
+        top: max(108px, calc(98px + var(--safe-top)));
+        padding: 10px 6px;
+        gap: 8px;
+    }
+    .floor-nav-label { display: none; }
+    .floor-btn { width: 32px; height: 32px; font-size: .8rem; }
+
+    /* ── Room minimap ── */
+    .room-minimap {
+        right: 6px;
+        bottom: calc(100px + var(--safe-bottom));
+        min-width: 138px;
+        padding: 9px 10px;
+    }
+    #jelajah-minimap {
+        bottom: calc(185px + var(--safe-bottom));
+    }
+    .minimap-title { font-size: .55rem; }
+    .minimap-room { font-size: .5rem; padding: 8px 4px; }
+
+    /* ── PAMERAN: lorong carousel ── */
+    .lorong-pameran {
+        top: max(130px, calc(120px + var(--safe-top)));
+        bottom: calc(100px + var(--safe-bottom));
+        left: 0; right: 0;
+    }
+    /* Lebar lemari di tablet/mobile */
+    .display-lemari { width: 86vw; }
+    /* Sesuaikan transform dengan top:50% yang baru — tetap pakai -50%,-50% */
+    .display-lemari.pos-prev {
+        transform: translate(calc(-50% - 85vw), -50%) scale(.78);
+    }
+    .display-lemari.pos-next {
+        transform: translate(calc(-50% + 85vw), -50%) scale(.78);
+    }
+    /* Gambar mengisi tinggi area yang tersedia secara fleksibel */
+    .gambar-lemari {
+        max-height: calc(100dvh - 250px);
+        object-fit: contain;
+    }
+
+    /* Pameran: navigasi bawah (panah + dots carousel) */
+    .pameran-nav {
+        bottom: max(16px, calc(14px + var(--safe-bottom)));
+        margin-bottom: max(0px, env(safe-area-inset-bottom, 0px));
+        max-width: 94vw;
+        padding: 7px 10px;
+        gap: 6px;
+    }
+    .nav-arrow { width: 30px; height: 30px; font-size: 16px; }
+    .nav-dots {
+        max-width: 52vw;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+    .nav-dots::-webkit-scrollbar { display: none; }
+    .nav-dot { width: 26px; height: 26px; padding: 4px; }
+
+    /* ── JELAJAH: area grid ── */
+    .jelajah-inner {
+        top: max(136px, calc(126px + var(--safe-top)));
+        /* Beri ruang lebih agar bottom bar tidak menimpa konten */
+        bottom: calc(160px + var(--safe-bottom));
+        left: 0; right: 0;
+        padding: 10px 10px 10px;
+    }
+    /* Jelajah: bottom bar — 2 baris di mobile */
+    .jelajah-bottom-bar {
+        height: auto;
+        min-height: 120px;
+        /* Gunakan padding-bottom yang menghormati safe-area + ekstra 8px untuk browser UI */
+        padding: 10px 14px max(18px, calc(10px + var(--safe-bottom)));
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        gap: 8px 16px;
+        row-gap: 10px;
+        /* Pastikan tidak terpotong di bawah */
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        /* Ensure height accounts for safe-area */
+        height: calc(160px + var(--safe-bottom));
+        max-height: calc(160px + var(--safe-bottom));
+    }
+    .prog-group { min-width: 0; flex: 1 1 130px; order: 1; }
+    .jelajah-right-group { display: contents; }
+    .jelajah-quiz-group {
+        min-width: 0; flex: 1 1 130px; order: 2;
+        align-items: flex-start; gap: 6px;
+    }
+    .jelajah-quiz-group #text-quiz { text-align: left; }
+    .quiz-bar { width: 100%; max-width: none; }
+    .btn-scan-all { order: 3; flex: 0 0 auto; }
+    .btn-scan-all .scan-label { font-size: .52rem; }
+    .btn-tutorial-small {
+        order: 4; flex: 0 0 auto;
+        font-size: .55rem; padding: 9px 16px;
+    }
+
+    /* ── PENCAPAIAN ── */
+    .pencapaian-inner {
+        top: max(136px, calc(126px + var(--safe-top)));
+        bottom: 0; left: 0; right: 0;
+        padding: 14px 16px calc(30px + var(--safe-bottom));
+    }
+    .pencapaian-grid { grid-template-columns: 1fr 1fr; }
+    .achievement-card { padding: 18px 14px; }
+    .achievement-title { font-size: .88rem; }
+    .achievement-desc { font-size: .82rem; }
+
+    /* ── Modal detail (wayang) ── */
+    .modal-card { max-width: 94vw; max-height: 92vh; }
+    .detail-card { max-width: 94vw; }
+    .detail-body {
+        flex-direction: column;
+        padding: 12px 14px 4px;
+        gap: 12px;
+    }
+    .detail-img-col {
+        flex: 0 0 auto;
+        max-width: 100%;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .detail-img-col .modal-img { max-height: 200px; }
+    .modal-img { max-height: 200px; }
+    .detail-tab-text { max-height: none; }
+    .detail-tabs { gap: 0; }
+    .detail-tab-btn { font-size: .55rem; padding: 7px 8px; }
+
+    /* ── Modal: padding safe-area bawah ── */
+    .modal-foot {
+        padding-bottom: max(14px, calc(10px + var(--safe-bottom)));
+    }
+
+    /* ── Modal zoom (tutorial, scanner, kuis) ── */
+    .modal-zoom { padding: 10px; align-items: flex-end; padding-bottom: max(10px, calc(6px + var(--safe-bottom))); }
+    #modal-tutorial .modal-card,
+    #modal-scanner .modal-card,
+    #modal-kuis .modal-card,
+    #modal-hasil-kuis .modal-card,
+    #modal-pencapaian-detail .modal-card {
+        margin-bottom: max(4px, var(--safe-bottom));
+    }
+
+    /* ── Audio player ── */
+    .audio-player { padding: 10px 12px; gap: 10px; }
+    .btn-play-audio { width: 38px; height: 38px; font-size: 16px; }
+    .lang-btn { font-size: .54rem; padding: 5px 12px; }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   MOBILE KECIL (≤ 430px) — Samsung A12 (412px), iPhone mini
+   ────────────────────────────────────────────────────────────── */
+@media (max-width: 430px) {
+
+    /* Navigasi atas: kecilkan lagi */
+    .nav-btn { font-size: .54rem; padding: 6px 9px; }
+
+    /* Beranda */
+    .stat-card { flex: 1 1 43%; min-width: 100px; padding: 12px 8px; }
+    .hukum-card { padding: 16px 12px; }
+    .hukum-list { gap: 12px; }
+
+    /* Section header — kurangi padding top agar judul tidak ketutupan nav */
+    .section-title-header { padding-top: max(66px, calc(56px + var(--safe-top))); padding-left: 44px; padding-right: 44px; }
+
+    /* Pameran ── ≤ 430px */
+    .lorong-pameran {
+        top: max(120px, calc(110px + var(--safe-top)));
+        bottom: calc(92px + var(--safe-bottom));
+    }
+    .display-lemari { width: 90vw; }
+    .display-lemari.pos-prev {
+        transform: translate(calc(-50% - 88vw), -50%) scale(.75);
+    }
+    .display-lemari.pos-next {
+        transform: translate(calc(-50% + 88vw), -50%) scale(.75);
+    }
+    .gambar-lemari { max-height: calc(100dvh - 240px); }
+    .pameran-nav {
+        padding: 6px 8px;
+        gap: 4px;
+        bottom: max(14px, calc(12px + var(--safe-bottom)));
+    }
+    .nav-arrow { width: 28px; height: 28px; font-size: 14px; }
+    .nav-dot { width: 24px; height: 24px; }
+
+    /* Jelajah */
+    .jelajah-inner {
+        top: max(126px, calc(116px + var(--safe-top)));
+        /* Sesuaikan dengan tinggi bottom-bar yang lebih besar */
+        bottom: calc(150px + var(--safe-bottom));
+        padding: 8px 6px 8px;
+    }
+    .jelajah-bottom-bar {
+        min-height: 110px;
+        /* Tambah padding-bottom untuk safe area + buffer browser UI */
+        padding: 8px 10px max(16px, calc(8px + var(--safe-bottom)));
+        gap: 6px 10px;
+        height: calc(150px + var(--safe-bottom));
+        max-height: calc(150px + var(--safe-bottom));
+    }
+    .prog-group, .jelajah-quiz-group { flex: 1 1 46%; }
+    .quiz-bar { max-width: none; }
+    .btn-scan-all { padding: 8px 18px; }
+    .btn-scan-all .scan-label { font-size: .48rem; }
+    .btn-tutorial-small { padding: 8px 12px; font-size: .5rem; }
+    .icon-24 { width: 20px; height: 20px; }
+    .prog-text { font-size: .52rem; }
+
+    /* Minimap jelajah — naikkan karena bottom bar lebih tinggi */
+    #jelajah-minimap {
+        bottom: calc(168px + var(--safe-bottom));
+        min-width: 128px;
+        padding: 8px 8px;
+    }
+    .minimap-title { font-size: .5rem; }
+    .minimap-room { font-size: .46rem; padding: 7px 3px; }
+
+    /* Pencapaian */
+    .pencapaian-inner { padding: 12px 10px calc(24px + var(--safe-bottom)); }
+    .pencapaian-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .achievement-card { padding: 16px 10px; }
+    .achievement-title { font-size: .82rem; letter-spacing: 1px; }
+    .achievement-icon-wrap { width: 54px; height: 54px; }
+
+    /* Modal */
+    .modal-card { max-height: 94vh; }
+    .detail-body { padding: 10px 10px 4px; }
+    .detail-img-col .modal-img { max-height: 175px; }
+    .btn-detail { padding: 9px 28px; font-size: .68rem; letter-spacing: 2px; }
+
+    /* Audio */
+    .audio-player { padding: 9px 10px; }
+    .btn-play-audio { width: 34px; height: 34px; font-size: 14px; }
+    .audio-title { font-size: .62rem; }
+    .audio-time { font-size: .54rem; }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   MOBILE SANGAT KECIL (≤ 375px) — iPhone SE, lebar sempit
+   ────────────────────────────────────────────────────────────── */
+@media (max-width: 375px) {
+    .nav-btn { font-size: .50rem; padding: 6px 7px; }
+    .section-title-header h2 { font-size: clamp(.9rem, 4vw, 1.1rem); letter-spacing: 2px; }
+    .stat-card { flex: 1 1 42%; min-width: 90px; padding: 10px 6px; }
+    .stat-number { font-size: .95rem; }
+    .hukum-card { padding: 14px 10px; }
+    .hukum-list-text { font-size: .8rem; }
+    .btn-hukum { font-size: .5rem; padding: 5px 10px; }
+    .jelajah-bottom-bar {
+        min-height: 100px;
+        /* Minimal 20px buffer di atas safe-area untuk iPhone SE */
+        padding: 6px 8px max(20px, calc(10px + var(--safe-bottom)));
+        height: calc(150px + var(--safe-bottom));
+        max-height: calc(150px + var(--safe-bottom));
+    }
+    .btn-scan-all { padding: 7px 14px; }
+    .btn-scan-all .scan-label { font-size: .44rem; }
+    .icon-24 { width: 18px; height: 18px; }
+    .pencapaian-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .achievement-title { font-size: .75rem; }
+    .achievement-card { padding: 13px 8px; }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   LANDSCAPE MOBILE (tinggi ≤ 500px)
+   Untuk mode landscape di Samsung A12 / iPhone kecil
+   ────────────────────────────────────────────────────────────── */
+@media (max-height: 500px) and (max-width: 900px) {
+    .mascot-frame-wrapper { transform: translate(-50%, -52%); }
+    .wayang-mascot { width: 130px; height: 180px; }
+    .welcome-text { top: 80%; }
+    .welcome-text h1 { font-size: .95rem; margin-bottom: 6px; }
+    .bottom-gold-bar { padding: 6px 12px; bottom: max(6px, var(--safe-bottom)); }
+    .bar-icon { height: 15px; }
+    .bar-text { font-size: .55rem; }
+
+    #nav-menu { top: max(4px, var(--safe-top)); padding: 4px 5px; }
+    .nav-btn { padding: 5px 9px; font-size: .52rem; }
+
+    .section-title-header { padding-top: max(52px, calc(44px + var(--safe-top))); padding-bottom: 6px; }
+
+    .lorong-pameran {
+        top: max(92px, calc(84px + var(--safe-top)));
+        bottom: calc(80px + var(--safe-bottom));
+    }
+    /* Dalam landscape, lemari lebih kecil agar tidak overflow */
+    .display-lemari { width: 72vw; }
+    .display-lemari.pos-prev {
+        transform: translate(calc(-50% - 76vw), -50%) scale(.78);
+    }
+    .display-lemari.pos-next {
+        transform: translate(calc(-50% + 76vw), -50%) scale(.78);
+    }
+    .gambar-lemari { max-height: calc(100dvh - 180px); }
+    .pameran-nav {
+        bottom: max(8px, calc(6px + var(--safe-bottom)));
+        padding: 5px 8px;
+    }
+    .nav-arrow { width: 26px; height: 26px; font-size: 13px; }
+    .nav-dot { width: 22px; height: 22px; }
+
+    .jelajah-inner {
+        top: max(100px, calc(92px + var(--safe-top)));
+        bottom: calc(105px + var(--safe-bottom));
+        padding: 6px 8px;
+    }
+    .jelajah-bottom-bar {
+        min-height: 82px;
+        padding: 6px 10px max(12px, calc(4px + var(--safe-bottom)));
+        gap: 4px 10px;
+        height: calc(105px + var(--safe-bottom));
+        max-height: calc(105px + var(--safe-bottom));
+    }
+    #jelajah-minimap { bottom: calc(118px + var(--safe-bottom)); }
+
+    .floor-nav-panel { top: max(94px, calc(86px + var(--safe-top))); }
+    .room-minimap { bottom: calc(88px + var(--safe-bottom)); }
+
+    .pencapaian-inner {
+        top: max(100px, calc(92px + var(--safe-top)));
+        padding: 8px 14px calc(14px + var(--safe-bottom));
+    }
+    .pencapaian-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .achievement-card { padding: 12px 8px; }
+    .achievement-title { font-size: .72rem; }
+    .achievement-icon-wrap { width: 46px; height: 46px; margin-bottom: 8px; }
+
+    /* Modal dalam landscape */
+    .modal-zoom { align-items: center; }
+    .modal-card { max-height: 88vh; }
+    .detail-body { flex-direction: row; gap: 10px; }
+    .detail-img-col { flex: 0 0 160px; max-width: 160px; }
+    .detail-img-col .modal-img { max-height: 170px; }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   ARTIKEL CARDS — Responsive
+   ────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .artikel-scroll-wrapper {
+        max-width: 100%;
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%);
+    }
+    .artikel-row {
+        padding: 8px 16px 16px;
+        gap: 12px;
+    }
+    .artikel-card {
+        flex: 0 0 185px;
+        width: 185px;
+    }
+    .artikel-card-img-wrap { height: 90px; }
+    .artikel-img-icon { font-size: 2.4rem; }
+    .artikel-card-title { font-size: .62rem; }
+    .artikel-card-preview { font-size: .74rem; }
+    .artikel-tap-hint { font-size: .5rem; padding: 4px 0; }
+
+    .artikel-modal-card { max-width: 96vw; max-height: 88vh; }
+    .artikel-modal-body { padding: 16px 18px 8px; }
+    .art-intro { font-size: .95rem; }
+    .art-paragraph { font-size: .9rem; }
+    .art-section-heading { font-size: .76rem; }
+    .art-hukum-item p { font-size: .86rem; }
+    .art-penutup { font-size: .76rem; }
+}
+
+@media (max-width: 400px) {
+    .artikel-card {
+        flex: 0 0 170px;
+        width: 170px;
+    }
+    .artikel-card-body { padding: 10px 10px 10px; }
+    .artikel-card-title { font-size: .6rem; }
 }

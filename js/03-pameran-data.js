@@ -129,155 +129,131 @@ const museumData = {
         ruang2:{ label:"Ruang 2", fullLabel:"Ruang 2 — Kisah Ramayana",
             displays: [
         { 
-            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 1.jpeg", 
+            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 1.jpg", 
             hotspots: [
                 {
                     x: 25, y: 15, w: 22, h: 70, 
                     nama: "Adegan 1 A", label: "Adegan 1 A", 
-                    img: "assets/images/pameran/lantai1/ruang2/detail/display1-detail1.jpeg",
+                    img: "assets/images/pameran/lantai1/ruang2/display/Adegan 1.jpg",
                     desc: "Rama, Sinta, dan Laksmana menjalani masa pengasingan di Hutan Dandaka selama 14 tahun. Kehidupan damai mereka terusik ketika Sinta melihat seekor kijang emas yang indah.",
                     psikologi: "Rama (Penyayang & Pelindung), Sinta (Tergoda keindahan duniawi), Laksmana (Waspada & Setia).",
                     hubungan: "Rama dan Sinta adalah sepasang suami istri. Laksmana adalah adik kandung Rama yang sangat setia menemani mereka di pengasingan.",
-                    audio: ""
+                    audio:"assets/audio/adegan 1 ind.m4a",audioEn:"assets/audio/en/adegan 1 en.m4a"
                 },
-                {
-                    x: 54, y: 15, w: 22, h: 70, 
-                    nama: "Adegan 1 B", label: "Adegan 1 B", 
-                    img: "assets/images/pameran/lantai1/ruang2/detail/display1-detail2.jpeg",
-                    desc: "Kijang emas tersebut ternyata adalah Kalamarica, anak buah Rahwana yang menyamar. Saat Rama pergi memburu kijang atas permintaan Sinta, Rahwana mengambil kesempatan ini untuk menculik Sinta.",
-                    psikologi: "Rahwana (Licik & Penuh Obsesi), Kalamarica (Patuh pada perintah jahat).",
-                    hubungan: "Kalamarica adalah bawahan Rahwana yang membantu melancarkan siasat licik penculikan Dewi Sinta.",
-                    audio: ""
-                }
+                
             ]
         },
         { 
-            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 2.jpeg", 
+            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 2.jpg", 
             hotspots: [
                 {
                     x: 36, y: 14, w: 28, h: 72, 
                     nama: "Adegan 2", label: "Adegan 2", 
-                    img: "assets/images/pameran/lantai1/ruang2/detail/display2-detail1.jpeg",
+                    img: "assets/images/pameran/lantai1/ruang2/display/Adegan 2.jpg",
                     desc: "Sugriwa dan Subali berebut tahta Kiskenda. Atas bantuan Rama, Sugriwa akhirnya berhasil merebut kembali Kiskenda dari keserakahan kakaknya, Subali.",
                     psikologi: "Sugriwa (Baik budi & Benar), Subali (Jahat, Serakah, & Haus kekuasaan).",
                     hubungan: "Sugriwa dan Subali adalah kakak beradik putra Resi Gotama. Sugriwa merupakan sekutu dan sahabat karib Sri Rama.",
-                    audio: ""
+                    audio:"assets/audio/adegan 2 ind.m4a",audioEn:"assets/audio/en/adegan 2 en.m4a"
                 }
             ]
         },
         { 
-            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 3.jpeg", 
+            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 3.jpg", 
             hotspots: [
                 {
                     x: 25, y: 15, w: 22, h: 70, 
                     nama: "Adegan 3 A", label: "Adegan 3 A", 
-                    img: "assets/images/pameran/lantai1/ruang2/detail/display3-detail1.jpeg",
+                    img: "assets/images/pameran/lantai1/ruang2/display/Adegan 3.jpg",
                     desc: "Pasukan Kera bersiap untuk turun ke medan pertempuran. Mereka adalah garda terdepan yang membantu perjuangan Sri Rama.",
                     psikologi: "Pemberani, Setia, dan Penuh semangat juang.",
                     hubungan: "Pasukan Kera adalah bala tentara yang setia mengabdi kepada Sugriwa dan beraliansi dengan Sri Rama.",
-                    audio: ""
+                    audio:"assets/audio/adegan 3 ind.m4a",audioEn:"assets/audio/en/adegan 3 en.m4a"
                 },
-                {
-                    x: 54, y: 15, w: 22, h: 70, 
-                    nama: "Adegan 3 B", label: "Adegan 3 B", 
-                    img: "assets/images/pameran/lantai1/ruang2/detail/display3-detail2.jpeg",
-                    desc: "Pasukan Kera memainkan peran yang sangat penting dalam upaya penyerangan ke Kerajaan Alengka demi merebut kembali Dewi Sinta dari tangan Rahwana.",
-                    psikologi: "Solid, Rela berkorban, dan Taat pada komando.",
-                    hubungan: "Mereka merupakan musuh bebuyutan dari pasukan raksasa Alengka milik Rahwana.",
-                    audio: ""
-                }
+                
             ]
         },
         { 
-            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 4.jpeg", 
+            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 4.jpg", 
             hotspots: [
                 {
                     x: 25, y: 15, w: 22, h: 70, 
                     nama: "Adegan 4 A", label: "Adegan 4 A", 
-                    img: "assets/images/pameran/lantai1/ruang2/detail/display4-detail1.jpeg",
+                    img: "assets/images/pameran/lantai1/ruang2/display/Adegan 4.jpg",
                     desc: "Adegan Anoman Obong. Anoman berhasil menyusup ke Taman Argasoka di Alengka untuk menyampaikan pesan dari Rama kepada Dewi Sinta bahwa ia akan segera diselamatkan.",
                     psikologi: "Anoman (Cerdas, Lincah, & Utusan yang setia), Sinta (Penuh harap & Teguh pendirian).",
                     hubungan: "Anoman adalah duta/utusan kepercayaan Sri Rama untuk menemui Dewi Sinta yang sedang ditawan.",
-                    audio: ""
+                    audio:"assets/audio/adegan 4 ind.m4a",audioEn:"assets/audio/en/adegan 4 en.m4a"
                 },
-                {
-                    x: 54, y: 15, w: 22, h: 70, 
-                    nama: "Adegan 4 B", label: "Adegan 4 B", 
-                    img: "assets/images/pameran/lantai1/ruang2/detail/display4-detail2.jpeg",
-                    desc: "Setelah tertangkap, Anoman dihukum bakar oleh Rahwana. Namun, Anoman justru menggunakan api di tubuhnya untuk melompat ke sana kemari, menyebabkan kebakaran hebat yang menghancurkan benteng pertahanan Alengka.",
-                    psikologi: "Rahwana (Angkuh & Meremehkan lawan), Anoman (Cerdik & Berani).",
-                    hubungan: "Anoman memberikan pukulan telak pertama kepada kerajaan Rahwana sebelum perang besar dimulai.",
-                    audio: ""
-                }
+                
             ]
         },
         { 
-            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 5.jpeg", 
+            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 5.jpg", 
             hotspots: [
                 {
                     x: 36, y: 14, w: 28, h: 72, 
                     nama: "Adegan 5", label: "Adegan 5", 
-                    img: "assets/images/pameran/lantai1/ruang2/detail/display5-detail1.jpeg",
+                    img: "assets/images/pameran/lantai1/ruang2/display/Adegan 5.jpg",
                     desc: "Rahwana mengadakan rapat strategi bersama adik-adiknya (Kumbakarna, Wibisana, Sarpakenaka). Terjadi perdebatan sengit karena Wibisana dan Kumbakarna menyarankan agar Sinta dikembalikan, namun Rahwana bersikukuh untuk berperang.",
                     psikologi: "Rahwana (Keras kepala, Egois, Jahat), Kumbakarna (Membela negara, bukan membenarkan kakaknya), Wibisana (Bijaksana, Berpihak pada kebenaran).",
                     hubungan: "Rahwana, Kumbakarna, Wibisana, dan Sarpakenaka adalah saudara kandung penguasa Alengka. Perbedaan prinsip membuat Wibisana nantinya menyeberang membela Rama.",
-                    audio: ""
+                    audio:"assets/audio/adegan 5 ind.m4a",audioEn:"assets/audio/en/adegan 5 en.m4a"
                 }
             ]
         },
         { 
-            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 6.jpeg", 
+            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 6.jpg", 
             hotspots: [
                 {
                     x: 36, y: 14, w: 28, h: 72, 
                     nama: "Adegan 6", label: "Adegan 6", 
-                    img: "assets/images/pameran/lantai1/ruang2/detail/display6-detail1.jpeg",
+                    img: "assets/images/pameran/lantai1/ruang2/display/Adegan 6.jpg",
                     desc: "Adegan Rama Tambak. Rama dan pasukan kera membangun bendungan/jembatan (tambak) membelah lautan menuju Alengka. Pembuatan tambak ini adalah usulan strategi dari Wibisana.",
                     psikologi: "Rama (Pemimpin yang gigih), Wibisana (Ahli strategi yang cerdas).",
                     hubungan: "Wibisana (adik Rahwana) kini telah menjadi sekutu sekaligus penasihat utama Sri Rama dalam menembus pertahanan Alengka.",
-                    audio: ""
+                    audio:"assets/audio/adegan 6 ind.m4a",audioEn:"assets/audio/en/adegan 6 en.m4a"
                 }
             ]
         },
         { 
-            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 7.jpeg", 
+            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 7.jpg", 
             hotspots: [
                 {
                     x: 36, y: 14, w: 28, h: 72, 
                     nama: "Adegan 7", label: "Adegan 7", 
-                    img: "assets/images/pameran/lantai1/ruang2/detail/display7-detail1.jpeg",
+                    img: "assets/images/pameran/lantai1/ruang2/display/Adegan 7.jpg",
                     desc: "Perang Sapi Kudhup Palwogo. Terjadi perang besar antara pasukan kera (prajurit Rama) melawan tentara raksasa (prajurit Rahwana). Pertempuran berlangsung sangat lama, beradu strategi, dan memakan banyak korban dari kedua belah pihak.",
                     psikologi: "Kegigihan, Keberanian luar biasa, dan Kekacauan perang.",
                     hubungan: "Pasukan Kera (membela kebenaran/Rama) bertarung mati-matian melawan Pasukan Raksasa (membela kebatilan/Rahwana).",
-                    audio: ""
+                    audio:"assets/audio/adegan 7 ind.m4a",audioEn:"assets/audio/en/adegan 7 en.m4a"
                 }
             ]
         },
         { 
-            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 8.jpeg", 
+            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 8.jpg", 
             hotspots: [
                 {
                     x: 36, y: 14, w: 28, h: 72, 
                     nama: "Adegan 8", label: "Adegan 8", 
-                    img: "assets/images/pameran/lantai1/ruang2/detail/display8-detail1.jpeg",
+                    img: "assets/images/pameran/lantai1/ruang2/display/Adegan 8.jpg",
                     desc: "Akhir dari perang epik, Rama berhasil memenangkan pertempuran. Rahwana gugur di medan perang, menandakan hancurnya sifat angkara murka dan kembalinya kedamaian dunia.",
                     psikologi: "Rama (Tegas, Pembela Kebenaran), Rahwana (Akhir dari Kesombongan dan Angkara Murka).",
                     hubungan: "Pertarungan puncak antara Ksatria (Kebenaran) melawan Raja Raksasa (Kejahatan). Kemenangan mutlak bagi Sri Rama.",
-                    audio: ""
+                    audio:"assets/audio/adegan 8 ind.m4a",audioEn:"assets/audio/en/adegan 8 en.m4a"
                 }
             ]
         },
         { 
-            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 9.jpeg", 
+            img: "assets/images/pameran/lantai1/ruang2/display/Adegan 9.jpg", 
             hotspots: [
                 {
                     x: 36, y: 14, w: 28, h: 72, 
                     nama: "Adegan 9", label: "Adegan 9", 
-                    img: "assets/images/pameran/lantai1/ruang2/detail/display9-detail1.jpeg",
+                    img: "assets/images/pameran/lantai1/ruang2/display/Adegan 9.jpg",
                     desc: "Pertemuan kembali Ramawijaya dan Dewi Sinta. Setelah membuktikan kesuciannya melalui upacara suci, Sinta dan Rama kembali ke Ayodya. Rama dinobatkan sebagai Raja Ayodya yang disambut suka cita oleh rakyatnya.",
                     psikologi: "Rama (Pemimpin yang adil & bijaksana), Sinta (Suci, Setia, & Penuh cinta).",
                     hubungan: "Cinta sejati antara Rama dan Sinta yang akhirnya bersatu kembali sebagai Raja dan Ratu Ayodya, membawa harapan baru bagaikan matahari terbit.",
-                    audio: ""
+                    audio:"assets/audio/adegan 9 ind.m4a",audioEn:"assets/audio/en/adegan 9 en.m4a"
                 }
             ]
         }
