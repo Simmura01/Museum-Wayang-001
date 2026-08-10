@@ -114,22 +114,23 @@
 
     /* ── PAMERAN: lorong carousel ── */
     .lorong-pameran {
-        top: max(130px, calc(120px + var(--safe-top)));
-        bottom: calc(100px + var(--safe-bottom));
+        /* Turunkan start point agar lemari tidak ketutup header judul + lantai nav */
+        top: max(185px, calc(175px + var(--safe-top)));
+        bottom: calc(110px + var(--safe-bottom));
         left: 0; right: 0;
     }
     /* Lebar lemari di tablet/mobile */
     .display-lemari { width: 86vw; }
-    /* Sesuaikan transform dengan top:50% yang baru — tetap pakai -50%,-50% */
+    /* Perlebar offset prev/next secara ekstrem agar tidak kepentok tepi layar */
     .display-lemari.pos-prev {
-        transform: translate(calc(-50% - 85vw), -50%) scale(.78);
+        transform: translate(calc(-50% - 110vw), -50%) scale(.78);
     }
     .display-lemari.pos-next {
-        transform: translate(calc(-50% + 85vw), -50%) scale(.78);
+        transform: translate(calc(-50% + 110vw), -50%) scale(.78);
     }
     /* Gambar mengisi tinggi area yang tersedia secara fleksibel */
     .gambar-lemari {
-        max-height: calc(100dvh - 250px);
+        max-height: calc(100dvh - 320px);
         object-fit: contain;
     }
 
@@ -153,11 +154,15 @@
 
     /* ── JELAJAH: area grid ── */
     .jelajah-inner {
-        top: max(136px, calc(126px + var(--safe-top)));
-        /* Beri ruang lebih agar bottom bar tidak menimpa konten */
+        /* Turunkan top lebih agar tidak ketutup header + navbar lantai */
+        top: max(180px, calc(170px + var(--safe-top)));
         bottom: calc(160px + var(--safe-bottom));
         left: 0; right: 0;
-        padding: 10px 10px 10px;
+        padding: 8px 0 8px;
+    }
+    /* Padding grid di mobile: cukup besar agar display ujung tidak kepentok */
+    .jelajah-grid {
+        padding: 8px clamp(16px, 5vw, 40px) 16px;
     }
     /* Jelajah: bottom bar — 2 baris di mobile */
     .jelajah-bottom-bar {
@@ -263,17 +268,19 @@
 
     /* Pameran ── ≤ 430px */
     .lorong-pameran {
-        top: max(120px, calc(110px + var(--safe-top)));
-        bottom: calc(92px + var(--safe-bottom));
+        /* Lebih ruang agar lemari tidak ketutup navbar lantai */
+        top: max(178px, calc(168px + var(--safe-top)));
+        bottom: calc(100px + var(--safe-bottom));
     }
-    .display-lemari { width: 90vw; }
+    .display-lemari { width: 88vw; }
+    /* Offset sangat lebar agar lemari sebelah tidak muncul di tepi */
     .display-lemari.pos-prev {
-        transform: translate(calc(-50% - 88vw), -50%) scale(.75);
+        transform: translate(calc(-50% - 114vw), -50%) scale(.75);
     }
     .display-lemari.pos-next {
-        transform: translate(calc(-50% + 88vw), -50%) scale(.75);
+        transform: translate(calc(-50% + 114vw), -50%) scale(.75);
     }
-    .gambar-lemari { max-height: calc(100dvh - 240px); }
+    .gambar-lemari { max-height: calc(100dvh - 300px); }
     .pameran-nav {
         padding: 6px 8px;
         gap: 4px;
@@ -282,12 +289,17 @@
     .nav-arrow { width: 28px; height: 28px; font-size: 14px; }
     .nav-dot { width: 24px; height: 24px; }
 
-    /* Jelajah */
+    /* Jelajah ── ≤ 430px */
     .jelajah-inner {
-        top: max(126px, calc(116px + var(--safe-top)));
-        /* Sesuaikan dengan tinggi bottom-bar yang lebih besar */
+        /* Turunkan lebih jauh agar tidak ketutup navbar lantai di layar kecil */
+        top: max(170px, calc(160px + var(--safe-top)));
         bottom: calc(150px + var(--safe-bottom));
-        padding: 8px 6px 8px;
+        padding: 6px 0 6px;
+    }
+    /* Padding grid cukup lebar agar display ujung tidak kepentok tepi layar */
+    .jelajah-grid {
+        padding: 6px clamp(14px, 4vw, 28px) 14px;
+        gap: 10px;
     }
     .jelajah-bottom-bar {
         min-height: 110px;
@@ -379,18 +391,18 @@
     .section-title-header { padding-top: max(52px, calc(44px + var(--safe-top))); padding-bottom: 6px; }
 
     .lorong-pameran {
-        top: max(92px, calc(84px + var(--safe-top)));
-        bottom: calc(80px + var(--safe-bottom));
+        top: max(98px, calc(90px + var(--safe-top)));
+        bottom: calc(82px + var(--safe-bottom));
     }
     /* Dalam landscape, lemari lebih kecil agar tidak overflow */
     .display-lemari { width: 72vw; }
     .display-lemari.pos-prev {
-        transform: translate(calc(-50% - 76vw), -50%) scale(.78);
+        transform: translate(calc(-50% - 80vw), -50%) scale(.78);
     }
     .display-lemari.pos-next {
-        transform: translate(calc(-50% + 76vw), -50%) scale(.78);
+        transform: translate(calc(-50% + 80vw), -50%) scale(.78);
     }
-    .gambar-lemari { max-height: calc(100dvh - 180px); }
+    .gambar-lemari { max-height: calc(100dvh - 190px); }
     .pameran-nav {
         bottom: max(8px, calc(6px + var(--safe-bottom)));
         padding: 5px 8px;
@@ -399,9 +411,13 @@
     .nav-dot { width: 22px; height: 22px; }
 
     .jelajah-inner {
-        top: max(100px, calc(92px + var(--safe-top)));
+        top: max(120px, calc(112px + var(--safe-top)));
         bottom: calc(105px + var(--safe-bottom));
-        padding: 6px 8px;
+        padding: 6px 0;
+    }
+    .jelajah-grid {
+        padding: 6px clamp(12px, 4vw, 32px) 10px;
+        gap: 8px;
     }
     .jelajah-bottom-bar {
         min-height: 82px;

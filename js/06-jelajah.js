@@ -174,9 +174,25 @@ function bukaDetailScan(nodeId,showKuisBtn){
     imgSec.classList.remove('zoomed');
     if(hs&&hs.img){img.src=hs.img;img.style.display='block';}
     else{img.style.display='none';}
-    document.getElementById('scan-tab-penjelasan').textContent=(hs&&hs.desc)||data.nama+' — informasi lengkap sedang disusun oleh tim kurator.';
-    document.getElementById('scan-tab-psikologi').textContent=(hs&&hs.psikologi)||'Analisis psikologi tokoh ini akan segera dilengkapi.';
-    document.getElementById('scan-tab-hubungan').textContent=(hs&&hs.hubungan)||'Informasi hubungan tokoh ini akan segera dilengkapi.';
+
+    /* Simpan semua teks (ID & EN) ke helper terpusat untuk modal scan */
+    const hsOrEmpty = hs || {};
+    setDetailTexts({
+        desc:        hsOrEmpty.desc        || data.nama + ' — informasi lengkap sedang disusun oleh tim kurator.',
+        descEn:      hsOrEmpty.descEn      || hsOrEmpty.desc || data.nama + ' — full information is being prepared by the curatorial team.',
+        psikologi:   hsOrEmpty.psikologi   || hsOrEmpty.karakter   || 'Analisis psikologi tokoh ini akan segera dilengkapi.',
+        psikologiEn: hsOrEmpty.psikologiEn || hsOrEmpty.karakterEn || 'Character analysis will be completed soon.',
+        hubungan:    hsOrEmpty.hubungan    || 'Informasi hubungan tokoh ini akan segera dilengkapi.',
+        hubunganEn:  hsOrEmpty.hubunganEn  || hsOrEmpty.hubungan  || 'Relationship information will be completed soon.'
+    }, {
+        penjelasan: 'scan-tab-penjelasan',
+        psikologi:  'scan-tab-psikologi',
+        hubungan:   'scan-tab-hubungan'
+    });
+
+    /* Tampilkan teks Bahasa Indonesia sebagai default */
+    applyDetailTextsForLang('id');
+
     switchDetailTab('penjelasan','scan-detail-tabs','#modal-detail-scan .detail-tab-panel');
     currentAudioMeta={id:(hs&&hs.audio)||'',en:(hs&&hs.audioEn)||''};
     document.querySelectorAll('#scan-audio-lang-toggle .lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang==='id'));

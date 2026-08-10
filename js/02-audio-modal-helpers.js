@@ -12,6 +12,52 @@ let currentAudio=null, audioProgressTimer=null;
 let currentAudioMeta={id:'',en:''};
 let currentAudioLang='id';
 
+/* ─── TEKS KONTEN DETAIL (ID & EN) ─── */
+/* Menyimpan semua versi teks agar bisa swap saat ganti bahasa */
+let currentDetailTexts={
+    desc:{id:'',en:''},
+    psikologi:{id:'',en:''},
+    hubungan:{id:'',en:''}
+};
+
+/* ID elemen teks untuk modal aktif saat ini */
+let activeTextIds={
+    penjelasan: 'tab-penjelasan',
+    psikologi:  'tab-psikologi',
+    hubungan:   'tab-hubungan'
+};
+
+/* Panggil ini saat membuka modal detail (Pameran atau Jelajah) */
+function setDetailTexts(hs, panelIds){
+    /* panelIds opsional; default ke pameran */
+    activeTextIds = panelIds || {
+        penjelasan: 'tab-penjelasan',
+        psikologi:  'tab-psikologi',
+        hubungan:   'tab-hubungan'
+    };
+
+    /* Simpan teks ID */
+    currentDetailTexts.desc.id       = hs.desc      || '';
+    currentDetailTexts.psikologi.id  = hs.psikologi || hs.karakter || '';
+    currentDetailTexts.hubungan.id   = hs.hubungan  || '';
+
+    /* Simpan teks EN */
+    currentDetailTexts.desc.en       = hs.descEn      || hs.desc      || '';
+    currentDetailTexts.psikologi.en  = hs.psikologiEn || hs.karakterEn || hs.psikologi || hs.karakter || '';
+    currentDetailTexts.hubungan.en   = hs.hubunganEn  || hs.hubungan   || '';
+}
+
+/* Terapkan teks sesuai bahasa aktif ke panel-panel modal */
+function applyDetailTextsForLang(lang){
+    const l = (lang === 'en') ? 'en' : 'id';
+    const elPenj = document.getElementById(activeTextIds.penjelasan);
+    const elPsik = document.getElementById(activeTextIds.psikologi);
+    const elHub  = document.getElementById(activeTextIds.hubungan);
+    if(elPenj) elPenj.textContent = currentDetailTexts.desc[l]      || (l==='en' ? 'Description not available in English yet.' : 'Keterangan akan muncul di sini.');
+    if(elPsik) elPsik.textContent = currentDetailTexts.psikologi[l] || (l==='en' ? 'Character information not available in English yet.' : 'Analisis psikologi tokoh ini akan segera dilengkapi.');
+    if(elHub)  elHub.textContent  = currentDetailTexts.hubungan[l]  || (l==='en' ? 'Relationship information not available in English yet.' : 'Informasi hubungan tokoh ini akan segera dilengkapi.');
+}
+
 function stopAudio(){
     if(currentAudio){currentAudio.pause();currentAudio.currentTime=0;currentAudio=null;}
     if(audioProgressTimer){clearInterval(audioProgressTimer);audioProgressTimer=null;}
@@ -45,6 +91,8 @@ function loadAudioForLang(lang,playerUIId,toggleId){
         playerUI.innerHTML=`<div class="audio-no-file">🎵 Narasi audio (${labelBahasa}) belum tersedia untuk koleksi ini.</div>`;
         currentAudio=null;
     }
+    /* Setelah ganti audio, perbarui juga teks konten sesuai bahasa */
+    applyDetailTextsForLang(lang);
 }
 
 function toggleAudio(){

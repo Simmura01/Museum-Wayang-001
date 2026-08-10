@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Jelajah — Museum Wayang Jakarta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        :root {
+            --gold: #c8a01e;
+            --gold-pale: #e8c96a;
+            --dark: #0d0904;
+            --cream: #f5e6c8;
+            --brown: #2a1a0a;
+            --muted: #8a7060;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--dark);
+            color: var(--cream);
+            font-family: 'Cinzel', serif;
+            min-height: 100vh;
+        }
+        .page-header {
+            background: linear-gradient(135deg, #1a0e04 0%, #2a1a08 50%, #1a0e04 100%);
+            border-bottom: 2px solid var(--gold);
+            padding: 32px 40px 24px;
+            text-align: center;
+            position: relative;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(200,160,30,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .page-header h1 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+            margin-bottom: 6px;
+        }
+        .page-header .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--muted);
+            letter-spacing: 2px;
+            font-style: italic;
+        }
+        .ornament-line {
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 14px auto 0;
+        }
+        .controls-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 20px 40px;
+            background: #150c04;
+            border-bottom: 1px solid rgba(200,160,30,0.2);
+            flex-wrap: wrap;
+        }
+        .btn-pdf {
+            font-family: 'Cinzel', serif;
+            font-size: .78rem;
+            letter-spacing: 2px;
+            padding: 11px 30px;
+            border: 1.5px solid var(--gold);
+            border-radius: 4px;
+            background: linear-gradient(135deg, #2a1a08, #3a2510);
+            color: var(--gold);
+            cursor: pointer;
+            transition: all .25s;
+        }
+        .btn-pdf:hover {
+            background: linear-gradient(135deg, var(--gold), #e8c040);
+            color: var(--dark);
+            box-shadow: 0 0 20px rgba(200,160,30,0.5);
+        }
+        .info-badge {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: .9rem;
+            color: var(--muted);
+            letter-spacing: 1px;
+        }
+        .content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+        .floor-section { margin-bottom: 56px; }
+        .floor-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.15rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-align: center;
+            padding: 14px 24px;
+            border: 1.5px solid rgba(200,160,30,0.4);
+            border-radius: 6px;
+            background: rgba(200,160,30,0.06);
+            margin-bottom: 28px;
+        }
+        .room-section { margin-bottom: 40px; }
+        .room-title {
+            font-size: .75rem;
+            letter-spacing: 3px;
+            color: var(--gold-pale);
+            text-transform: uppercase;
+            padding: 8px 16px;
+            border-left: 3px solid var(--gold);
+            margin-bottom: 20px;
+            background: rgba(200,160,30,0.04);
+        }
+        .qr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+        }
+        .qr-card {
+            background: linear-gradient(160deg, #1e1208 0%, #160d05 100%);
+            border: 1.5px solid rgba(200,160,30,0.35);
+            border-radius: 10px;
+            padding: 20px 16px 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow .25s, border-color .25s;
+        }
+        .qr-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .qr-card:hover {
+            border-color: rgba(200,160,30,0.7);
+            box-shadow: 0 0 24px rgba(200,160,30,0.18);
+        }
+        .qr-wrap {
+            background: #fff;
+            padding: 10px;
+            border-radius: 6px;
+            line-height: 0;
+            box-shadow: 0 0 12px rgba(200,160,30,0.25);
+        }
+        .qr-wrap canvas, .qr-wrap img { display: block; }
+        .display-badge {
+            position: absolute;
+            top: 8px; right: 8px;
+            font-size: .52rem;
+            letter-spacing: 1.5px;
+            color: var(--dark);
+            background: var(--gold);
+            padding: 2px 7px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+        .card-name {
+            font-family: 'Cinzel', serif;
+            font-size: .72rem;
+            color: var(--cream);
+            letter-spacing: 1.5px;
+            text-align: center;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+        .card-display-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: .9rem;
+            color: var(--gold);
+            text-align: center;
+            letter-spacing: 1px;
+            font-weight: 600;
+            font-style: italic;
+        }
+        .card-node-id {
+            font-size: .55rem;
+            color: var(--muted);
+            letter-spacing: 1.5px;
+            text-align: center;
+            font-family: monospace;
+        }
+        .card-qr-text {
+            font-size: .52rem;
+            color: rgba(200,160,30,0.6);
+            letter-spacing: 1px;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            padding: 4px 8px;
+            border: 1px solid rgba(200,160,30,0.2);
+            border-radius: 4px;
+            background: rgba(200,160,30,0.04);
+            word-break: break-all;
+        }
+        .divider {
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(200,160,30,0.3), transparent);
+        }
+        .page-footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--muted);
+            font-size: .65rem;
+            letter-spacing: 2px;
+            border-top: 1px solid rgba(200,160,30,0.15);
+        }
+        @media print {
+            body { background: #fff !important; color: #000 !important; }
+            .controls-bar { display: none !important; }
+            .qr-card { border: 1.5px solid #999 !important; break-inside: avoid; background: #fff !important; }
+            .qr-card::before { display: none; }
+            .display-badge { background: #888 !important; color: #fff !important; }
+            .card-name { color: #000 !important; }
+            .card-display-label { color: #444 !important; }
+            .card-node-id, .card-qr-text { color: #666 !important; }
+            .floor-title { border-color: #888 !important; color: #000 !important; background: #f5f5f5 !important; }
+            .room-title { color: #000 !important; border-color: #888 !important; background: #f9f9f9 !important; }
+            .page-header { background: #fff !important; border-bottom: 2px solid #888 !important; }
+            .page-header h1 { color: #000 !important; }
+            .ornament-line { background: #888 !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-header">
+    <h1>&#10022; QR Code Jelajah Interaktif &#10022;</h1>
+    <div class="subtitle">Museum Wayang Jakarta &mdash; Panduan Pindai Koleksi</div>
+    <div class="ornament-line"></div>
+</div>
+
+<div class="controls-bar">
+    <button class="btn-pdf" id="btn-download" onclick="exportPDF()">&#11015; Unduh PDF</button>
+    <span class="info-badge">Total: 18 QR Code &nbsp;|&nbsp; 2 Lantai &nbsp;|&nbsp; 3 Ruangan</span>
+    <button class="btn-pdf" onclick="window.print()">&#128438; Cetak Langsung</button>
+</div>
+
+<div class="content" id="pdf-content">
+
+    <!-- LANTAI 1 -->
+    <div class="floor-section">
+        <div class="floor-title">&#10022; &ensp; LANTAI 1 &ensp; &#10022;</div>
+
+        <div class="room-section">
+            <div class="room-title">Ruang 1 &mdash; Galeri Utama Wayang Golek</div>
+            <div class="qr-grid" id="grid-ruang1"></div>
+        </div>
+
+        <div class="room-section">
+            <div class="room-title">Ruang 2 &mdash; Kisah Ramayana</div>
+            <div class="qr-grid" id="grid-ruang2"></div>
+        </div>
+    </div>
+
+    <!-- LANTAI 2 -->
+    <div class="floor-section">
+        <div class="floor-title">&#10022; &ensp; LANTAI 2 &ensp; &#10022;</div>
+
+        <div class="room-section">
+            <div class="room-title">Ruang A &mdash; Galeri Wayang Modern</div>
+            <div class="qr-grid" id="grid-ruangA"></div>
+        </div>
+    </div>
+
+</div>
+
+<div class="page-footer">
+    &#10022; MUSEUM WAYANG JAKARTA &nbsp;|&nbsp; DIGITALISASI INTERAKTIF &nbsp;|&nbsp; SCAN QR CODE UNTUK JELAJAH &#10022;
+</div>
+
+<script>
+    const nodes = {
+        "grid-ruang1": [
+            { id: "r1_arjuna",    nama: "Arjuna",     display: "Display 1" },
+            { id: "r1_srirama",   nama: "Sri Rama",   display: "Display 2" },
+            { id: "r1_gatotkaca", nama: "Gatotkaca",  display: "Display 3" },
+            { id: "r1_twalen",    nama: "Twalen",     display: "Display 4" }
+        ],
+        "grid-ruang2": [
+            { id: "r2_adegan1", nama: "Rama, Sinta & Kijang",          display: "Display 1" },
+            { id: "r2_adegan2", nama: "Sugriwa & Subali",               display: "Display 2" },
+            { id: "r2_adegan3", nama: "Pasukan Kera",                   display: "Display 3" },
+            { id: "r2_adegan4", nama: "Anoman Obong",                   display: "Display 4" },
+            { id: "r2_adegan5", nama: "Kerajaan Alengka",               display: "Display 5" },
+            { id: "r2_adegan6", nama: "Rama Tambak",                    display: "Display 6" },
+            { id: "r2_adegan7", nama: "Perang Sari Kudhup Palwogo",     display: "Display 7" },
+            { id: "r2_adegan8", nama: "Kematian Rahwana",               display: "Display 8" },
+            { id: "r2_adegan9", nama: "Pertemuan Rama & Sinta",         display: "Display 9" }
+        ],
+        "grid-ruangA": [
+            { id: "l2a_kancil",   nama: "Wayang Kancil",        display: "Display 1" },
+            { id: "l2a_sasak",    nama: "Wayang Kulit Sasak",    display: "Display 2" },
+            { id: "l2a_cirebon",  nama: "Wayang Kulit Cirebon",  display: "Display 3" },
+            { id: "l2a_revolusi", nama: "Wayang Revolusi",       display: "Display 4" },
+            { id: "l2a_suluh",    nama: "Wayang Suluh",          display: "Display 5" }
+        ]
+    };
+
+    function renderGrid(gridId, list) {
+        const container = document.getElementById(gridId);
+        if (!container) return;
+        list.forEach(function(item) {
+            const qrText = "WAYANG:" + item.id;
+            const card = document.createElement('div');
+            card.className = 'qr-card';
+
+            const badge = document.createElement('div');
+            badge.className = 'display-badge';
+            badge.textContent = item.display;
+            card.appendChild(badge);
+
+            const qrWrap = document.createElement('div');
+            qrWrap.className = 'qr-wrap';
+            card.appendChild(qrWrap);
+
+            new QRCode(qrWrap, {
+                text: qrText,
+                width: 160,
+                height: 160,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            const div1 = document.createElement('div');
+            div1.className = 'divider';
+            card.appendChild(div1);
+
+            const nameEl = document.createElement('div');
+            nameEl.className = 'card-name';
+            nameEl.textContent = item.nama;
+            card.appendChild(nameEl);
+
+            const displayEl = document.createElement('div');
+            displayEl.className = 'card-display-label';
+            displayEl.textContent = item.display;
+            card.appendChild(displayEl);
+
+            const nodeIdEl = document.createElement('div');
+            nodeIdEl.className = 'card-node-id';
+            nodeIdEl.textContent = item.id;
+            card.appendChild(nodeIdEl);
+
+            const qrTextEl = document.createElement('div');
+            qrTextEl.className = 'card-qr-text';
+            qrTextEl.textContent = qrText;
+            card.appendChild(qrTextEl);
+
+            container.appendChild(card);
+        });
+    }
+
+    Object.keys(nodes).forEach(function(gridId) {
+        renderGrid(gridId, nodes[gridId]);
+    });
+
+    function exportPDF() {
+        const element = document.getElementById('pdf-content');
+        const btn = document.getElementById('btn-download');
+        const origText = btn.textContent;
+        btn.textContent = 'Menyiapkan PDF...';
+        btn.disabled = true;
+
+        var opt = {
+            margin:      [10, 8, 10, 8],
+            filename:    'QR-Code-Jelajah-Museum-Wayang.pdf',
+            image:       { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true, backgroundColor: '#0d0904' },
+            jsPDF:       { unit: 'mm', format: 'a4', orientation: 'portrait' },
+            pagebreak:   { mode: ['avoid-all', 'css', 'legacy'] }
+        };
+
+        html2pdf().set(opt).from(element).save().then(function() {
+            btn.textContent = origText;
+            btn.disabled = false;
+        });
+    }
+</script>
+</body>
+</html>

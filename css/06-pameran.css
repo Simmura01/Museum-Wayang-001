@@ -9,9 +9,9 @@
 /* Lorong: area antara header dan nav bawah — semua elemen di dalamnya di-center */
 .lorong-pameran{
     position:absolute;
-    /* top mengikuti tinggi section-title-header (≈ header + padding) */
-    top:155px;
-    bottom:calc(100px + var(--safe-bottom));
+    /* top lebih besar agar beri ruang section-title-header + current-view-sub + floor-nav-panel */
+    top:200px;
+    bottom:calc(110px + var(--safe-bottom));
     left:0;right:0;
     display:flex;
     align-items:center;       /* vertikal tengah */
@@ -19,9 +19,10 @@
     overflow:hidden;
     z-index:5;
 }
-.lorong-pameran::before,.lorong-pameran::after{content:'';position:absolute;top:0;bottom:0;width:9vw;z-index:30;pointer-events:none}
-.lorong-pameran::before{left:0;background:linear-gradient(to right,rgba(10,6,2,.95),transparent)}
-.lorong-pameran::after{right:0;background:linear-gradient(to left,rgba(10,6,2,.95),transparent)}
+/* Gradient tepi: kecilkan lebar agar konten pojok tetap terlihat */
+.lorong-pameran::before,.lorong-pameran::after{content:'';position:absolute;top:0;bottom:0;width:4vw;z-index:30;pointer-events:none}
+.lorong-pameran::before{left:0;background:linear-gradient(to right,rgba(10,6,2,.9),transparent)}
+.lorong-pameran::after{right:0;background:linear-gradient(to left,rgba(10,6,2,.9),transparent)}
 
 /* Lemari: tidak lagi fixed top — ikut center dari lorong-pameran */
 .display-lemari{
@@ -40,19 +41,20 @@
     z-index:10;opacity:1;filter:none;pointer-events:auto;
 }
 .display-lemari.pos-prev{
-    transform:translate(calc(-50% - 70vw),-50%) scale(.8);
+    /* perlebar offset agar tidak kepentok tepi layar di mobile */
+    transform:translate(calc(-50% - 100vw),-50%) scale(.8);
     z-index:6;opacity:.52;filter:brightness(.55);pointer-events:auto;cursor:pointer;
 }
 .display-lemari.pos-next{
-    transform:translate(calc(-50% + 70vw),-50%) scale(.8);
+    transform:translate(calc(-50% + 100vw),-50%) scale(.8);
     z-index:6;opacity:.52;filter:brightness(.55);pointer-events:auto;cursor:pointer;
 }
 .display-lemari.pos-far-left{
-    transform:translate(calc(-50% - 135vw),-50%) scale(.65);
+    transform:translate(calc(-50% - 180vw),-50%) scale(.65);
     z-index:2;opacity:0;pointer-events:none;
 }
 .display-lemari.pos-far-right{
-    transform:translate(calc(-50% + 135vw),-50%) scale(.65);
+    transform:translate(calc(-50% + 180vw),-50%) scale(.65);
     z-index:2;opacity:0;pointer-events:none;
 }
 

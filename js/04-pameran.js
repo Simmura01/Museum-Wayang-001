@@ -144,13 +144,24 @@ function bukaDetail(hs){
     const imgSection=document.getElementById('modal-img-section');
     imgSection.classList.remove('zoomed');
     if(hs.img){img.src=hs.img;img.style.display='block';}else{img.style.display='none';}
-    document.getElementById('tab-penjelasan').textContent=hs.desc||'Keterangan akan muncul di sini.';
-    document.getElementById('tab-psikologi').textContent=hs.psikologi||'Analisis psikologi tokoh ini akan segera dilengkapi.';
-    document.getElementById('tab-hubungan').textContent=hs.hubungan||'Informasi hubungan tokoh ini akan segera dilengkapi.';
+
+    /* Simpan semua teks (ID & EN) ke helper terpusat */
+    setDetailTexts(hs, {
+        penjelasan: 'tab-penjelasan',
+        psikologi:  'tab-psikologi',
+        hubungan:   'tab-hubungan'
+    });
+
+    /* Tampilkan teks Bahasa Indonesia sebagai default */
+    applyDetailTextsForLang('id');
+
     switchDetailTab('penjelasan','detail-tabs','#detail-zoom .detail-tab-panel');
+
+    /* Reset toggle bahasa ke Indonesia */
     currentAudioMeta={id:hs.audio||'',en:hs.audioEn||''};
     document.querySelectorAll('#audio-lang-toggle .lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang==='id'));
     loadAudioForLang('id','audio-player-ui','audio-lang-toggle');
+
     const m=document.getElementById('detail-zoom');
     m.style.display='flex';requestAnimationFrame(()=>m.classList.add('show'));
 }

@@ -10,7 +10,7 @@ const artikelData = {
         judul: 'Sejarah & Asal-Usul Wayang Nusantara',
         kategori: '📜 Artikel Sejarah · Museum Wayang Jakarta',
         konten: `
-            <span class="art-hero-emoji">🎭</span>
+            <img src="assets/images/artikel/sejarah.jpg" alt="Ilustrasi Sejarah Wayang" class="artikel-card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <p class="art-intro">
                 Wayang merupakan salah satu warisan budaya tertua dan paling kaya makna yang lahir di bumi Nusantara.
                 Seni pertunjukan boneka bayangan ini telah hadir setidaknya sejak abad ke-9 Masehi, jauh sebelum kerajaan-kerajaan
@@ -66,7 +66,7 @@ const artikelData = {
             </p>
 
             <div class="art-penutup">
-                🎭 Wayang adalah jiwa Nusantara —<br>
+                 Wayang adalah jiwa Nusantara —<br>
                 cermin manusia, alam, dan semesta<br>
                 yang terus hidup dalam setiap generasi.
             </div>
@@ -77,7 +77,7 @@ const artikelData = {
         judul: 'Wayang & Pengakuan UNESCO 2003',
         kategori: '🌐 Artikel Internasional · Museum Wayang Jakarta',
         konten: `
-            <span class="art-hero-emoji">🏛️</span>
+            <img src="assets/images/artikel/images.jfif" alt="Ilustrasi UNESCO Wayang" class="artikel-card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <p class="art-intro">
                 Pada 7 November 2003, di Paris, Prancis, UNESCO secara resmi menetapkan Wayang Indonesia sebagai
                 <em>Masterpiece of the Oral and Intangible Heritage of Humanity</em> — sebuah pengakuan tertinggi
@@ -143,7 +143,7 @@ const artikelData = {
         judul: 'Melestarikan Wayang: Warisan Budaya untuk Generasi Mendatang',
         kategori: '🌿 Artikel Pelestarian · Museum Wayang Jakarta',
         konten: `
-            <span class="art-hero-emoji">🛡️</span>
+            <img src="assets/images/artikel/ngajar.jpeg" alt="Ilustrasi Pelestarian Wayang" class="artikel-card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <p class="art-intro">
                 Melestarikan wayang bukan sekadar mempertahankan sebuah seni pertunjukan — ini adalah ikhtiar
                 mulia menjaga identitas bangsa, merawat nilai-nilai luhur filosofis, dan memastikan generasi
@@ -275,4 +275,186 @@ document.addEventListener('DOMContentLoaded', function () {
             if (e.target === modal) tutupArtikel();
         });
     }
+
+    const modalUU = document.getElementById('modal-uu');
+    if (modalUU) {
+        modalUU.addEventListener('click', function (e) {
+            if (e.target === modalUU) tutupModalUU();
+        });
+    }
 });
+
+/* ============================================================
+   DATA PERATURAN — konten dirangkum dari peraturan.bpk.go.id
+   ============================================================ */
+const uuData = {
+
+    'uu11-2010': {
+        judul: 'UU Nomor 11 Tahun 2010',
+        jenis: 'Undang-Undang Republik Indonesia',
+        tentang: 'Cagar Budaya',
+        berlaku: 'Mulai berlaku: 24 November 2010',
+        sumber: 'https://peraturan.bpk.go.id/Details/38552/uu-no-11-tahun-2010',
+        unduh: 'https://peraturan.bpk.go.id/Download/27798/UU%20Nomor%2011%20Tahun%202010.pdf',
+        abstrak: `Undang-Undang ini lahir dari kesadaran bahwa cagar budaya merupakan kekayaan budaya bangsa sebagai wujud pemikiran dan perilaku kehidupan manusia yang penting artinya bagi pemahaman dan pengembangan sejarah, ilmu pengetahuan, dan kebudayaan. Negara bertanggung jawab penuh dalam pengaturan pelindungan, pengembangan, dan pemanfaatan cagar budaya demi kemakmuran rakyat.
+
+UU ini menggantikan UU No. 5 Tahun 1992 tentang Benda Cagar Budaya yang sudah tidak sesuai dengan perkembangan dan kebutuhan hukum masyarakat. Wayang kulit kuno yang berusia di atas 50 tahun secara otomatis dilindungi sebagai benda cagar budaya berdasarkan UU ini.`,
+        materi: [
+            'Ketentuan Umum & Definisi Cagar Budaya',
+            'Asas, Tujuan, dan Lingkup Perlindungan',
+            'Kriteria Penetapan Cagar Budaya',
+            'Pemilikan, Penguasaan & Pengalihan',
+            'Penemuan dan Pencarian Cagar Budaya',
+            'Register Nasional Cagar Budaya',
+            'Pelestarian: Pelindungan, Pengembangan, Pemanfaatan',
+            'Tugas dan Wewenang Pemerintah',
+            'Pendanaan & Kompensasi',
+            'Pengawasan, Penyidikan & Ketentuan Pidana',
+        ]
+    },
+
+    'perpres78-2007': {
+        judul: 'Perpres Nomor 78 Tahun 2007',
+        jenis: 'Peraturan Presiden Republik Indonesia',
+        tentang: 'Pengesahan Convention for The Safeguarding of The Intangible Cultural Heritage (Konvensi untuk Perlindungan Warisan Budaya Takbenda)',
+        berlaku: 'Mulai berlaku: 5 Juli 2007',
+        sumber: 'https://peraturan.bpk.go.id/Details/42178/perpres-no-78-tahun-2007',
+        unduh: 'https://peraturan.bpk.go.id/Download/70823/PERPRES%20NO%2078%20TH%202007.pdf',
+        abstrak: `Peraturan Presiden ini merupakan instrumen hukum yang mengesahkan Konvensi UNESCO 2003 tentang Perlindungan Warisan Budaya Takbenda di Indonesia. Dengan Perpres ini, Indonesia secara hukum internasional terikat untuk melindungi, mendokumentasikan, dan melestarikan seluruh warisan budaya takbenda — termasuk wayang sebagai Masterpiece UNESCO.
+
+Ratifikasi ini mewajibkan Indonesia untuk: membuat inventaris nasional warisan budaya takbenda, mengimplementasikan program perlindungan konkret, dan melaporkan perkembangan kepada UNESCO secara berkala. Indonesia menjadi salah satu negara pertama di Asia Tenggara yang berkomitmen penuh pada konvensi ini.`,
+        materi: [
+            'Pengesahan Konvensi UNESCO 2003 secara resmi',
+            'Kewajiban inventarisasi warisan budaya takbenda nasional',
+            'Program perlindungan dan pelestarian aktif',
+            'Pelaporan berkala kepada UNESCO',
+            'Kerja sama internasional bidang budaya takbenda',
+        ]
+    },
+
+    'pp1-2022': {
+        judul: 'PP Nomor 1 Tahun 2022',
+        jenis: 'Peraturan Pemerintah Republik Indonesia',
+        tentang: 'Register Nasional dan Pelestarian Cagar Budaya',
+        berlaku: 'Mulai berlaku: 3 Januari 2022',
+        sumber: 'https://peraturan.bpk.go.id/Details/195523/pp-no-1-tahun-2022',
+        unduh: 'https://peraturan.bpk.go.id/Download/189346/PP%20Nomor%201%20Tahun%202022.pdf',
+        abstrak: `Peraturan Pemerintah ini merupakan aturan pelaksana dari UU No. 11 Tahun 2010, yang mengatur secara teknis mekanisme pendaftaran, penetapan, pengelolaan, dan pemeliharaan cagar budaya nasional — termasuk wayang-wayang bersejarah yang disimpan di museum.
+
+PP ini juga memberikan perlindungan terhadap Objek yang Diduga Cagar Budaya (ODCB) dengan memberlakukan status yang sama sebagai Cagar Budaya. Pendanaan pelestarian menjadi tanggung jawab bersama antara Pemerintah Pusat, Pemerintah Daerah, dan masyarakat.`,
+        materi: [
+            'Register Nasional Cagar Budaya (APBN & APBD)',
+            'Pelestarian: Pelindungan, Pengembangan, Pemanfaatan',
+            'Pengelolaan Kawasan Cagar Budaya',
+            'Insentif dan Kompensasi bagi pemilik/pengelola',
+            'Pengawasan dan Penegakan Hukum',
+            'Pendanaan bersama Pusat-Daerah-Masyarakat',
+        ]
+    },
+
+    'uu5-2017': {
+        judul: 'UU Nomor 5 Tahun 2017',
+        jenis: 'Undang-Undang Republik Indonesia',
+        tentang: 'Pemajuan Kebudayaan',
+        berlaku: 'Mulai berlaku: 29 Mei 2017',
+        sumber: 'https://peraturan.bpk.go.id/Details/37642/uu-no-5-tahun-2017',
+        unduh: 'https://peraturan.bpk.go.id/Download/26736/UU%20No%205%20Tahun%202017.pdf',
+        abstrak: `Undang-Undang ini hadir dari amanat bahwa Negara memajukan Kebudayaan Nasional Indonesia di tengah peradaban dunia dan menjadikan Kebudayaan sebagai investasi untuk membangun masa depan dan peradaban bangsa. UU ini secara eksplisit menyebut wayang sebagai salah satu objek pemajuan kebudayaan yang wajib dilindungi dan dikembangkan.
+
+Pasal 4 menegaskan bahwa pemajuan kebudayaan bertujuan untuk memperkuat identitas bangsa di tengah peradaban dunia. Pasal 35 mengamanatkan diplomasi budaya internasional, sementara Pasal 43 huruf i & j mendorong kerja sama internasional di bidang kebudayaan.`,
+        materi: [
+            'Pelindungan Objek Pemajuan Kebudayaan',
+            'Pengembangan & Pembinaan Kebudayaan Nasional',
+            'Pemajuan Kebudayaan: tujuan memperkuat identitas bangsa',
+            'Diplomasi Budaya & Kerja Sama Internasional (Pasal 35)',
+            'Sistem Informasi Kebudayaan Nasional',
+            'Pendanaan & Peran Pemerintah Daerah',
+        ]
+    },
+
+    'uu5-2017-diplomasi': {
+        judul: 'UU No. 5 Tahun 2017 — Pasal 35 & 43',
+        jenis: 'Undang-Undang Republik Indonesia',
+        tentang: 'Pemajuan Kebudayaan: Diplomasi Budaya & Kerja Sama Regional',
+        berlaku: 'Mulai berlaku: 29 Mei 2017',
+        sumber: 'https://peraturan.bpk.go.id/Details/37642/uu-no-5-tahun-2017',
+        unduh: 'https://peraturan.bpk.go.id/Download/26736/UU%20No%205%20Tahun%202017.pdf',
+        abstrak: `Pasal 35 UU No. 5 Tahun 2017 mengamanatkan bahwa pemerintah wajib melakukan diplomasi budaya untuk memperkuat posisi Indonesia di forum internasional, menjaga citra bangsa, dan mencegah klaim sepihak oleh pihak asing atas warisan budaya Indonesia.
+
+Pasal 43 huruf i & j secara khusus menyebutkan kewajiban peningkatan kerja sama internasional di bidang kebudayaan, termasuk pertukaran budaya, kolaborasi artistik lintas batas, dan partisipasi aktif dalam forum budaya dunia. Bagi wayang, pasal-pasal ini menjadi landasan hukum untuk membawa pertunjukan wayang ke panggung internasional sebagai bagian dari soft power Indonesia.`,
+        materi: [
+            'Pasal 35: Diplomasi Budaya sebagai kewajiban negara',
+            'Pasal 43 (i): Kerja sama internasional bidang kebudayaan',
+            'Pasal 43 (j): Pertukaran budaya lintas bangsa',
+            'Promosi warisan budaya Indonesia di forum dunia',
+            'Pencegahan klaim sepihak warisan budaya',
+        ]
+    }
+};
+
+/* ── URL Download disimpan agar bisa diakses oleh unduhUU() ── */
+let _currentUUDownloadUrl = '';
+
+/**
+ * Membuka modal detail peraturan
+ * @param {string} id - ID peraturan
+ */
+function bukaModalUU(id) {
+    const data = uuData[id];
+    if (!data) return;
+
+    _currentUUDownloadUrl = data.unduh;
+
+    // Isi header
+    document.getElementById('uu-modal-judul').textContent = data.judul;
+    document.getElementById('uu-modal-jenis').textContent = data.jenis;
+
+    // Bangun konten body
+    const materiHTML = data.materi.map(m => `<li>${m}</li>`).join('');
+    document.getElementById('uu-modal-body').innerHTML = `
+        <div class="uu-jenis-badge">${data.jenis}</div>
+        <div class="uu-nomor">${data.judul}</div>
+        <div class="uu-tentang">${data.tentang}</div>
+        <div class="uu-divider"></div>
+
+        <div class="uu-section-label">📋 Abstrak Peraturan</div>
+        <div class="uu-abstrak">${data.abstrak.replace(/\n\n/g, '</div><div class="uu-abstrak" style="margin-top:10px;">')}</div>
+
+        <div class="uu-section-label">📑 Materi Pokok Peraturan</div>
+        <ul class="uu-materi-list">${materiHTML}</ul>
+
+        <div class="uu-berlaku">⚖️ ${data.berlaku}</div>
+    `;
+
+    // Isi bagian sumber
+    document.getElementById('uu-modal-source').innerHTML = `
+        <span class="uu-source-label">Sumber Resmi:</span>
+        <a class="uu-source-link" href="${data.sumber}" target="_blank" rel="noopener">${data.sumber}</a>
+    `;
+
+    // Reset scroll ke atas
+    document.getElementById('uu-modal-body').scrollTop = 0;
+
+    const modal = document.getElementById('modal-uu');
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+/**
+ * Menutup modal detail peraturan
+ */
+function tutupModalUU() {
+    const modal = document.getElementById('modal-uu');
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+/**
+ * Membuka halaman unduh PDF peraturan
+ */
+function unduhUU() {
+    if (_currentUUDownloadUrl) {
+        window.open(_currentUUDownloadUrl, '_blank', 'noopener');
+    }
+}
+

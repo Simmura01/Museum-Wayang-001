@@ -40,9 +40,7 @@
         <div class="mascot-frame">
             <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
             <div class="frame-corner bl"></div><div class="frame-corner br"></div>
-            <video id="mascot" class="wayang-mascot" autoplay loop muted playsinline>
-                <source src="assets/video/welcome2.mp4" type="video/mp4">
-            </video>
+            <img id="mascot" class="wayang-mascot" src="assets/video/logo.PNG" alt="Logo Museum">
         </div>
     </div>
     <div class="welcome-text" id="welcome-text">
@@ -102,11 +100,11 @@
             <div class="hukum-divider"></div>
             <h4 class="hukum-subheading">Dasar Hukum Perlindungan</h4>
             <ul class="hukum-list">
-                <li><span class="hukum-list-text">Undang-Undang Republik Indonesia Nomor 11 Tahun 2010 tentang Cagar Budaya — mengatur kriteria, pemilikan, register nasional, dan ketentuan pidana terkait cagar budaya.</span><a class="btn-hukum" href="https://peraturan.bpk.go.id/Details/38552/uu-no-11-tahun-2010" target="_blank" rel="noopener" onclick="markHukumClicked('uu11-2010')">LIHAT UU NO. 11/2010</a></li>
-                <li><span class="hukum-list-text">Peraturan Presiden Nomor 78 Tahun 2007 tentang Pengesahan Konvensi UNESCO 2003 mengenai Perlindungan Warisan Budaya Takbenda.</span><a class="btn-hukum" href="https://peraturan.bpk.go.id/Details/42178/perpres-no-78-tahun-2007" target="_blank" rel="noopener" onclick="markHukumClicked('perpres78-2007')">LIHAT PERPRES NO. 78/2007</a></li>
-                <li><span class="hukum-list-text">Peraturan Pemerintah (PP) Nomor 1 Tahun 2022 tentang Register Nasional dan Pelestarian Cagar Budaya — aturan pelaksana UU No. 11/2010.</span><a class="btn-hukum" href="https://peraturan.bpk.go.id/Details/195523/pp-no-1-tahun-2022" target="_blank" rel="noopener" onclick="markHukumClicked('pp1-2022')">LIHAT PP NO. 1/2022</a></li>
-                <li><span class="hukum-list-text">Undang-Undang Nomor 5 Tahun 2017 tentang Pemajuan Kebudayaan — landasan pelindungan, pengembangan, pemanfaatan, dan pembinaan objek pemajuan kebudayaan nasional.</span><a class="btn-hukum" href="https://peraturan.bpk.go.id/Details/37642/uu-no-5-tahun-2017" target="_blank" rel="noopener" onclick="markHukumClicked('uu5-2017')">LIHAT UU NO. 5/2017</a></li>
-                <li><span class="hukum-list-text"><strong>Menjaga Persahabatan Budaya &amp; Kerja Sama Regional</strong> — Pasal 35 dan Pasal 43 huruf i &amp; j UU No. 5 Tahun 2017 mengamanatkan diplomasi budaya serta peningkatan kerja sama internasional di bidang kebudayaan.</span><a class="btn-hukum" href="https://peraturan.bpk.go.id/Details/37642/uu-no-5-tahun-2017" target="_blank" rel="noopener" onclick="markHukumClicked('uu5-2017-diplomasi')">LIHAT UU NO. 5/2017 (PASAL 35)</a></li>
+                <li><span class="hukum-list-text">Undang-Undang Republik Indonesia Nomor 11 Tahun 2010 tentang Cagar Budaya — mengatur kriteria, pemilikan, register nasional, dan ketentuan pidana terkait cagar budaya.</span><button class="btn-hukum" onclick="bukaModalUU('uu11-2010'); markHukumClicked('uu11-2010')">LIHAT UU NO. 11/2010</button></li>
+                <li><span class="hukum-list-text">Peraturan Presiden Nomor 78 Tahun 2007 tentang Pengesahan Konvensi UNESCO 2003 mengenai Perlindungan Warisan Budaya Takbenda.</span><button class="btn-hukum" onclick="bukaModalUU('perpres78-2007'); markHukumClicked('perpres78-2007')">LIHAT PERPRES NO. 78/2007</button></li>
+                <li><span class="hukum-list-text">Peraturan Pemerintah (PP) Nomor 1 Tahun 2022 tentang Register Nasional dan Pelestarian Cagar Budaya — aturan pelaksana UU No. 11/2010.</span><button class="btn-hukum" onclick="bukaModalUU('pp1-2022'); markHukumClicked('pp1-2022')">LIHAT PP NO. 1/2022</button></li>
+                <li><span class="hukum-list-text">Undang-Undang Nomor 5 Tahun 2017 tentang Pemajuan Kebudayaan — landasan pelindungan, pengembangan, pemanfaatan, dan pembinaan objek pemajuan kebudayaan nasional.</span><button class="btn-hukum" onclick="bukaModalUU('uu5-2017'); markHukumClicked('uu5-2017')">LIHAT UU NO. 5/2017</button></li>
+                <li><span class="hukum-list-text"><strong>Menjaga Persahabatan Budaya &amp; Kerja Sama Regional</strong> — Pasal 35 dan Pasal 43 huruf i &amp; j UU No. 5 Tahun 2017 mengamanatkan diplomasi budaya serta peningkatan kerja sama internasional di bidang kebudayaan.</span><button class="btn-hukum" onclick="bukaModalUU('uu5-2017-diplomasi'); markHukumClicked('uu5-2017-diplomasi')">LIHAT UU NO. 5/2017 (PASAL 35)</button></li>
             </ul>
             <div class="hukum-tagline">Menjaga Warisan Nusantara<br>Melalui Hukum</div>
         </div>
@@ -119,45 +117,51 @@
                 <!-- Artikel 1: Sejarah Wayang -->
                 <div class="artikel-card" onclick="bukaArtikel('sejarah')">
                     <div class="artikel-card-img-wrap">
-                        <div class="artikel-card-badge">📜 Sejarah</div>
+                        <div class="artikel-card-badge">Sejarah</div>
                         <div class="artikel-card-img-placeholder">
-                            <span class="artikel-img-icon">🎭</span>
+                            <!-- Slot gambar ilustrasi portrait: ganti src dengan path gambar ilustrasi Anda -->
+                            <img src="assets/images/artikel/sejarah.jpg" alt="Ilustrasi Sejarah Wayang" class="artikel-card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            
                         </div>
                     </div>
                     <div class="artikel-card-body">
                         <h3 class="artikel-card-title">Sejarah &amp; Asal-Usul Wayang Nusantara</h3>
                         <p class="artikel-card-preview">Wayang merupakan seni pertunjukan yang telah hadir sejak lebih dari seribu tahun lalu di tanah Nusantara, menjadi cerminan jiwa dan filsafat masyarakat...</p>
-                        <div class="artikel-tap-hint">👆 Ketuk untuk detail</div>
+                        <div class="artikel-tap-hint"> Ketuk untuk detail</div>
                     </div>
                 </div>
 
                 <!-- Artikel 2: UNESCO -->
                 <div class="artikel-card" onclick="bukaArtikel('unesco')">
                     <div class="artikel-card-img-wrap">
-                        <div class="artikel-card-badge">🌐 Internasional</div>
+                        <div class="artikel-card-badge">Internasional</div>
                         <div class="artikel-card-img-placeholder">
-                            <span class="artikel-img-icon">🏛️</span>
+                            <!-- Slot gambar ilustrasi portrait: ganti src dengan path gambar ilustrasi Anda -->
+                            <img src="assets/images/artikel/images.jfif" alt="Ilustrasi UNESCO Wayang" class="artikel-card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            
                         </div>
                     </div>
                     <div class="artikel-card-body">
                         <h3 class="artikel-card-title">Wayang &amp; Pengakuan UNESCO 2003</h3>
                         <p class="artikel-card-preview">Pada 7 November 2003, UNESCO secara resmi menetapkan Wayang sebagai Masterpiece of the Oral and Intangible Heritage of Humanity...</p>
-                        <div class="artikel-tap-hint">👆 Ketuk untuk detail</div>
+                        <div class="artikel-tap-hint">Ketuk untuk detail</div>
                     </div>
                 </div>
 
                 <!-- Artikel 3: Melestarikan Wayang (BARU) -->
                 <div class="artikel-card artikel-card-featured" onclick="bukaArtikel('pelestarian')">
                     <div class="artikel-card-img-wrap">
-                        <div class="artikel-card-badge">🌿 Pelestarian</div>
+                        <div class="artikel-card-badge">Pelestarian</div>
                         <div class="artikel-card-img-placeholder">
-                            <span class="artikel-img-icon">🛡️</span>
+                            <!-- Slot gambar ilustrasi portrait: ganti src dengan path gambar ilustrasi Anda -->
+                            <img src="assets/images/artikel/ngajar.jpeg" alt="Ilustrasi Pelestarian Wayang" class="artikel-card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            
                         </div>
                     </div>
                     <div class="artikel-card-body">
                         <h3 class="artikel-card-title">Melestarikan Wayang: Warisan Budaya untuk Generasi Mendatang</h3>
                         <p class="artikel-card-preview">Pelestarian wayang bukan sekadar menjaga benda seni — ini adalah ikhtiar menjaga identitas bangsa, nilai luhur, dan kearifan lokal yang tertuang dalam landasan hukum...</p>
-                        <div class="artikel-tap-hint">👆 Ketuk untuk detail</div>
+                        <div class="artikel-tap-hint">Ketuk untuk detail</div>
                     </div>
                 </div>
 
@@ -181,6 +185,29 @@
             </div>
             <div class="modal-foot">
                 <button class="btn-detail" onclick="tutupArtikel()">TUTUP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DETAIL UNDANG-UNDANG -->
+    <div id="modal-uu" class="modal-zoom" style="z-index:1060;">
+        <div class="modal-card uu-modal-card">
+            <div class="modal-head">
+                <div>
+                    <div class="modal-nama" id="uu-modal-judul">Judul Peraturan</div>
+                    <div class="modal-sub" id="uu-modal-jenis">Jenis Peraturan</div>
+                </div>
+                <button class="modal-close" onclick="tutupModalUU()">✕</button>
+            </div>
+            <div class="uu-modal-body" id="uu-modal-body">
+                <!-- Konten peraturan akan diisi oleh JavaScript -->
+            </div>
+            <div class="uu-modal-source" id="uu-modal-source">
+                <!-- Sumber akan diisi oleh JavaScript -->
+            </div>
+            <div class="modal-foot">
+                <button class="btn-detail" id="uu-modal-btn-download" onclick="unduhUU()">⬇ UNDUH PDF</button>
+                <button class="btn-detail" onclick="tutupModalUU()">TUTUP</button>
             </div>
         </div>
     </div>
@@ -236,7 +263,7 @@
         </div>
         <div class="jelajah-bottom-bar">
             <div class="prog-group">
-                <div class="prog-text" id="text-scan">Scanned: 0 / 15</div>
+                <div class="prog-text" id="text-scan">Scanned: 0 / 18</div>
                 <div class="prog-bar-bg"><div class="prog-bar-fill" id="bar-scan"></div></div>
             </div>
             <button class="btn-scan-all" onclick="bukaModalScan()" id="btn-scan-all-main" title="Scan QR Code Wayang">
@@ -246,7 +273,7 @@
             </button>
             <div class="jelajah-right-group">
                 <div class="jelajah-quiz-group">
-                    <div class="prog-text" id="text-quiz">Kuis: 0 / 15</div>
+                    <div class="prog-text" id="text-quiz">Kuis: 0 / 18</div>
                     <div class="prog-bar-bg quiz-bar"><div class="prog-bar-fill" id="bar-quiz"></div></div>
                 </div>
                 <button class="btn-tutorial-small" onclick="bukaTutorial()"><img src="assets/icons/panduan.png" alt="" class="icon-24"> Panduan</button>
@@ -267,7 +294,7 @@
                         <li>Atau tekan tombol <b style="color:var(--gold)">📷 SCAN QR WAYANG</b> untuk scan langsung.</li>
                         <li>Arahkan kamera ke <b>QR Code</b> yang ada di dekat wayang.</li>
                         <li>Baca informasi detail, dengarkan narasi audio, lalu kerjakan kuisnya.</li>
-                        <li>Jika kuis benar, ikon berubah <b style="color:var(--gold)">EMAS</b>! Kumpulkan ke-15 emasnya!</li>
+                        <li>Jika kuis benar, ikon berubah <b style="color:var(--gold)">EMAS</b>! Kumpulkan ke-18 emasnya!</li>
                     </ol>
                 </div>
                 <div class="modal-foot"><button class="btn-detail" onclick="tutupTutorial()">SAYA MENGERTI</button></div>
@@ -380,7 +407,7 @@
                 <!-- SCAN Achievement -->
                 <div class="achievement-card locked" id="ach-card-scan" onclick="bukaPencapaianDetail('scan')">
                     <div class="achievement-icon-wrap">
-                        <img src="assets/images/pencapaian/icons/icon-ach-scan.png" alt="Scan" class="achievement-icon-img"
+                        <img src="assets/icons/penjelajah.png" alt="Scan" class="achievement-icon-img"
                             onerror="this.classList.add('hidden')">
                         <svg class="achievement-icon-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2.5" fill="none"/>
@@ -394,18 +421,18 @@
                             <style>.achievement-icon-svg{color:var(--gold);}</style>
                         </svg>
                     </div>
-                    <h3 class="achievement-title">GREATEST ROAMER</h3>
+                    <h3 class="achievement-title">Sang Lelana Linuwih</h3>
                     <div class="achievement-status" id="ach-status-scan">TERKUNCI</div>
                     <div class="ach-tap-hint">Ketuk untuk detail</div>
                     <p class="achievement-desc ach-hidden-detail" id="ach-desc-scan">Berhasil memindai QR Code pada seluruh koleksi wayang di halaman Jelajah.</p>
-                    <div class="achievement-progress ach-hidden-detail" id="ach-progress-scan">0 / 15 koleksi dipindai</div>
+                    <div class="achievement-progress ach-hidden-detail" id="ach-progress-scan">0 / 18 koleksi dipindai</div>
                     <div class="achievement-prog-bar ach-hidden-detail"><div class="achievement-prog-fill" id="ach-fill-scan"></div></div>
                 </div>
 
                 <!-- KUIS Achievement -->
                 <div class="achievement-card locked" id="ach-card-kuis" onclick="bukaPencapaianDetail('kuis')">
                     <div class="achievement-icon-wrap">
-                        <img src="assets/images/pencapaian/icons/icon-ach-kuis.png" alt="Kuis" class="achievement-icon-img"
+                        <img src="" alt="Kuis" class="achievement-icon-img"
                             onerror="this.classList.add('hidden')">
                         <svg class="achievement-icon-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <style>.achievement-icon-svg{color:var(--gold);}</style>
@@ -416,18 +443,18 @@
                             <path d="M36 32l1.5 1.5L40 30" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <h3 class="achievement-title">MASTER WAYANG</h3>
+                    <h3 class="achievement-title">Ki Dalang</h3>
                     <div class="achievement-status" id="ach-status-kuis">TERKUNCI</div>
                     <div class="ach-tap-hint">Ketuk untuk detail</div>
                     <p class="achievement-desc ach-hidden-detail" id="ach-desc-kuis">Berhasil memindai sekaligus menjawab benar seluruh kuis di halaman Jelajah.</p>
-                    <div class="achievement-progress ach-hidden-detail" id="ach-progress-kuis">0 / 15 kuis terselesaikan</div>
+                    <div class="achievement-progress ach-hidden-detail" id="ach-progress-kuis">0 / 18 kuis terselesaikan</div>
                     <div class="achievement-prog-bar ach-hidden-detail"><div class="achievement-prog-fill" id="ach-fill-kuis"></div></div>
                 </div>
 
                 <!-- KARAKTER Achievement -->
                 <div class="achievement-card locked" id="ach-card-karakter" onclick="bukaPencapaianDetail('karakter')">
                     <div class="achievement-icon-wrap">
-                        <img src="assets/images/pencapaian/icons/icon-ach-karakter.png" alt="Karakter" class="achievement-icon-img"
+                        <img src="assets/icons/quiz.png" alt="Karakter" class="achievement-icon-img"
                             onerror="this.classList.add('hidden')">
                         <svg class="achievement-icon-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <style>.achievement-icon-svg{color:var(--gold);}</style>
@@ -439,7 +466,7 @@
                             <path d="M18 6l2-3 4 4 4-4 2 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <h3 class="achievement-title">THE DEEP KNOWLADGE</h3>
+                    <h3 class="achievement-title">Sang Waskita</h3>
                     <div class="achievement-status" id="ach-status-karakter">TERKUNCI</div>
                     <div class="ach-tap-hint">Ketuk untuk detail</div>
                     <p class="achievement-desc ach-hidden-detail" id="ach-desc-karakter">Membuka detail minimal 10 koleksi wayang berbeda di halaman Pameran.</p>
@@ -450,7 +477,7 @@
                 <!-- HUKUM Achievement -->
                 <div class="achievement-card locked" id="ach-card-hukum" onclick="bukaPencapaianDetail('hukum')">
                     <div class="achievement-icon-wrap">
-                        <img src="assets/images/pencapaian/icons/icon-ach-hukum.png" alt="Hukum" class="achievement-icon-img"
+                        <img src="assets/icons/hukum.png" alt="Hukum" class="achievement-icon-img"
                             onerror="this.classList.add('hidden')">
                         <svg class="achievement-icon-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <style>.achievement-icon-svg{color:var(--gold);}</style>
@@ -462,7 +489,7 @@
                             <circle cx="24" cy="10" r="3" fill="currentColor" opacity=".8"/>
                         </svg>
                     </div>
-                    <h3 class="achievement-title">ACE LAWYER</h3>
+                    <h3 class="achievement-title">Panglima Kaadilan</h3>
                     <div class="achievement-status" id="ach-status-hukum">TERKUNCI</div>
                     <div class="ach-tap-hint">Ketuk untuk detail</div>
                     <p class="achievement-desc ach-hidden-detail" id="ach-desc-hukum">Membaca minimal 2 dasar hukum pelindungan warisan budaya di bagian Hukum pada Beranda.</p>
