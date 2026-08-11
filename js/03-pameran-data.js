@@ -84,8 +84,8 @@ const museumData = {
                         karakterEn: "Twalen's visual characteristics are very distinctive: a fat body with a protruding belly, dark skin, a single tuft of hair, and always wearing a poleng cloth (black and white checkered) around his neck. This poleng cloth symbolizes the Rwa Bhineda philosophy—the natural balance between good and evil. Twalen has a humorous, calm, and wise character. His dialogues often convey deep moral messages or philosophy wrapped in down-to-earth humor.",
                         hubungan: "Dalam lakon pewayangan Bali, Twalen bertugas sebagai pengasuh, pembimbing spiritual, sekaligus penerjemah (karena sering menerjemahkan bahasa Kawi ke bahasa Bali halus) bagi ksatria-ksatria protagonis. Ia sering didampingi oleh putranya, Merdah, dan mereka berdua kerap terlibat adu argumen logis maupun jenaka melawan punakawan dari pihak antagonis, yakni Delem dan Sangut.",
                         hubunganEn: "In Balinese wayang performances, Twalen serves as a caretaker, spiritual guide, and translator (as he often translates Kawi language into refined Balinese) for the protagonist knights. He is often accompanied by his son, Merdah, and the two of them frequently engage in logical and humorous debates against the punakawan of the antagonist side, namely Delem and Sangut.",
-                        audio: "assets/audio/twalen ind.m4a", 
-                        audioEn: "assets/audio/en/twalen en.m4a"
+                        audio: "assets/audio/trawalen ind.m4a", 
+                        audioEn: "assets/audio/en/trawalen en.m4a"
                     },
                 ]}
             ]
