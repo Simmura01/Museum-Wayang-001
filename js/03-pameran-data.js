@@ -43,8 +43,8 @@ const museumData = {
                         karakterEn: "Arjuna embodies the ideal true knight (lelananging jagad). With a bowed face and a plain gelung supit urang hairstyle, his character radiates calmness, patience, and refinement of spirit. Though he appears gentle and fond of meditation to seek self-knowledge and power, he is an exceptionally tough, shrewd, and fearless fighter on the battlefield.",
                         hubungan: "Sebagai putra ketiga dari Pandu Dewanata dan Dewi Kunti, Arjuna adalah saudara dari Yudistira, Bima, Nakula, dan Sadewa. Ia sangat dihormati dan disayangi oleh Kresna, yang senantiasa bertindak sebagai penasihat spiritual sekaligus kusir keretanya dalam perang besar Bharatayuddha.",
                         hubunganEn: "As the third son of Pandu Dewanata and Dewi Kunti, Arjuna is the brother of Yudistira, Bima, Nakula, and Sadewa. He is deeply respected and beloved by Kresna, who always acts as his spiritual advisor and charioteer in the great Bharatayuddha war.",
-                        audio: "assets/audio/arjuna.m4a", 
-                        audioEn: "assets/audio/en/arjuna.m4a"
+                        audio: "assets/audio/arjuna ind.m4a", 
+                        audioEn: "assets/audio/en/arjuna en.m4a"
                     }
                 ]},
                 { img:"assets/images/pameran/lantai1/ruang1/display/srirama.png", hotspots:[
@@ -57,8 +57,8 @@ const museumData = {
                         karakterEn: "Sri Rama is the true embodiment of dharma and virtue. He possesses extraordinary patience, dignity, and a willingness to sacrifice, as proven when he accepted a 14-year exile to the forest to uphold the honor of his father's vow. He wears a magnificent royal crown (makuta) yet with a bowing gesture, symbolizing supreme power exercised with compassion and wisdom.",
                         hubungan: "Rama adalah suami setia dari Dewi Sinta, yang berjuang melintasi lautan untuk menyelamatkannya dari cengkeraman Rahwana. Ia juga merupakan panutan utama yang disembah dengan penuh pengabdian dan kepatuhan oleh Anoman, serta teladan bagi adiknya, Laksmana, yang setia mendampinginya di pengasingan.",
                         hubunganEn: "Rama is the devoted husband of Dewi Sinta, whom he fought across the ocean to rescue from Rahwana's clutches. He is also the supreme role model worshipped with full devotion and obedience by Anoman, and a guiding example for his younger brother Laksmana, who faithfully accompanied him in exile.",
-                        audio: "assets/audio/srirama.m4a", 
-                        audioEn: "assets/audio/en/srirama.m4a"}
+                        audio: "assets/audio/srirama ind.m4a", 
+                        audioEn: "assets/audio/en/srirama en.m4a"}
                 ]},
                 { img:"assets/images/pameran/lantai1/ruang1/display/gatotkaca.png", hotspots:[
                     {x: 25, y: 15, w: 50, h: 70,nama: "Gatotkaca", 
@@ -70,8 +70,8 @@ const museumData = {
                         karakterEn: "Gatotkaca represents the character of a resolute, uncompromising, brave, and indomitable knight. His iconography is very distinctive: a deep black face, wide-open staring eyes (telengan), fangs, and a suryakanta star on his chest. Behind his fierce appearance as a descendant of giants, he possesses a pure heart, a knightly spirit, and unwavering dedication to the path of righteousness.",
                         hubungan: "Ia adalah putra dari Bima (Werkudara) dan Dewi Arimbi. Gatotkaca merupakan benteng pertahanan utama dan keponakan yang paling diandalkan oleh keluarga Pandawa. Dalam Perang Bharatayuddha, ia mengorbankan nyawanya dan gugur sebagai pahlawan agung setelah menerima hantaman senjata Kunta dari Adipati Karna, demi melindungi pamannya, Arjuna.",
                         hubunganEn: "He is the son of Bima (Werkudara) and Dewi Arimbi. Gatotkaca is the main defense and the most relied-upon nephew of the Pandawa family. In the Bharatayuddha War, he sacrificed his life and fell as a great hero after being struck by Adipati Karna's Kunta weapon, in order to protect his uncle Arjuna.",
-                        audio: "assets/audio/gatotkaca.m4a", 
-                        audioEn: "assets/audio/en/gatotkaca.m4a"}
+                        audio: "assets/audio/gatotkaca ind.m4a", 
+                        audioEn: "assets/audio/en/gatotkaca en.m4a"}
                 ]},
                 { img:"assets/images/pameran/lantai1/ruang1/display/twalen.png", hotspots:[
                     {x: 25, y: 15, w: 50, h: 70,
@@ -84,8 +84,8 @@ const museumData = {
                         karakterEn: "Twalen's visual characteristics are very distinctive: a fat body with a protruding belly, dark skin, a single tuft of hair, and always wearing a poleng cloth (black and white checkered) around his neck. This poleng cloth symbolizes the Rwa Bhineda philosophy—the natural balance between good and evil. Twalen has a humorous, calm, and wise character. His dialogues often convey deep moral messages or philosophy wrapped in down-to-earth humor.",
                         hubungan: "Dalam lakon pewayangan Bali, Twalen bertugas sebagai pengasuh, pembimbing spiritual, sekaligus penerjemah (karena sering menerjemahkan bahasa Kawi ke bahasa Bali halus) bagi ksatria-ksatria protagonis. Ia sering didampingi oleh putranya, Merdah, dan mereka berdua kerap terlibat adu argumen logis maupun jenaka melawan punakawan dari pihak antagonis, yakni Delem dan Sangut.",
                         hubunganEn: "In Balinese wayang performances, Twalen serves as a caretaker, spiritual guide, and translator (as he often translates Kawi language into refined Balinese) for the protagonist knights. He is often accompanied by his son, Merdah, and the two of them frequently engage in logical and humorous debates against the punakawan of the antagonist side, namely Delem and Sangut.",
-                        audio: "assets/audio/twalen.m4a", 
-                        audioEn: "assets/audio/en/twalen.m4a"
+                        audio: "assets/audio/twalen ind.m4a", 
+                        audioEn: "assets/audio/en/twalen en.m4a"
                     },
                 ]}
             ]
@@ -268,8 +268,8 @@ const museumData = {
                     psikologiEn: "Kancil (Clever, resourceful, agile, quick-thinker), Tiger & Crocodile (Strong but easily influenced/deceived), Farmer (A humble human figure representing everyday life).",
                     hubungan: "Kancil sering kali digambarkan berkonflik dengan predator (seperti harimau dan buaya) atau berurusan dengan properti milik manusia (petani). Ia memanipulasi hubungan dan situasi tersebut untuk membebaskan diri dari ancaman.",
                     hubunganEn: "The Kancil is often depicted in conflict with predators (such as tigers and crocodiles) or dealing with property belonging to humans (farmers). He manipulates these relationships and situations to free himself from threats.",
-                    audio: "assets/audio/arjuna.m4a", 
-                    audioEn: "assets/audio/en/arjuna.m4a"
+                    audio: "assets/audio/wayang kancil ind.m4a", 
+                    audioEn: "assets/audio/en/wayang kancil en.m4a"
                 }
             ]
         },
@@ -287,8 +287,8 @@ const museumData = {
                     psikologiEn: "Features characters (adapted from the Serat Menak story) with firm, authoritative, religious, knightly, and heroic character portrayals.",
                     hubungan: "Interaksi antar tokohnya sering kali merepresentasikan konflik antara penyebar ajaran kebenaran (protagonis) melawan raja-raja arogan atau raksasa yang menentangnya (antagonis).",
                     hubunganEn: "The interactions between characters often represent a conflict between the spreaders of righteous teachings (protagonists) against arrogant kings or giants who oppose them (antagonists).",
-                    audio: "assets/audio/arjuna.m4a", 
-                    audioEn: "assets/audio/en/arjuna.m4a"
+                    audio: "assets/audio/wayang kulit sasak ind.m4a", 
+                    audioEn: "assets/audio/en/wayang kulit sasak en.m4a"
                 }
             ]
         },
@@ -306,8 +306,8 @@ const museumData = {
                     psikologiEn: "Punakawan Characters (Humorous, down-to-earth, wise, patient, representing the common people yet highly knowledgeable). Knight Characters (Elegant, calm, and upholding righteousness).",
                     hubungan: "Kesembilan tokoh Punakawan memiliki ikatan persaudaraan yang erat. Mereka selalu bertindak sebagai pengasuh, penasihat spiritual, sekaligus pendamping setia para ksatria di setiap peperangan melawan angkara murka.",
                     hubunganEn: "The nine Punakawan figures share a close bond of brotherhood. They always act as caretakers, spiritual advisors, and faithful companions to the knights in every battle against evil forces.",
-                    audio: "assets/audio/arjuna.m4a", 
-                    audioEn: "assets/audio/en/arjuna.m4a"
+                    audio: "assets/audio/wayang kulit cirebon ind.m4a", 
+                    audioEn: "assets/audio/en/wayang kulit cirebon en.m4a"
                 }
             ]
         },
@@ -325,8 +325,8 @@ const museumData = {
                     psikologiEn: "Freedom Fighter Characters (Patriotic, brave, selfless, willing to sacrifice). Colonizer Characters (Authoritarian, greedy, arrogant). Common People (Tough, suffering but unwavering in their stance).",
                     hubungan: "Wayang ini menonjolkan solidaritas dan persatuan antar kelas sosial. Terlihat hubungan yang erat antara pemimpin negara, militer, dan rakyat sipil bersatu padu melawan pasukan kolonial Belanda dan sekutu.",
                     hubunganEn: "This wayang highlights solidarity and unity across social classes. It shows the close relationship between state leaders, the military, and civilians united against the Dutch colonial forces and their allies.",
-                    audio: "assets/audio/arjuna.m4a", 
-                    audioEn: "assets/audio/en/arjuna.m4a"
+                    audio: "assets/audio/wayang revolusi ind.m4a", 
+                    audioEn: "assets/audio/en/wayang revolusi en.m4a"
                 }
             ]
         },
@@ -344,8 +344,8 @@ const museumData = {
                     psikologiEn: "National Leader Characters (Charismatic, visionary, skilled orators, authoritative). Troops and People (Highly dedicated, fiery, full of revolutionary courage).",
                     hubungan: "Memperlihatkan ikatan komando dan koneksi emosional yang tak terpisahkan antara para pendiri bangsa (*Founding Fathers*) dengan rakyat yang bahu-membahu dalam satu visi mulia: Kemerdekaan Indonesia seutuhnya.",
                     hubunganEn: "It depicts the inseparable bond of command and emotional connection between the Founding Fathers and the people who worked side by side in one noble vision: the complete independence of Indonesia.",
-                    audio: "assets/audio/arjuna.m4a", 
-                    audioEn: "assets/audio/en/arjuna.m4a"
+                    audio: "assets/audio/wayang suluh ind.m4a", 
+                    audioEn: "assets/audio/en/wayang suluh en.m4a"
                 }
             ]
         }
