@@ -1,0 +1,399 @@
+/* ============================================================
+   11-WAHANA.CSS
+   Halaman Wahana (hub) + halaman Chat Ki Semar
+   ============================================================ */
+
+/* ---- WAHANA HUB ---- */
+#wahana { padding: 0; position: relative; overflow: hidden; }
+#wahana.active { display: block; }
+
+.wahana-inner {
+    position: absolute; top: 72px; bottom: 0; left: 0; right: 0;
+    overflow-y: auto; overflow-x: hidden;
+    padding: 28px 20px calc(40px + var(--safe-bottom));
+    display: flex; flex-direction: column; align-items: center;
+    scrollbar-width: thin; scrollbar-color: rgba(200,160,30,.3) transparent;
+}
+.wahana-inner::-webkit-scrollbar { width: 5px; }
+.wahana-inner::-webkit-scrollbar-thumb { background: rgba(200,160,30,.3); border-radius: 3px; }
+
+.wahana-header {
+    text-align: center; margin-bottom: 32px; max-width: 600px;
+}
+.wahana-title {
+    font-family: 'Cinzel Decorative', serif;
+    color: var(--gold); font-size: clamp(1.4rem, 3vw, 2rem);
+    letter-spacing: 3px; text-shadow: 0 2px 22px rgba(200,160,30,.4);
+    margin-bottom: 10px;
+}
+.wahana-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; color: var(--cream); opacity: .75;
+    line-height: 1.6; letter-spacing: .5px;
+}
+
+.wahana-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px; max-width: 860px; width: 100%;
+}
+
+.wahana-card {
+    background: rgba(10,6,2,.6);
+    border: 1px solid rgba(200,160,30,.25);
+    border-radius: 16px; padding: 28px 22px 24px;
+    text-align: center; cursor: pointer;
+    transition: all .28s ease;
+    position: relative; overflow: hidden;
+    backdrop-filter: blur(8px);
+}
+.wahana-card::before {
+    content: ''; position: absolute; top: 0; left: 20%; right: 20%;
+    height: 1px; background: var(--gold-grad); opacity: .4;
+}
+.wahana-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(200,160,30,.6);
+    box-shadow: 0 16px 40px rgba(0,0,0,.5), 0 0 24px rgba(200,160,30,.14);
+}
+.wahana-card:active { transform: translateY(-2px) scale(.98); }
+
+.wahana-card-icon {
+    width: 62px; height: 62px; margin: 0 auto 16px;
+    border-radius: 50%;
+    background: rgba(200,160,30,.1);
+    border: 1px solid rgba(200,160,30,.3);
+    display: flex; align-items: center; justify-content: center;
+}
+.wahana-card-icon svg {
+    width: 32px; height: 32px; color: var(--gold); stroke: var(--gold);
+}
+.wahana-card-name {
+    font-family: 'Cinzel Decorative', serif;
+    color: var(--gold); font-size: .92rem;
+    letter-spacing: 1.5px; margin-bottom: 10px;
+}
+.wahana-card-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .92rem; color: var(--cream); opacity: .8;
+    line-height: 1.55; margin-bottom: 14px;
+}
+.wahana-card-badge {
+    display: inline-block;
+    font-family: 'Cinzel', serif; font-size: .55rem;
+    letter-spacing: 1.5px; padding: 4px 14px;
+    border-radius: 14px; background: rgba(200,160,30,.12);
+    border: 1px solid rgba(200,160,30,.3); color: var(--gold);
+    text-transform: uppercase;
+}
+.wahana-card-badge.soon {
+    background: rgba(255,255,255,.04);
+    border-color: rgba(255,255,255,.12); color: var(--muted);
+}
+.wahana-card.coming-soon {
+    opacity: .45; pointer-events: none; filter: grayscale(.4);
+}
+
+/* ---- CHAT KI SEMAR ---- */
+#chat-semar {
+    display: none; position: fixed; inset: 0; z-index: 900;
+    background: var(--bg); flex-direction: column;
+}
+#chat-semar.active { display: flex; }
+
+.chat-header {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 18px 12px;
+    background: rgba(10,6,2,.92);
+    border-bottom: 1px solid rgba(200,160,30,.22);
+    backdrop-filter: blur(12px);
+    position: relative; flex-shrink: 0;
+    padding-top: calc(14px + var(--safe-top));
+}
+.chat-header::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 1px; background: var(--gold-grad); opacity: .35;
+}
+.chat-back-btn {
+    background: none; border: none; color: var(--gold);
+    font-family: 'Cinzel', serif; font-size: .7rem;
+    letter-spacing: 1.5px; cursor: pointer; padding: 6px 12px;
+    border-radius: 20px; border: 1px solid rgba(200,160,30,.35);
+    transition: all .2s; white-space: nowrap; flex-shrink: 0;
+}
+.chat-back-btn:hover { background: rgba(200,160,30,.12); color: var(--gold-bright); }
+
+.chat-avatar-wrap {
+    width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(200,160,30,.1); border: 1.5px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+}
+.chat-avatar-wrap img {
+    width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+}
+.chat-avatar-svg {
+    width: 28px; height: 28px; color: var(--gold); stroke: var(--gold);
+}
+.chat-header-info { flex: 1; min-width: 0; }
+.chat-ai-name {
+    font-family: 'Cinzel', serif; color: var(--gold);
+    font-size: .82rem; letter-spacing: 2px;
+}
+.chat-ai-status {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .75rem; color: var(--muted); font-style: italic;
+}
+.chat-api-indicator {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #cc4444; flex-shrink: 0;
+    box-shadow: 0 0 6px #cc4444;
+    transition: all .4s;
+}
+.chat-api-indicator.online {
+    background: #44cc88;
+    box-shadow: 0 0 6px #44cc88;
+}
+
+/* Rekomendasi pertanyaan */
+.chat-suggestions-wrap {
+    padding: 10px 16px 6px; flex-shrink: 0;
+    border-bottom: 1px solid rgba(200,160,30,.1);
+    background: var(--bg);
+}
+.chat-suggestions-label {
+    font-family: 'Cinzel', serif; font-size: .55rem;
+    color: var(--muted); letter-spacing: 2px; margin-bottom: 7px;
+    text-transform: uppercase;
+}
+.chat-suggestions-row {
+    display: flex; gap: 8px; overflow-x: auto;
+    scrollbar-width: none; padding-bottom: 2px;
+}
+.chat-suggestions-row::-webkit-scrollbar { display: none; }
+.suggest-chip {
+    background: rgba(200,160,30,.08);
+    border: 1px solid rgba(200,160,30,.28);
+    border-radius: 20px; padding: 6px 14px; white-space: nowrap;
+    font-family: 'Cormorant Garamond', serif; font-size: .8rem;
+    color: var(--cream); cursor: pointer; transition: all .2s;
+    flex-shrink: 0;
+}
+.suggest-chip:hover {
+    background: rgba(200,160,30,.2); border-color: var(--gold); color: var(--gold);
+}
+
+/* Area pesan */
+.chat-messages {
+    flex: 1; overflow-y: auto; padding: 18px 16px 10px;
+    display: flex; flex-direction: column; gap: 14px;
+    scrollbar-width: thin; scrollbar-color: rgba(200,160,30,.2) transparent;
+}
+.chat-messages::-webkit-scrollbar { width: 4px; }
+.chat-messages::-webkit-scrollbar-thumb { background: rgba(200,160,30,.2); border-radius: 2px; }
+
+.chat-bubble-row {
+    display: flex; gap: 10px; align-items: flex-end;
+    animation: bubbleFade .3s ease forwards;
+}
+@keyframes bubbleFade { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+
+.chat-bubble-row.user { flex-direction: row-reverse; }
+
+.bubble-avatar {
+    width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(200,160,30,.1); border: 1px solid rgba(200,160,30,.25);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: .6rem; color: var(--gold);
+}
+.bubble-avatar svg { width: 16px; height: 16px; stroke: var(--gold); }
+
+.chat-bubble {
+    max-width: 72%; padding: 11px 15px;
+    border-radius: 16px; position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .95rem; line-height: 1.65; color: var(--cream);
+}
+.chat-bubble-row.ai .chat-bubble {
+    background: rgba(200,160,30,.08);
+    border: 1px solid rgba(200,160,30,.2);
+    border-bottom-left-radius: 4px;
+}
+.chat-bubble-row.user .chat-bubble {
+    background: rgba(200,160,30,.18);
+    border: 1px solid rgba(200,160,30,.35);
+    border-bottom-right-radius: 4px; color: var(--cream);
+}
+.bubble-time {
+    font-family: 'Cinzel', serif; font-size: .5rem;
+    color: var(--muted); letter-spacing: 1px;
+    margin-top: 4px; text-align: right;
+}
+.chat-bubble-row.ai .bubble-time { text-align: left; }
+
+/* Typing indicator */
+.typing-indicator {
+    display: none; gap: 10px; align-items: flex-end;
+}
+.typing-indicator.show { display: flex; }
+.typing-dots {
+    background: rgba(200,160,30,.08);
+    border: 1px solid rgba(200,160,30,.2);
+    border-radius: 16px; border-bottom-left-radius: 4px;
+    padding: 12px 18px; display: flex; gap: 5px; align-items: center;
+}
+.typing-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--gold); opacity: .5;
+    animation: typingBounce 1.2s infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: .2s; }
+.typing-dot:nth-child(3) { animation-delay: .4s; }
+@keyframes typingBounce {
+    0%, 100% { transform: translateY(0); opacity: .5; }
+    40% { transform: translateY(-6px); opacity: 1; }
+}
+
+/* Input area */
+.chat-input-area {
+    padding: 12px 14px calc(14px + var(--safe-bottom));
+    border-top: 1px solid rgba(200,160,30,.15);
+    background: var(--bg);
+    display: flex; gap: 10px; align-items: flex-end;
+    flex-shrink: 0;
+}
+.chat-input {
+    flex: 1; background: rgba(200,160,30,.07);
+    border: 1px solid rgba(200,160,30,.3);
+    border-radius: 24px; padding: 11px 18px;
+    color: var(--cream); font-family: 'Cormorant Garamond', serif;
+    font-size: .95rem; line-height: 1.4;
+    resize: none; outline: none; transition: border .2s;
+    min-height: 44px; max-height: 120px;
+    scrollbar-width: none;
+}
+.chat-input::placeholder { color: var(--muted); font-style: italic; }
+.chat-input:focus { border-color: var(--gold); }
+
+.chat-send-btn {
+    width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+    background: var(--gold-grad); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all .2s; box-shadow: var(--shadow-gold);
+}
+.chat-send-btn:hover { transform: scale(1.08); }
+.chat-send-btn:active { transform: scale(.94); }
+.chat-send-btn svg { width: 18px; height: 18px; stroke: #0d0904; }
+.chat-send-btn:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+
+/* API Key Modal */
+.chat-api-modal {
+    display: none; position: absolute; inset: 0; z-index: 200;
+    background: rgba(0,0,0,.82); backdrop-filter: blur(6px);
+    justify-content: center; align-items: center; padding: 20px;
+}
+.chat-api-modal.show { display: flex; }
+.chat-api-card {
+    background: rgba(16,10,3,.97); border: 1px solid rgba(200,160,30,.4);
+    border-radius: 14px; padding: 28px 24px; max-width: 400px; width: 100%;
+    position: relative; box-shadow: 0 0 60px rgba(0,0,0,.9);
+}
+.chat-api-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px; background: var(--gold-grad); border-radius: 14px 14px 0 0;
+}
+.chat-api-title {
+    font-family: 'Cinzel', serif; color: var(--gold); font-size: .9rem;
+    letter-spacing: 2px; margin-bottom: 6px;
+}
+.chat-api-desc {
+    font-family: 'Cormorant Garamond', serif; font-size: .88rem;
+    color: var(--cream); opacity: .8; line-height: 1.6; margin-bottom: 18px;
+}
+.chat-api-input {
+    width: 100%; background: rgba(200,160,30,.06);
+    border: 1px solid rgba(200,160,30,.3); border-radius: 8px;
+    padding: 10px 14px; color: var(--cream);
+    font-family: 'Cormorant Garamond', serif; font-size: .9rem;
+    outline: none; margin-bottom: 14px; transition: border .2s;
+}
+.chat-api-input:focus { border-color: var(--gold); }
+.chat-api-save {
+    width: 100%; background: var(--gold-grad); color: #0d0904;
+    border: none; border-radius: 24px; padding: 10px;
+    font-family: 'Cinzel', serif; font-size: .75rem; font-weight: 700;
+    letter-spacing: 2px; cursor: pointer; transition: all .2s;
+}
+.chat-api-save:hover { transform: scale(1.02); box-shadow: var(--shadow-gold); }
+.chat-api-link {
+    display: block; text-align: center; margin-top: 12px;
+    font-family: 'Cinzel', serif; font-size: .58rem;
+    color: var(--muted); letter-spacing: 1px; text-decoration: none;
+}
+.chat-api-link:hover { color: var(--gold); }
+
+.chat-empty-state {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 12px;
+    opacity: .45; padding: 20px; text-align: center;
+}
+.chat-empty-state-icon {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: rgba(200,160,30,.08); border: 1px solid rgba(200,160,30,.2);
+    display: flex; align-items: center; justify-content: center;
+}
+.chat-empty-state-icon svg { width: 28px; height: 28px; stroke: var(--gold); }
+.chat-empty-title {
+    font-family: 'Cinzel', serif; color: var(--gold);
+    font-size: .8rem; letter-spacing: 2px;
+}
+.chat-empty-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .85rem; color: var(--cream); max-width: 280px; line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+    .chat-bubble { max-width: 85%; font-size: .88rem; }
+    .wahana-grid { grid-template-columns: 1fr; }
+}
+
+
+#rhythm-game-modal {
+    display: none; position: fixed; inset: 0; z-index: 950;
+    background: var(--bg); flex-direction: column;
+}
+#rhythm-game-modal.active { display: flex; }
+
+.rhythm-game-header {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 18px 12px;
+    background: rgba(10,6,2,.92);
+    border-bottom: 1px solid rgba(200,160,30,.22);
+    backdrop-filter: blur(12px);
+    position: relative; flex-shrink: 0;
+    padding-top: calc(14px + var(--safe-top));
+}
+.rhythm-game-header::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 1px; background: var(--gold-grad); opacity: .35;
+}
+.rhythm-back-btn {
+    background: none; border: none; color: var(--gold);
+    font-family: 'Cinzel', serif; font-size: .7rem;
+    letter-spacing: 1.5px; cursor: pointer; padding: 6px 12px;
+    border-radius: 20px; border: 1px solid rgba(200,160,30,.35);
+    transition: all .2s; white-space: nowrap; flex-shrink: 0;
+}
+.rhythm-back-btn:hover { background: rgba(200,160,30,.12); color: var(--gold-bright); }
+.rhythm-title {
+    font-family: 'Cinzel Decorative', serif; color: var(--gold);
+    font-size: 1rem; letter-spacing: 2px; flex: 1; text-align: right;
+}
+
+.rhythm-iframe-container {
+    flex: 1; position: relative; width: 100%;
+}
+.rhythm-iframe-container iframe {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    border: none;
+}

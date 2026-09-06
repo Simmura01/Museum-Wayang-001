@@ -1,0 +1,423 @@
+/* ============================================================
+   DALANG SHOOTER — style.css v3
+   Estetika Wayang/Batik: emas, tembaga, coklat tua, hitam
+   ============================================================ */
+
+/* ── Variabel ─────────────────────────────────────────────── */
+:root {
+  --panel-bg:    rgba(10, 6, 2, 0.93);
+  --border:      rgba(200, 160, 30, 0.26);
+  --text:        #e8dfc8;
+  --muted:       #9c8a6a;
+
+  /* Neon */
+  --neon-blue:   #00f0ff;
+  --neon-green:  #39ff14;
+  --neon-red:    #ff0055;
+  --neon-yellow: #ffea00;
+
+  /* Wayang/Batik */
+  --gold:        #c8a01e;
+  --gold-bright: #ffd700;
+  --gold-dark:   #8b6914;
+  --cream:       #f0e6c8;
+
+  /* Glow */
+  --gold-glow:  0 0 12px rgba(200,160,30,0.55), 0 0 30px rgba(200,160,30,0.25);
+  --glow-green: 0 0 10px rgba(57,255,20,0.5),  0 0 20px rgba(57,255,20,0.3);
+  --glow-red:   0 0 10px rgba(255,0,85,0.5),   0 0 20px rgba(255,0,85,0.3);
+}
+
+/* ── Reset ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+
+body {
+  background: #080402;
+  color: var(--text);
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden; height: 100vh; width: 100vw;
+  display: flex; justify-content: center; align-items: center;
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(200,160,30,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(140,80,10,0.04) 0%, transparent 50%);
+}
+
+/* ── Container Utama ──────────────────────────────────────── */
+#appContainer {
+  display: flex; flex-direction: column;
+  width: 95vw; max-width: 900px;
+  height: 95vh; max-height: 680px;
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.92), 0 0 40px rgba(200,160,30,0.05);
+  backdrop-filter: blur(14px);
+  position: relative; overflow: hidden;
+}
+
+/* ── Tipografi ────────────────────────────────────────────── */
+.wayang-title {
+  font-family: 'Cinzel Decorative', serif; font-weight: 700;
+  letter-spacing: 3px; font-size: clamp(1.1rem, 2.8vw, 1.75rem);
+  background: linear-gradient(135deg, var(--cream) 30%, var(--gold-bright) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.wayang-title.glow-gold {
+  -webkit-text-fill-color: var(--gold-bright); background: none;
+  text-shadow: var(--gold-glow);
+}
+.wayang-title.glow-red {
+  -webkit-text-fill-color: var(--neon-red); background: none;
+  text-shadow: var(--glow-red);
+}
+
+/* ── HUD ──────────────────────────────────────────────────── */
+#gameHUD {
+  display: flex; justify-content: space-around; align-items: center;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(6, 4, 1, 0.62); z-index: 10; flex-shrink: 0;
+}
+.hud-group  { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.hud-label  { font-size: 0.58rem; font-weight: 600; color: var(--muted); letter-spacing: 2px; font-family: 'Cinzel', serif; }
+.hud-value  { font-size: 0.92rem; font-weight: 800; color: var(--gold-bright); text-shadow: var(--gold-glow); }
+.small-hud  { font-size: 0.72rem; }
+
+/* Nyawa — ikon hati SVG */
+.lives-container { display: flex; gap: 5px; align-items: center; }
+.life-icon {
+  width: 16px; height: 16px;
+  transition: all 0.3s ease;
+}
+.life-icon.full  { fill: #ff4466; filter: drop-shadow(0 0 4px rgba(255,60,90,0.8)); }
+.life-icon.empty { fill: rgba(120,40,55,0.28); filter: none; }
+
+/* Tracking status */
+.tracking-status-container { min-width: 110px; }
+.status-indicator-wrapper  { display: flex; align-items: center; gap: 7px; }
+.status-dot { width: 8px; height: 8px; border-radius: 50%; transition: all 0.3s; flex-shrink: 0; }
+.status-dot.green  { background: var(--neon-green);  box-shadow: var(--glow-green); }
+.status-dot.yellow { background: var(--neon-yellow); }
+.status-dot.red    { background: var(--neon-red);    box-shadow: var(--glow-red); }
+
+/* ── Game Area & Canvas ───────────────────────────────────── */
+#gameArea {
+  flex: 1; position: relative; width: 100%;
+  display: flex; justify-content: center; align-items: center;
+  background-color: rgba(4, 2, 0, 1);
+  background-image: url('bg-wayang.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+#gameCanvas {
+  display: block; max-width: 100%; max-height: 100%;
+  object-fit: contain; cursor: none;
+}
+
+/* ── Screen Overlays ──────────────────────────────────────── */
+.screen-overlay {
+  position: absolute; inset: 0;
+  background: rgba(5, 3, 1, 0.88);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 100; backdrop-filter: blur(10px);
+  opacity: 1; transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.screen-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+/* ── Kartu Overlay ────────────────────────────────────────── */
+.overlay-card {
+  background: rgba(12, 7, 2, 0.97);
+  border: 1px solid rgba(200,160,30,0.28);
+  box-shadow: 0 12px 50px rgba(0,0,0,0.75), inset 0 0 30px rgba(200,160,30,0.03);
+  border-radius: 18px; padding: 30px 34px;
+  max-width: 540px; width: 90%;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  animation: fadeIn 0.35s ease-out;
+  position: relative;
+}
+.overlay-card.mini-card    { max-width: 380px; padding: 24px; }
+.overlay-card.warning-card { border-color: rgba(255,0,85,0.4); }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.94) translateY(8px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+.card-ornament {
+  position: absolute; left: 12%; right: 12%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.3;
+}
+.card-ornament.top    { top: 0; }
+.card-ornament.bottom { bottom: 0; }
+.card-subtitle {
+  font-family: 'Cinzel', serif; font-size: 0.68rem;
+  color: var(--muted); letter-spacing: 1.8px; margin-top: -8px;
+}
+
+/* ── Loading ──────────────────────────────────────────────── */
+.loader-content { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+.batik-spinner {
+  width: 48px; height: 48px;
+  border: 3px solid rgba(200,160,30,0.15);
+  border-top-color: var(--gold-bright); border-radius: 50%;
+  animation: spin 1s linear infinite; box-shadow: var(--gold-glow);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loader-sub    { font-family: 'Cinzel', serif; font-size: 0.65rem; color: var(--muted); letter-spacing: 2px; }
+.loader-status { font-size: 0.8rem; color: var(--gold); min-height: 1.3em; }
+
+/* ── Tombol ───────────────────────────────────────────────── */
+.wayang-btn {
+  font-family: 'Cinzel', serif; font-weight: 700;
+  font-size: 0.8rem; letter-spacing: 2px;
+  padding: 10px 24px; border-radius: 26px;
+  cursor: pointer; transition: all 0.2s ease; outline: none;
+  border: 1px solid transparent;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold-bright));
+  color: #0a0602; border-color: var(--gold-bright);
+  box-shadow: 0 4px 18px rgba(200,160,30,0.32);
+}
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,160,30,0.5); }
+.btn-outline {
+  background: transparent; color: var(--gold); border-color: rgba(200,160,30,0.4);
+}
+.btn-outline:hover { background: rgba(200,160,30,0.1); border-color: var(--gold-bright); color: var(--gold-bright); }
+.btn-icon { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+
+/* ── Name Input ───────────────────────────────────────────── */
+.name-card { max-width: 420px; }
+.name-input-section { width: 100%; display: flex; flex-direction: column; gap: 7px; }
+.input-label { font-family: 'Cinzel', serif; font-size: 0.62rem; color: var(--muted); letter-spacing: 2px; text-align: left; }
+.wayang-input {
+  width: 100%; background: rgba(200,160,30,0.06);
+  border: 1px solid rgba(200,160,30,0.35); border-radius: 10px;
+  padding: 11px 16px; color: var(--cream);
+  font-family: 'Outfit', sans-serif; font-size: 1rem;
+  outline: none; transition: border 0.2s; user-select: text;
+}
+.wayang-input::placeholder { color: var(--muted); font-style: italic; }
+.wayang-input:focus { border-color: var(--gold-bright); box-shadow: 0 0 10px rgba(200,160,30,0.2); }
+.permission-note { font-size: 0.68rem; color: var(--muted); }
+
+/* ── Mode Select ──────────────────────────────────────────── */
+.mode-card { max-width: 520px; }
+.mode-grid { display: flex; gap: 14px; width: 100%; }
+.mode-option {
+  flex: 1; background: rgba(200,160,30,0.05);
+  border: 1px solid rgba(200,160,30,0.2); border-radius: 14px;
+  padding: 22px 14px 18px; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  transition: all 0.2s ease; text-align: center; color: var(--text);
+}
+.mode-option:hover {
+  background: rgba(200,160,30,0.13);
+  border-color: rgba(200,160,30,0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(200,160,30,0.16);
+}
+.mode-svg-icon {
+  width: 38px; height: 38px;
+  fill: var(--gold);
+  opacity: 0.85;
+}
+.mode-option:hover .mode-svg-icon { opacity: 1; fill: var(--gold-bright); }
+.mode-name {
+  font-family: 'Cinzel', serif; font-size: 0.85rem;
+  font-weight: 700; color: var(--gold-bright); letter-spacing: 1.5px;
+}
+.mode-desc { font-size: 0.72rem; color: var(--muted); line-height: 1.5; }
+.mode-tag {
+  font-family: 'Cinzel', serif; font-size: 0.56rem;
+  color: var(--gold-dark); letter-spacing: 1px;
+  padding: 3px 10px; border: 1px solid rgba(200,160,30,0.2); border-radius: 10px;
+}
+
+/* ── Song Select ──────────────────────────────────────────── */
+.song-select-card { max-width: 520px; }
+.song-list {
+  width: 100%; display: flex; flex-direction: column; gap: 8px;
+  max-height: 250px; overflow-y: auto;
+  scrollbar-width: thin; scrollbar-color: rgba(200,160,30,0.3) transparent;
+  padding-right: 4px;
+}
+.song-list::-webkit-scrollbar { width: 4px; }
+.song-list::-webkit-scrollbar-thumb { background: rgba(200,160,30,0.3); border-radius: 3px; }
+.song-card {
+  background: rgba(200,160,30,0.05); border: 1px solid rgba(200,160,30,0.18);
+  border-radius: 10px; padding: 13px 16px; cursor: pointer;
+  transition: all 0.2s ease; text-align: left;
+}
+.song-card:hover {
+  background: rgba(200,160,30,0.12); border-color: rgba(200,160,30,0.55);
+  transform: translateX(4px);
+}
+.song-card-title  { font-family: 'Cinzel', serif; font-weight: 700; font-size: 0.88rem; color: var(--gold-bright); letter-spacing: 1px; margin-bottom: 3px; }
+.song-card-artist { font-size: 0.73rem; color: var(--muted); margin-bottom: 6px; }
+.song-card-meta   { display: flex; gap: 8px; }
+.song-mode-badge  {
+  font-size: 0.60rem; padding: 2px 9px; border-radius: 9px;
+  background: rgba(200,160,30,0.1); border: 1px solid rgba(200,160,30,0.3); color: var(--gold);
+}
+
+/* ── Countdown ────────────────────────────────────────────── */
+.countdown-text {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 6rem; font-weight: 700;
+  color: var(--gold-bright); text-shadow: var(--gold-glow);
+  animation: countdownPulse 1s ease-in-out infinite;
+}
+@keyframes countdownPulse {
+  0%   { transform: scale(0.5); opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { transform: scale(1.18); opacity: 0.85; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+/* ── Pause ────────────────────────────────────────────────── */
+.pause-card-icon {
+  width: 36px; height: 36px;
+  fill: var(--gold);
+  opacity: 0.7;
+}
+.pause-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+/* ── Warning / Tracking Lost ─────────────────────────────── */
+.warning-svg-icon {
+  width: 48px; height: 48px;
+  fill: var(--neon-red);
+  filter: drop-shadow(0 0 8px rgba(255,0,85,0.6));
+}
+.warning-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+
+/* ── Game Over ────────────────────────────────────────────── */
+.gameover-card { max-width: 460px; }
+.gameover-icon {
+  width: 40px; height: 40px;
+  fill: var(--neon-red);
+  filter: drop-shadow(0 0 8px rgba(255,0,85,0.5));
+}
+.go-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 9px; width: 100%;
+}
+.go-stat {
+  background: rgba(200,160,30,0.05); border: 1px solid rgba(200,160,30,0.14);
+  border-radius: 10px; padding: 11px 10px;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+.go-label  { font-family: 'Cinzel', serif; font-size: 0.55rem; color: var(--muted); letter-spacing: 1.5px; }
+.go-val    { font-weight: 800; font-size: 1.25rem; color: var(--text); }
+.gold-text  { color: var(--gold-bright); text-shadow: 0 0 12px rgba(255,215,0,0.5); }
+.green-text { color: var(--neon-green); }
+.red-text   { color: var(--neon-red); }
+.go-buttons { display: flex; gap: 9px; flex-wrap: wrap; justify-content: center; }
+
+/* ── Leaderboard ──────────────────────────────────────────── */
+.leaderboard-card { max-width: 520px; }
+.lb-header {
+  display: flex; align-items: center; gap: 12px; justify-content: center;
+}
+.lb-trophy-icon {
+  width: 28px; height: 28px;
+  fill: var(--gold-bright);
+  filter: drop-shadow(0 0 6px rgba(255,215,0,0.5));
+}
+.lb-table-wrap {
+  width: 100%; max-height: 280px; overflow-y: auto;
+  scrollbar-width: thin; scrollbar-color: rgba(200,160,30,0.3) transparent;
+  border-radius: 10px;
+}
+.lb-table-wrap::-webkit-scrollbar { width: 4px; }
+.lb-table-wrap::-webkit-scrollbar-thumb { background: rgba(200,160,30,0.3); border-radius: 3px; }
+.lb-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.lb-table thead tr { background: rgba(200,160,30,0.10); border-bottom: 1px solid rgba(200,160,30,0.25); }
+.lb-table th { font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 1.5px; color: var(--muted); padding: 8px 10px; text-align: left; }
+.lb-table td { padding: 8px 10px; border-bottom: 1px solid rgba(200,160,30,0.07); }
+.lb-table tbody tr:hover { background: rgba(200,160,30,0.05); }
+.lb-table tbody tr.lb-top td { color: var(--gold-bright); font-weight: 700; }
+.lb-rank  { font-weight: 700; color: var(--muted); width: 28px; }
+.lb-name  { font-weight: 600; }
+.lb-score { font-weight: 800; color: var(--gold); }
+.lb-grade { font-family: 'Cinzel', serif; font-weight: 700; font-size: 0.83rem; }
+[data-rank="S"] { color: #ffd700; }
+[data-rank="A"] { color: #00cfff; }
+[data-rank="B"] { color: #39ff14; }
+[data-rank="C"] { color: var(--neon-yellow); }
+[data-rank="D"] { color: var(--muted); }
+
+/* ── Footer Controls ──────────────────────────────────────── */
+#gameControls {
+  padding: 10px 18px;
+  border-top: 1px solid var(--border);
+  background: rgba(6, 4, 1, 0.62);
+  display: flex; justify-content: center; z-index: 10; flex-shrink: 0;
+}
+.control-buttons { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.control-btn {
+  background: rgba(200,160,30,0.04); border: 1px solid rgba(200,160,30,0.10);
+  color: var(--text); font-family: 'Cinzel', serif; font-size: 0.65rem;
+  font-weight: 600; letter-spacing: 1px; padding: 7px 12px;
+  border-radius: 8px; cursor: pointer;
+  display: flex; align-items: center; gap: 6px;
+  transition: all 0.2s ease;
+}
+.control-btn:hover:not(:disabled) {
+  background: rgba(200,160,30,0.10); border-color: rgba(200,160,30,0.4);
+  color: var(--gold-bright);
+}
+.control-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.control-btn .icon  { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+.control-btn .hidden { display: none !important; }
+.neon-btn { border-color: rgba(0,240,255,0.45) !important; box-shadow: 0 0 10px rgba(0,240,255,0.15); }
+
+/* ── Webcam PIP ───────────────────────────────────────────── */
+.webcam-pip {
+  position: absolute; bottom: 68px; right: 14px; width: 160px;
+  background: rgba(8, 5, 1, 0.97);
+  border: 1px solid var(--border); border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6); z-index: 90; overflow: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+}
+.webcam-pip.hidden { opacity: 0; visibility: hidden; transform: translateY(16px); pointer-events: none; }
+.webcam-pip .panel-header {
+  background: rgba(200,160,30,0.09); padding: 5px 10px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid rgba(200,160,30,0.12);
+}
+.panel-title { font-family: 'Cinzel', serif; font-size: 0.52rem; letter-spacing: 1px; color: var(--muted); }
+.cam-indicator { width: 7px; height: 7px; border-radius: 50%; }
+.cam-indicator.online  { background: var(--neon-green); box-shadow: var(--glow-green); }
+.cam-indicator.offline { background: var(--neon-red); }
+.webcam-pip .video-container { position: relative; width: 100%; aspect-ratio: 4/3; background: #000; }
+.webcam-pip video  { width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
+.webcam-pip canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; transform: scaleX(-1); }
+
+/* ── Animasi ──────────────────────────────────────────────── */
+.animate-pulse  { animation: pulse 1.5s infinite alternate; }
+@keyframes pulse  { 0% { opacity: 0.45; } 100% { opacity: 1; } }
+
+/* ── Debug ────────────────────────────────────────────────── */
+.debug-only.hidden { display: none; }
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-height: 560px) {
+  #appContainer { height: 98vh; }
+  #gameHUD, #gameControls { padding: 6px 14px; }
+  .webcam-pip { bottom: 52px; width: 135px; }
+  .overlay-card { padding: 16px; gap: 12px; }
+  .wayang-title { font-size: 1rem; }
+  .countdown-text { font-size: 4rem; }
+}
+@media (max-width: 500px) {
+  .mode-grid    { flex-direction: column; }
+  .go-stats     { grid-template-columns: 1fr; }
+  .go-buttons   { flex-direction: column; align-items: stretch; }
+  .pause-buttons { flex-direction: column; align-items: stretch; }
+  .control-buttons { gap: 6px; }
+  .control-btn span { display: none; }
+}
