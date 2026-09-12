@@ -242,6 +242,9 @@ function prosesHasilScan(teks){
             tutupModal('modal-scanner');
             const p=getProgress();
             if(!p[nodeId]) p[nodeId]={};
+            if(!p[nodeId].scanned && typeof window.gtag === 'function') {
+                window.gtag('event', 'scan_wayang', { 'wayang_id': nodeId });
+            }
             p[nodeId].scanned=true;
             saveProgress(p);
             updateProgressUI();
@@ -340,3 +343,4 @@ function tutupTutorial(){
     try{localStorage.setItem('tutorialJelajahSelesai','true');}catch(e){}
     tutupModal('modal-tutorial');
 }
+

@@ -1,12 +1,20 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Photo Booth Wayang — Museum Wayang Jakarta</title>
+  <title>Photo Booth Wayang â€” Museum Wayang Jakarta</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3VFEQFNBBJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3VFEQFNBBJ');
+</script>
 </head>
 <body>
 
@@ -21,7 +29,7 @@
 
   <!-- INFO BAR MBTI (jika datang dari quiz) -->
   <div id="mbtiInfoBar" class="mbti-info-bar hidden">
-    <span id="mbtiInfoText">INTJ — Kamu adalah Arjuna</span>
+    <span id="mbtiInfoText">INTJ â€” Kamu adalah Arjuna</span>
   </div>
 
   <!-- INTRO SECTION -->
@@ -29,7 +37,7 @@
     <div class="intro-content">
       <div class="intro-badge">Photo Booth Eksklusif</div>
       <h1 class="intro-title">Abadikan Momen <span class="gold">Wayangmu</span></h1>
-      <p class="intro-subtitle">Ambil foto dan dapatkan bingkai eksklusif bertema wayang — siap diunduh dan dibagikan ke sosmed!</p>
+      <p class="intro-subtitle">Ambil foto dan dapatkan bingkai eksklusif bertema wayang â€” siap diunduh dan dibagikan ke sosmed!</p>
       <button class="btn-start" id="startCameraBtn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
           <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
@@ -70,7 +78,7 @@
       <!-- Custom Template Upload -->
       <div class="custom-template-section" style="margin-top: 15px; text-align: center;">
         <label class="btn-secondary" style="display:inline-block; cursor:pointer; padding: 8px 16px; font-size: 0.9rem;">
-          📷 Upload Template Custom (PNG)
+          ðŸ“· Upload Template Custom (PNG)
           <input type="file" id="customTemplateUpload" accept="image/png" hidden />
         </label>
         <div class="template-modes" style="margin-top: 10px; display: flex; gap: 15px; justify-content: center; font-family: 'Outfit', sans-serif;">
@@ -113,13 +121,13 @@
       </div>
       <div class="result-actions">
         <button class="btn-primary" id="downloadBtn">
-          📥 Unduh Foto
+          ðŸ“¥ Unduh Foto
         </button>
         <button class="btn-primary btn-share" id="shareBtn">
-          📤 Bagikan
+          ðŸ“¤ Bagikan
         </button>
         <button class="btn-secondary" id="retakeBtn">
-          🔄 Ambil Lagi
+          ðŸ”„ Ambil Lagi
         </button>
       </div>
       <p class="result-hint">Bagikan foto wayangmu ke Instagram, WhatsApp, atau platform sosial favoritmu!</p>
@@ -127,11 +135,12 @@
   </section>
 
   <footer class="site-footer">
-    <span>Museum Wayang Jakarta © 2025</span>
-    <span class="footer-sep">·</span>
+    <span>Museum Wayang Jakarta Â© 2025</span>
+    <span class="footer-sep">Â·</span>
     <span>#MuseumWayangJakarta</span>
   </footer>
 
   <script src="booth.js" type="module"></script>
 </body>
 </html>
+

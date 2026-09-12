@@ -8,14 +8,22 @@ const mainApp       = document.getElementById('main-app');
 const navMenu       = document.getElementById('nav-menu');
 let isNavMode = false;
 
-welcomeScreen.addEventListener('click', function(){
-    if(isNavMode) return;
+if (sessionStorage.getItem('welcomeShown')) {
     isNavMode = true;
-    welcomeText.style.opacity = '0';
-    welcomeScreen.classList.add('fade-out');
-    setTimeout(()=>{
-        welcomeScreen.style.display='none';
-        mainApp.style.display='block';
-        navMenu.style.display='flex';
-    }, 800);
-});
+    welcomeScreen.style.display = 'none';
+    mainApp.style.display = 'block';
+    navMenu.style.display = 'flex';
+} else {
+    welcomeScreen.addEventListener('click', function(){
+        if(isNavMode) return;
+        isNavMode = true;
+        sessionStorage.setItem('welcomeShown', 'true');
+        welcomeText.style.opacity = '0';
+        welcomeScreen.classList.add('fade-out');
+        setTimeout(()=>{
+            welcomeScreen.style.display='none';
+            mainApp.style.display='block';
+            navMenu.style.display='flex';
+        }, 800);
+    });
+}

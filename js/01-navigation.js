@@ -6,15 +6,9 @@
    ============================================================ */
 function changePage(id){
     stopAudio();
-    // Tutup chat semar jika sedang terbuka
-    const chatSemar = document.getElementById('chat-semar');
-    if(chatSemar) chatSemar.classList.remove('active');
-
-    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    document.querySelectorAll('#nav-menu .nav-btn').forEach(b=>{
-        b.classList.toggle('active', b.dataset.page===id);
-    });
-    if(id==='jelajah'){ buildJelajahGrid(); cekTutorial(); }
-    if(id==='pencapaian'){ renderPencapaian(); }
+    const targetUrl = (id === 'beranda') ? 'index.html' : id + '.html';
+    if (window.location.pathname.indexOf(targetUrl) === -1) {
+        window.location.href = targetUrl;
+    }
 }
+

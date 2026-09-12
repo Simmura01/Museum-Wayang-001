@@ -411,3 +411,4 @@ document.getElementById('showGuideBtn')?.addEventListener('click', () => {
 document.getElementById('closeGuideBtn')?.addEventListener('click', () => {
   document.getElementById('guideOverlay')?.classList.add('hidden');
 });
+

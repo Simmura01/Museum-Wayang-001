@@ -204,9 +204,9 @@ class AppController {
   // ────────────────────────────────────────────────────────────────────────────
 
   _setupEventListeners() {
-    // Kembali ke museum — langsung ke halaman wahana
+    const backToMuseumBtn = document.getElementById('backToMuseumBtn');
     backToMuseumBtn?.addEventListener('click', () => {
-      window.location.href = '../index.html#wahana';
+      window.location.href = '../wahana.html';
     });
 
     // Name input
@@ -373,6 +373,14 @@ class AppController {
 
   _showGameOver() {
     this.audio.stopSong();
+
+    if(typeof window.gtag === 'function') {
+        window.gtag('event', 'game_played', { 
+            'mode': this.currentMode, 
+            'score': this.game.score,
+            'max_combo': this.game.maxCombo
+        });
+    }
 
     const accuracy = this.game.totalHits / Math.max(1, this.game.totalHits + this.game.totalMisses) * 100;
 

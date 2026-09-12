@@ -25,6 +25,13 @@ function setAchievement(key,unlocked,progressText,fillPct){
     const status=document.getElementById('ach-status-'+key);if(status) status.textContent=unlocked?'TERBUKA':'TERKUNCI';
     const prog=document.getElementById('ach-progress-'+key);if(prog) prog.textContent=progressText;
     const fill=document.getElementById('ach-fill-'+key);if(fill) fill.style.width=(unlocked?100:fillPct)+'%';
+    if(unlocked && typeof window.gtag === 'function') {
+        const gaKey = 'museumAchGaSent_' + key;
+        if (!localStorage.getItem(gaKey)) {
+            localStorage.setItem(gaKey, 'true');
+            window.gtag('event', 'unlock_achievement', { 'achievement_id': key });
+        }
+    }
 }
 
 /* Modal Detail Pencapaian: diisi dari data tersembunyi di masing-masing kartu */
@@ -63,3 +70,4 @@ function renderPencapaian(){
     const hukumCount=getHukumClicks().length;
     setAchievement('hukum',hukumCount>=TARGET_HUKUM,`${Math.min(hukumCount,TARGET_HUKUM)} / ${TARGET_HUKUM} dasar hukum dibaca`,hukumCount/TARGET_HUKUM*100);
 }
+

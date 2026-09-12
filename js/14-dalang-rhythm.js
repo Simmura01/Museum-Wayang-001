@@ -5,7 +5,7 @@
 
 function bukaRhythmGame() {
   // Navigasi ke game
-  window.location.href = 'finger-Tracking-Game-main/index.html';
+  window.location.href = 'dalang-shooter/game.html';
 }
 
 // ── Auto-navigate ke halaman Wahana saat kembali dari game ───────────────────

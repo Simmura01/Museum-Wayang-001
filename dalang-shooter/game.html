@@ -1,18 +1,27 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dalang Shooter — Museum Wayang</title>
+  <title>Dalang Shooter ✦ Museum Wayang</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3VFEQFNBBJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3VFEQFNBBJ');
+</script>
 </head>
 <body>
 <div id="appContainer">
 
-  <!-- ══════════════════ HUD ══════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• HUD â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <header id="gameHUD">
     <div class="hud-group">
       <span class="hud-label">SKOR</span>
@@ -20,7 +29,7 @@
     </div>
     <div class="hud-group">
       <span class="hud-label">KOMBO</span>
-      <span id="comboVal" class="hud-value">×0</span>
+      <span id="comboVal" class="hud-value">Ã—0</span>
     </div>
     <!-- Nyawa -->
     <div class="hud-group">
@@ -44,11 +53,11 @@
     </div>
   </header>
 
-  <!-- ══════════════════ GAME AREA ══════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• GAME AREA â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <main id="gameArea">
     <canvas id="gameCanvas" width="800" height="450"></canvas>
 
-    <!-- ─── LOADING ─── -->
+    <!-- â”€â”€â”€ LOADING â”€â”€â”€ -->
     <div id="loadingOverlay" class="screen-overlay active">
       <div class="loader-content">
         <div class="batik-spinner"></div>
@@ -58,7 +67,7 @@
       </div>
     </div>
 
-    <!-- ─── NAME INPUT ─── -->
+    <!-- â”€â”€â”€ NAME INPUT â”€â”€â”€ -->
     <div id="nameInputOverlay" class="screen-overlay hidden">
       <div class="overlay-card name-card">
         <div class="card-ornament top"></div>
@@ -78,7 +87,7 @@
       </div>
     </div>
 
-    <!-- ─── MODE SELECT ─── -->
+    <!-- â”€â”€â”€ MODE SELECT â”€â”€â”€ -->
     <div id="modeSelectOverlay" class="screen-overlay hidden">
       <div class="overlay-card mode-card">
         <div class="card-ornament top"></div>
@@ -108,7 +117,7 @@
         <div class="card-ornament bottom"></div>
       </div>
     </div>
-    <!-- ─── TUTORIAL ─── -->
+    <!-- â”€â”€â”€ TUTORIAL â”€â”€â”€ -->
     <div id="tutorialOverlay" class="screen-overlay hidden">
       <div class="overlay-card mode-card" style="max-width: 500px;">
         <div class="card-ornament top"></div>
@@ -127,12 +136,12 @@
     </div>
 
 
-    <!-- ─── COUNTDOWN ─── -->
+    <!-- â”€â”€â”€ COUNTDOWN â”€â”€â”€ -->
     <div id="countdownOverlay" class="screen-overlay hidden">
       <div id="countdownText" class="countdown-text">3</div>
     </div>
 
-    <!-- ─── PAUSE ─── -->
+    <!-- â”€â”€â”€ PAUSE â”€â”€â”€ -->
     <div id="pauseOverlay" class="screen-overlay hidden">
       <div class="overlay-card mini-card">
         <div class="card-ornament top"></div>
@@ -153,7 +162,7 @@
       </div>
     </div>
 
-    <!-- ─── TRACKING LOST ─── -->
+    <!-- â”€â”€â”€ TRACKING LOST â”€â”€â”€ -->
     <div id="trackingLostOverlay" class="screen-overlay hidden">
       <div class="overlay-card mini-card warning-card">
         <svg class="warning-svg-icon" viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
@@ -162,7 +171,7 @@
       </div>
     </div>
 
-    <!-- ─── GAME OVER ─── -->
+    <!-- â”€â”€â”€ GAME OVER â”€â”€â”€ -->
     <div id="gameOverOverlay" class="screen-overlay hidden">
       <div class="overlay-card gameover-card">
         <div class="card-ornament top"></div>
@@ -176,7 +185,7 @@
           </div>
           <div class="go-stat">
             <span class="go-label">KOMBO TERTINGGI</span>
-            <span id="goCombo" class="go-val">×0</span>
+            <span id="goCombo" class="go-val">Ã—0</span>
           </div>
           <div class="go-stat">
             <span class="go-label">MUSUH DIKALAHKAN</span>
@@ -206,7 +215,7 @@
       </div>
     </div>
 
-    <!-- ─── LEADERBOARD ─── -->
+    <!-- â”€â”€â”€ LEADERBOARD â”€â”€â”€ -->
     <div id="leaderboardOverlay" class="screen-overlay hidden">
       <div class="overlay-card leaderboard-card">
         <div class="card-ornament top"></div>
@@ -232,7 +241,7 @@
 
   </main>
 
-  <!-- ══════════════════ FOOTER KONTROL ══════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FOOTER KONTROL â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <footer id="gameControls">
     <div class="control-buttons">
       <button id="backToMuseumBtn" class="control-btn" title="Kembali ke Museum">
@@ -264,7 +273,7 @@
     </div>
   </footer>
 
-  <!-- ══════════════════ WEBCAM PIP ══════════════════ -->
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• WEBCAM PIP â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <div id="webcamPanel" class="webcam-pip">
     <div class="panel-header">
       <span class="panel-title">KAMERA</span>
@@ -281,3 +290,4 @@
 <script type="module" src="app.js"></script>
 </body>
 </html>
+
