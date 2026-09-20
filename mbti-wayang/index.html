@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -31,6 +31,13 @@
                 <div class="hero-badge">Quiz Kepribadian</div>
                 <h1 class="hero-title">Kamu adalah Tokoh Wayang yang mana?</h1>
                 <p class="hero-sub">Jawab 16 pertanyaan dan temukan karakter pewayangan yang mencerminkan kepribadian unikmu berdasarkan kerangka MBTI.</p>
+                <div class="lang-toggle" id="langToggle">
+                    <span class="lang-option active" data-lang="id">ID</span>
+                    <div class="lang-slider-track" id="langSliderTrack">
+                        <div class="lang-slider-thumb"></div>
+                    </div>
+                    <span class="lang-option" data-lang="en">EN</span>
+                </div>
                 <button id="startBtn" class="btn-start">Mulai Quiz &rarr;</button>
             </div>
         </section>
@@ -84,6 +91,10 @@
                     <p id="resultQuoteAttr" class="result-quote-attr"></p>
                 </div>
                 <div id="resultTraits" class="result-traits"></div>
+                <div class="mbti-explanation" id="mbtiExplanation">
+                    <div class="mbti-explanation-title" id="mbtiExplanationTitle">Tentang Tipe MBTI-mu</div>
+                    <p class="mbti-explanation-text" id="mbtiExplanationText"></p>
+                </div>
                 <div class="result-actions">
                     <button id="photoBoothBtn" class="btn-primary">Abadikan di Photo Booth</button>
                     <button id="retakeBtn" class="btn-secondary">Ulangi Quiz</button>
@@ -98,7 +109,8 @@
         <span>Berbasis Kerangka Myers-Briggs Type Indicator (MBTI)</span>
     </footer>
 
-    <script src="quiz.js" type="module"></script>
+    <script src="lang.js"></script>
+    <script src="quiz.js"></script>
 </body>
 </html>
 

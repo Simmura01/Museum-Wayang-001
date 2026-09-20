@@ -1,4 +1,4 @@
-﻿*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--gold:#c8a01e;--gold-b:#ffd700;--bg:#0d0a06;--bg2:#120d04;--text:#e8d5a3;--dim:#b8985a}
 body{font-family:"Outfit",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
 .gold{color:var(--gold-b)}
@@ -48,6 +48,16 @@ body{font-family:"Outfit",sans-serif;background:var(--bg);color:var(--text);min-
 .btn-primary:hover{transform:translateY(-2px)}
 .btn-secondary{border:1px solid rgba(200,160,30,.4);color:var(--gold);background:transparent;font-family:"Outfit",sans-serif;padding:.8rem 2rem;border-radius:4px;cursor:pointer;font-size:.9rem;transition:all .2s}
 .btn-secondary:hover{background:rgba(200,160,30,.08);border-color:var(--gold)}
+.lang-toggle{display:flex;align-items:center;gap:.8rem;justify-content:center;margin-bottom:1.8rem}
+.lang-option{font-size:.85rem;color:var(--dim);cursor:pointer;letter-spacing:.06em;transition:color .2s;user-select:none;font-weight:400}
+.lang-option.active{color:var(--gold-b);font-weight:600}
+.lang-slider-track{width:44px;height:24px;background:rgba(200,160,30,.15);border:1px solid rgba(200,160,30,.4);border-radius:12px;position:relative;cursor:pointer;transition:background .25s}
+.lang-slider-track:hover{background:rgba(200,160,30,.22)}
+.lang-slider-thumb{width:18px;height:18px;background:linear-gradient(135deg,#c8a01e,#ffd700);border-radius:50%;position:absolute;top:2px;left:2px;transition:left .25s ease;box-shadow:0 1px 6px rgba(200,160,30,.35)}
+.lang-slider-track.en .lang-slider-thumb{left:22px}
+.mbti-explanation{margin:2rem 0;padding:1.5rem;background:rgba(200,160,30,.05);border:1px solid rgba(200,160,30,.2);border-radius:10px}
+.mbti-explanation-title{font-family:"Cinzel",serif;font-size:1.05rem;color:var(--gold-b);margin-bottom:1rem;text-align:center;letter-spacing:.06em}
+.mbti-explanation-text{color:#d4b896;line-height:1.85;font-size:.95rem;white-space:pre-line}
 .site-footer{text-align:center;padding:1.8rem;color:rgba(200,160,30,.3);font-size:.78rem;border-top:1px solid rgba(200,160,30,.1)}
 .footer-sep{margin:0 .5rem}
 @media(max-width:600px){.hero-title{font-size:1.75rem}.result-mbti-type{font-size:3rem}.result-character-name{font-size:1.5rem}.result-card{padding:1.8rem 1.2rem}.question-card{padding:1.8rem 1.2rem}.header-title{display:none}.header-spacer{display:none}}
