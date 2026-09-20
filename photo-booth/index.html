@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="../assets/video/logo.PNG" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Photo Booth Wayang â€” Museum Wayang Jakarta</title>
+  <title>Photo Booth Wayang  Museum Wayang Jakarta</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
@@ -29,7 +30,7 @@
 
   <!-- INFO BAR MBTI (jika datang dari quiz) -->
   <div id="mbtiInfoBar" class="mbti-info-bar hidden">
-    <span id="mbtiInfoText">INTJ â€” Kamu adalah Arjuna</span>
+    <span id="mbtiInfoText">INTJ Kamu adalah Arjuna</span>
   </div>
 
   <!-- INTRO SECTION -->
@@ -37,7 +38,7 @@
     <div class="intro-content">
       <div class="intro-badge">Photo Booth Eksklusif</div>
       <h1 class="intro-title">Abadikan Momen <span class="gold">Wayangmu</span></h1>
-      <p class="intro-subtitle">Ambil foto dan dapatkan bingkai eksklusif bertema wayang â€” siap diunduh dan dibagikan ke sosmed!</p>
+      <p class="intro-subtitle">Ambil foto dan dapatkan bingkai eksklusif bertema wayang siap diunduh dan dibagikan ke sosmed!</p>
       <button class="btn-start" id="startCameraBtn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
           <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
@@ -51,41 +52,35 @@
   <!-- CAMERA SECTION -->
   <section class="camera-section hidden" id="cameraSection">
     <div class="camera-wrap">
-      <div class="video-container">
+      <div class="video-container" id="videoContainer">
         <video id="webcamVideo" autoplay playsinline muted></video>
         <canvas id="frameOverlay"></canvas>
+        <div class="strip-preview-panel hidden" id="stripPreviewPanel">
+          <img id="stripPreviewImg" src="" alt="Strip Preview" />
+        </div>
       </div>
 
-      <!-- Frame selector -->
-      <div class="frame-selector">
-        <label class="frame-option active" data-frame="klasik">
-          <input type="radio" name="frameOption" value="klasik" checked hidden />
-          <span class="frame-dot" style="background:#c8a01e"></span>
-          Klasik Emas
-        </label>
-        <label class="frame-option" data-frame="merah">
-          <input type="radio" name="frameOption" value="merah" hidden />
-          <span class="frame-dot" style="background:#c0392b"></span>
-          Merah Wayang
-        </label>
-        <label class="frame-option" data-frame="hitam">
-          <input type="radio" name="frameOption" value="hitam" hidden />
-          <span class="frame-dot" style="background:#888"></span>
-          Hitam Elegan
-        </label>
+      <!-- Template Mode Tabs -->
+      <div class="template-mode-tabs" id="templateModeTabs">
+        <button class="template-mode-tab active" data-mode="single">📷 1 Foto</button>
+        <button class="template-mode-tab" data-mode="strip">📸 3 Strip</button>
       </div>
 
-      <!-- Custom Template Upload -->
-      <div class="custom-template-section" style="margin-top: 15px; text-align: center;">
-        <label class="btn-secondary" style="display:inline-block; cursor:pointer; padding: 8px 16px; font-size: 0.9rem;">
-          ðŸ“· Upload Template Custom (PNG)
+      <!-- Template Gallery -->
+      <div class="template-section">
+        <div class="template-section-title" id="templateSectionTitle">Pilih Template</div>
+        <div class="template-gallery" id="templateGallery">
+          <!-- Filled dynamically by JS -->
+        </div>
+      </div>
+
+      <!-- Custom Upload -->
+      <div class="custom-upload-row">
+        <label class="custom-upload-btn">
+          📁 Upload Template Custom (PNG)
           <input type="file" id="customTemplateUpload" accept="image/png" hidden />
         </label>
-        <div class="template-modes" style="margin-top: 10px; display: flex; gap: 15px; justify-content: center; font-family: 'Outfit', sans-serif;">
-          <label style="cursor:pointer;"><input type="radio" name="templateMode" value="single" checked> 1 Bingkai (1 Foto)</label>
-          <label style="cursor:pointer;"><input type="radio" name="templateMode" value="strip"> Photo Strip (3 Foto)</label>
-        </div>
-        <button id="showGuideBtn" style="background:none; border:none; color:#c8a01e; text-decoration:underline; cursor:pointer; font-family:'Outfit'; margin-top:10px;">Lihat Ketentuan Canva</button>
+        <button id="showGuideBtn" style="background:none; border:none; color:#c8a01e; text-decoration:underline; cursor:pointer; font-family:'Outfit'; font-size:0.82rem;">Ketentuan Template</button>
       </div>
 
       <div id="captureCountdown" style="font-size: 3rem; font-weight: bold; color: #ffd700; text-align: center; margin-top: 10px; min-height: 4rem;"></div>
@@ -121,13 +116,13 @@
       </div>
       <div class="result-actions">
         <button class="btn-primary" id="downloadBtn">
-          ðŸ“¥ Unduh Foto
+          Unduh Foto
         </button>
         <button class="btn-primary btn-share" id="shareBtn">
-          ðŸ“¤ Bagikan
+          Bagikan
         </button>
         <button class="btn-secondary" id="retakeBtn">
-          ðŸ”„ Ambil Lagi
+          Ambil Lagi
         </button>
       </div>
       <p class="result-hint">Bagikan foto wayangmu ke Instagram, WhatsApp, atau platform sosial favoritmu!</p>
@@ -135,12 +130,12 @@
   </section>
 
   <footer class="site-footer">
-    <span>Museum Wayang Jakarta Â© 2025</span>
-    <span class="footer-sep">Â·</span>
+    <span>Museum Wayang Jakarta 2025</span>
+   
     <span>#MuseumWayangJakarta</span>
   </footer>
 
-  <script src="booth.js" type="module"></script>
+  <script src="booth.js"></script>
 </body>
 </html>
 

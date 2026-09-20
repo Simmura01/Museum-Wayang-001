@@ -1,4 +1,4 @@
-﻿/* ═══ Photo Booth Wayang — style.css ═══ */
+/* ═══ Photo Booth Wayang — style.css ═══ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -162,6 +162,121 @@ body {
 }
 .btn-secondary:hover { background: rgba(200,160,30,0.08); border-color: var(--gold); }
 .result-hint { color: var(--text-dim); font-size: 0.82rem; text-align: center; }
+
+/* ── Template Mode Tabs ── */
+.template-mode-tabs {
+  display: flex; gap: 0; justify-content: center; margin-bottom: 1rem;
+  border: 1px solid rgba(200,160,30,0.35); border-radius: 8px; overflow: hidden;
+  width: fit-content; margin-left: auto; margin-right: auto;
+}
+.template-mode-tab {
+  padding: 0.55rem 1.5rem; cursor: pointer; font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem; color: var(--text-dim); background: transparent;
+  border: none; transition: all 0.2s; letter-spacing: 0.04em; user-select: none;
+}
+.template-mode-tab.active {
+  background: rgba(200,160,30,0.15); color: var(--gold-bright); font-weight: 600;
+}
+.template-mode-tab:hover:not(.active) {
+  background: rgba(200,160,30,0.06); color: var(--gold);
+}
+
+/* ── Template Section ── */
+.template-section {
+  width: 100%; margin-top: 0.5rem;
+}
+.template-section-title {
+  font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--gold);
+  text-align: center; margin-bottom: 0.8rem; letter-spacing: 0.08em;
+}
+
+/* ── Template Gallery Grid ── */
+.template-gallery {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 0.7rem; width: 100%; max-height: 280px; overflow-y: auto;
+  padding: 4px; scrollbar-width: thin; scrollbar-color: var(--gold) transparent;
+}
+.template-gallery.strip-mode {
+  grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+}
+.template-card {
+  position: relative; border: 2px solid rgba(200,160,30,0.2); border-radius: 8px;
+  overflow: hidden; cursor: pointer; transition: all 0.2s;
+  background: rgba(200,160,30,0.04);
+}
+.template-card:hover {
+  border-color: rgba(200,160,30,0.5); transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(200,160,30,0.15);
+}
+.template-card.active {
+  border-color: var(--gold-bright); background: rgba(200,160,30,0.1);
+  box-shadow: 0 0 16px rgba(200,160,30,0.25);
+}
+.template-card-img {
+  width: 100%; display: block; object-fit: cover;
+  background: #111; image-rendering: auto;
+}
+/* Single template: landscape thumbnail */
+.template-card.single .template-card-img {
+  aspect-ratio: 16/9;
+}
+/* Strip template: portrait thumbnail — TIDAK GEPENG */
+.template-card.strip .template-card-img {
+  aspect-ratio: 1/3;
+  object-fit: contain; background: #0a0806;
+}
+.template-card-label {
+  padding: 0.35rem 0.5rem; font-size: 0.72rem; color: var(--text-dim);
+  text-align: center; background: rgba(13,10,6,0.9);
+  border-top: 1px solid rgba(200,160,30,0.15);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.template-card.active .template-card-label {
+  color: var(--gold-bright);
+}
+
+/* ── Built-in Frame Card (Klasik/Merah/Hitam) ── */
+.template-card-builtin {
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cinzel', serif; font-size: 0.8rem; color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+.template-card.single .template-card-builtin {
+  aspect-ratio: 16/9;
+}
+.template-card-dot {
+  width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; flex-shrink: 0;
+}
+
+/* ── Strip Preview Panel ── */
+.strip-preview-panel {
+  position: absolute; right: -90px; top: 0; width: 80px; height: 100%;
+  background: rgba(13,10,6,0.95); border: 1px solid rgba(200,160,30,0.3);
+  border-radius: 6px; overflow: hidden; display: flex; align-items: center;
+  justify-content: center; padding: 4px;
+}
+.strip-preview-panel img {
+  width: 100%; height: 100%; object-fit: contain;
+}
+.video-container.strip-mode {
+  margin-right: 100px;
+}
+
+/* ── Custom Upload Row ── */
+.custom-upload-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.8rem; margin-top: 1rem; flex-wrap: wrap;
+}
+.custom-upload-btn {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  border: 1px solid rgba(200,160,30,0.35); color: var(--gold);
+  background: transparent; padding: 0.5rem 1.2rem; border-radius: 6px;
+  cursor: pointer; font-family: 'Outfit', sans-serif; font-size: 0.82rem;
+  transition: all 0.2s;
+}
+.custom-upload-btn:hover {
+  background: rgba(200,160,30,0.08); border-color: var(--gold);
+}
 
 /* ── Footer ── */
 .site-footer {
