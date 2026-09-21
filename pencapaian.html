@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="assets/video/logo.PNG" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="theme-color" content="#0d0904">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Digitalisasi Museum Wayang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+    
+    <link rel="stylesheet" href="css/00-variables-reset.css">
+    <link rel="stylesheet" href="css/01-welcome.css">
+    <link rel="stylesheet" href="css/02-navigation.css">
+    <link rel="stylesheet" href="css/03-layout-sections.css">
+    <link rel="stylesheet" href="css/04-beranda.css">
+    <link rel="stylesheet" href="css/05-shared-gallery.css">
+    <link rel="stylesheet" href="css/06-pameran.css">
+    <link rel="stylesheet" href="css/07-jelajah.css">
+    <link rel="stylesheet" href="css/08-pencapaian.css">
+    <link rel="stylesheet" href="css/09-modals.css">
+    <link rel="stylesheet" href="css/10-responsive.css">
+    <link rel="stylesheet" href="css/11-wahana.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3VFEQFNBBJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3VFEQFNBBJ');
+</script>
+<script>
+    if (sessionStorage.getItem('welcomeShown')) {
+        document.write('<style>#welcome-screen { display: none !important; } #main-app { display: block !important; } #nav-menu { display: flex !important; }</style>');
+    }
+</script>
+</head>
+<body>
+
+
+<div id="welcome-screen">
+    <div class="border-line-h top"></div>
+    <div class="border-line-h bottom"></div>
+    <div class="border-line-v left"></div>
+    <div class="border-line-v right"></div>
+    <div class="corner-ornament corner-tl"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="rgba(200,160,30,0.7)" stroke-width="1.2"><line x1="5" y1="5" x2="60" y2="5"/><line x1="5" y1="5" x2="5" y2="60"/><line x1="12" y1="12" x2="50" y2="12"/><line x1="12" y1="12" x2="12" y2="50"/><path d="M5 5 Q20 15 30 5 Q25 20 35 18 Q20 30 15 45 Q8 30 5 5Z" stroke="rgba(200,160,30,0.35)" fill="rgba(200,160,30,0.04)"/><rect x="3" y="3" width="8" height="8" transform="rotate(45 7 7)" stroke="rgba(200,160,30,0.9)" fill="rgba(200,160,30,0.3)"/></g><g fill="rgba(200,160,30,0.5)"><circle cx="30" cy="12" r="2"/><circle cx="12" cy="30" r="2"/><circle cx="45" cy="12" r="1.5"/><circle cx="12" cy="45" r="1.5"/></g></svg></div>
+    <div class="corner-ornament corner-tr"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="rgba(200,160,30,0.7)" stroke-width="1.2"><line x1="5" y1="5" x2="60" y2="5"/><line x1="5" y1="5" x2="5" y2="60"/><line x1="12" y1="12" x2="50" y2="12"/><line x1="12" y1="12" x2="12" y2="50"/><path d="M5 5 Q20 15 30 5 Q25 20 35 18 Q20 30 15 45 Q8 30 5 5Z" stroke="rgba(200,160,30,0.35)" fill="rgba(200,160,30,0.04)"/><rect x="3" y="3" width="8" height="8" transform="rotate(45 7 7)" stroke="rgba(200,160,30,0.9)" fill="rgba(200,160,30,0.3)"/></g><g fill="rgba(200,160,30,0.5)"><circle cx="30" cy="12" r="2"/><circle cx="12" cy="30" r="2"/><circle cx="45" cy="12" r="1.5"/><circle cx="12" cy="45" r="1.5"/></g></svg></div>
+    <div class="corner-ornament corner-bl"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="rgba(200,160,30,0.7)" stroke-width="1.2"><line x1="5" y1="5" x2="60" y2="5"/><line x1="5" y1="5" x2="5" y2="60"/><line x1="12" y1="12" x2="50" y2="12"/><line x1="12" y1="12" x2="12" y2="50"/><path d="M5 5 Q20 15 30 5 Q25 20 35 18 Q20 30 15 45 Q8 30 5 5Z" stroke="rgba(200,160,30,0.35)" fill="rgba(200,160,30,0.04)"/><rect x="3" y="3" width="8" height="8" transform="rotate(45 7 7)" stroke="rgba(200,160,30,0.9)" fill="rgba(200,160,30,0.3)"/></g><g fill="rgba(200,160,30,0.5)"><circle cx="30" cy="12" r="2"/><circle cx="12" cy="30" r="2"/><circle cx="45" cy="12" r="1.5"/><circle cx="12" cy="45" r="1.5"/></g></svg></div>
+    <div class="corner-ornament corner-br"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="rgba(200,160,30,0.7)" stroke-width="1.2"><line x1="5" y1="5" x2="60" y2="5"/><line x1="5" y1="5" x2="5" y2="60"/><line x1="12" y1="12" x2="50" y2="12"/><line x1="12" y1="12" x2="12" y2="50"/><path d="M5 5 Q20 15 30 5 Q25 20 35 18 Q20 30 15 45 Q8 30 5 5Z" stroke="rgba(200,160,30,0.35)" fill="rgba(200,160,30,0.04)"/><rect x="3" y="3" width="8" height="8" transform="rotate(45 7 7)" stroke="rgba(200,160,30,0.9)" fill="rgba(200,160,30,0.3)"/></g><g fill="rgba(200,160,30,0.5)"><circle cx="30" cy="12" r="2"/><circle cx="12" cy="30" r="2"/><circle cx="45" cy="12" r="1.5"/><circle cx="12" cy="45" r="1.5"/></g></svg></div>
+    <div class="welcome-top-title">✦ Museum Wayang Jakarta ✦</div>
+    <div class="mascot-frame-wrapper">
+        <div class="mascot-frame">
+            <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+            <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+            <img id="mascot" class="wayang-mascot" src="assets/video/logo.PNG" alt="Logo Museum">
+        </div>
+    </div>
+    <div class="welcome-text" id="welcome-text">
+        <h1>Selamat Datang</h1>
+        <p class="pulse-text">— Klik layar untuk melanjutkan —</p>
+    </div>
+    <div class="bottom-gold-bar">
+        <img src="assets/icons/icon-kris.png" alt="" class="bar-icon">
+        <img src="assets/icons/icon-wayang.png" alt="" class="bar-icon">
+        <p class="bar-text">✦ MUSEUM WAYANG JAKARTA ✦</p>
+        <img src="assets/icons/icon-compass.png" alt="" class="bar-icon">
+        <img src="assets/icons/icon-gunungan.png" alt="" class="bar-icon">
+    </div>
+</div>
+
+
+<div id="nav-menu">
+    <button class="nav-btn" data-page="beranda" onclick="window.location.href='beranda.html'">Beranda</button>
+    <button class="nav-btn" data-page="pameran" onclick="window.location.href='pameran.html'">Pameran</button>
+    <button class="nav-btn" data-page="jelajah" onclick="window.location.href='jelajah.html'">Jelajah</button>
+    <button class="nav-btn active" data-page="pencapaian" onclick="window.location.href='pencapaian.html'">Pencapaian</button>
+    <button class="nav-btn" data-page="wahana" onclick="window.location.href='wahana.html'">Wahana</button>
+</div>
+
+<div id="main-app">
+<div id="pencapaian" class="section pameran-bg active">
+        <div class="deco-corner deco-tl"></div>
+        <div class="deco-corner deco-br"></div>
+        <div class="section-title-header">
+            <h2><span class="title-ornament">❧&ensp;</span>Pencapaian Pengunjung<span class="title-ornament">&ensp;❧</span></h2>
+            <div class="current-view-sub">KUMPULKAN SEMUA PENCAPAIAN MUSEUM</div>
+        </div>
+        <div class="pencapaian-inner">
+            <p class="pencapaian-desc">
+                Kumpulkan pencapaian dengan menjelajahi Museum Wayang — pindai koleksi, jawab kuis, pelajari karakter, dan baca dasar hukum pelindungan warisan budaya.
+            </p>
+
+            <div class="pencapaian-grid" id="pencapaian-grid">
+
+                <!-- SCAN Achievement -->
+                <div class="achievement-card locked" id="ach-card-scan" onclick="bukaPencapaianDetail('scan')">
+                    <div class="achievement-icon-wrap">
+                        <img src="assets/icons/penjelajah.png" alt="Scan" class="achievement-icon-img"
+                            onerror="this.classList.add('hidden')">
+                        <svg class="achievement-icon-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2.5" fill="none"/>
+                            <rect x="8" y="8" width="8" height="8" fill="currentColor" opacity=".7"/>
+                            <rect x="28" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2.5" fill="none"/>
+                            <rect x="32" y="8" width="8" height="8" fill="currentColor" opacity=".7"/>
+                            <rect x="4" y="28" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2.5" fill="none"/>
+                            <rect x="8" y="32" width="8" height="8" fill="currentColor" opacity=".7"/>
+                            <path d="M28 28h4v4h-4zM36 28h4v4h-4zM28 36h4v4h-4zM36 36h4v4h-4z" fill="currentColor" opacity=".7"/>
+                            <path d="M22 22h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <style>.achievement-icon-svg{color:var(--gold);}</style>
+                        </svg>
+                    </div>
+                    <h3 class="achievement-title">Sang Lelana Linuwih</h3>
+                    <div class="achievement-status" id="ach-status-scan">TERKUNCI</div>
+                    <div class="ach-tap-hint">Ketuk untuk detail</div>
+                    <p class="achievement-desc ach-hidden-detail" id="ach-desc-scan">Berhasil memindai QR Code pada seluruh koleksi wayang di halaman Jelajah.</p>
+                    <div class="achievement-progress ach-hidden-detail" id="ach-progress-scan">0 / 18 koleksi dipindai</div>
+                    <div class="achievement-prog-bar ach-hidden-detail"><div class="achievement-prog-fill" id="ach-fill-scan"></div></div>
+                </div>
+
+                <!-- KUIS Achievement -->
+                <div class="achievement-card locked" id="ach-card-kuis" onclick="bukaPencapaianDetail('kuis')">
+                    <div class="achievement-icon-wrap">
+                        <img src="" alt="Kuis" class="achievement-icon-img"
+                            onerror="this.classList.add('hidden')">
+                        <svg class="achievement-icon-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <style>.achievement-icon-svg{color:var(--gold);}</style>
+                            <path d="M24 6L4 16l20 10 20-10L24 6z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                            <path d="M4 16v10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M12 20v8c0 4 12 6 12 6s12-2 12-6v-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="38" cy="32" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M36 32l1.5 1.5L40 30" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="achievement-title">Ki Dalang</h3>
+                    <div class="achievement-status" id="ach-status-kuis">TERKUNCI</div>
+                    <div class="ach-tap-hint">Ketuk untuk detail</div>
+                    <p class="achievement-desc ach-hidden-detail" id="ach-desc-kuis">Berhasil memindai sekaligus menjawab benar seluruh kuis di halaman Jelajah.</p>
+                    <div class="achievement-progress ach-hidden-detail" id="ach-progress-kuis">0 / 18 kuis terselesaikan</div>
+                    <div class="achievement-prog-bar ach-hidden-detail"><div class="achievement-prog-fill" id="ach-fill-kuis"></div></div>
+                </div>
+
+                <!-- KARAKTER Achievement -->
+                <div class="achievement-card locked" id="ach-card-karakter" onclick="bukaPencapaianDetail('karakter')">
+                    <div class="achievement-icon-wrap">
+                        <img src="assets/icons/quiz.png" alt="Karakter" class="achievement-icon-img"
+                            onerror="this.classList.add('hidden')">
+                        <svg class="achievement-icon-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <style>.achievement-icon-svg{color:var(--gold);}</style>
+                            <ellipse cx="24" cy="10" rx="6" ry="7" fill="currentColor" opacity=".8"/>
+                            <path d="M14 18c0-1 1-4 10-4s10 3 10 4v10H14V18z" fill="currentColor" opacity=".7"/>
+                            <path d="M14 18l-5 5 3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M34 18l5 5-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M17 28l-2 12h4l5-8 5 8h4l-2-12" fill="currentColor" opacity=".6"/>
+                            <path d="M18 6l2-3 4 4 4-4 2 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="achievement-title">Sang Waskita</h3>
+                    <div class="achievement-status" id="ach-status-karakter">TERKUNCI</div>
+                    <div class="ach-tap-hint">Ketuk untuk detail</div>
+                    <p class="achievement-desc ach-hidden-detail" id="ach-desc-karakter">Membuka detail minimal 10 koleksi wayang berbeda di halaman Pameran.</p>
+                    <div class="achievement-progress ach-hidden-detail" id="ach-progress-karakter">0 / 10 koleksi dipelajari</div>
+                    <div class="achievement-prog-bar ach-hidden-detail"><div class="achievement-prog-fill" id="ach-fill-karakter"></div></div>
+                </div>
+
+                <!-- HUKUM Achievement -->
+                <div class="achievement-card locked" id="ach-card-hukum" onclick="bukaPencapaianDetail('hukum')">
+                    <div class="achievement-icon-wrap">
+                        <img src="assets/icons/hukum.png" alt="Hukum" class="achievement-icon-img"
+                            onerror="this.classList.add('hidden')">
+                        <svg class="achievement-icon-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <style>.achievement-icon-svg{color:var(--gold);}</style>
+                            <line x1="24" y1="6" x2="24" y2="42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            <line x1="12" y1="42" x2="36" y2="42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            <line x1="10" y1="14" x2="38" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M6 14l6 12a6 6 0 01-12 0L6 14z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M42 14l-6 12a6 6 0 0012 0L42 14z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="24" cy="10" r="3" fill="currentColor" opacity=".8"/>
+                        </svg>
+                    </div>
+                    <h3 class="achievement-title">Panglima Kaadilan</h3>
+                    <div class="achievement-status" id="ach-status-hukum">TERKUNCI</div>
+                    <div class="ach-tap-hint">Ketuk untuk detail</div>
+                    <p class="achievement-desc ach-hidden-detail" id="ach-desc-hukum">Membaca minimal 2 dasar hukum pelindungan warisan budaya di bagian Hukum pada Beranda.</p>
+                    <div class="achievement-progress ach-hidden-detail" id="ach-progress-hukum">0 / 2 dasar hukum dibaca</div>
+                    <div class="achievement-prog-bar ach-hidden-detail"><div class="achievement-prog-fill" id="ach-fill-hukum"></div></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Detail Pencapaian -->
+    <div id="modal-pencapaian-detail" class="modal-zoom">
+        <div class="modal-card" style="max-width:440px;text-align:center">
+            <div class="modal-head">
+                <div>
+                    <div class="modal-nama" id="pd-nama">Nama Pencapaian</div>
+                    <div class="achievement-status" id="pd-status" style="margin-bottom:0;">TERKUNCI</div>
+                </div>
+                <button class="modal-close" onclick="tutupModal('modal-pencapaian-detail')">✕</button>
+            </div>
+            <div class="modal-body-text" style="padding:24px 22px 8px;">
+                <div class="achievement-icon-wrap pd-icon-wrap" id="pd-icon-wrap" style="margin:0 auto 18px;"></div>
+                <p id="pd-desc" style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--cream);opacity:.9;line-height:1.65;margin-bottom:18px;"></p>
+                <div class="achievement-progress" id="pd-progress" style="margin-bottom:8px;"></div>
+                <div class="achievement-prog-bar"><div class="achievement-prog-fill" id="pd-fill"></div></div>
+            </div>
+            <div class="modal-foot"><button class="btn-detail" onclick="tutupModal('modal-pencapaian-detail')">TUTUP</button></div>
+        </div>
+    </div>
+
+    <!-- MODAL EDUKASI -->
+    <div id="modal-edukasi" class="modal-zoom" style="z-index:1055;">
+        <div class="modal-card artikel-modal-card">
+            <div class="modal-head">
+                <div>
+                    <div class="modal-nama">Fitur Edukasi Museum Wayang</div>
+                    <div class="modal-sub">Eksplorasi, Literasi & Pencapaian Budaya</div>
+                </div>
+                <button class="modal-close" onclick="tutupModalEdukasi()">✕</button>
+            </div>
+            <div class="artikel-modal-body">
+                <div style="display:flex; gap:12px; margin-bottom: 20px; flex-wrap:wrap; justify-content:center;">
+                    <img src="assets/images/artikel/sejarah.avif" alt="Edukasi Wayang" style="flex:1; min-width:140px; max-width:48%; border-radius: 8px; border: 2px solid var(--gold); object-fit:cover;" onerror="this.style.display='none'">
+                </div>
+                <p style="color: var(--cream); font-family: 'Inter', sans-serif; line-height: 1.6; margin-bottom: 12px;">
+                    Museum Wayang digital ini dirancang bukan sekadar sebagai tempat penyimpanan koleksi, melainkan sebagai wadah edukasi interaktif. Melalui pendekatan digital, kami menghadirkan <strong>tiga fitur utama edukasi</strong> untuk memperkaya literasi budaya masyarakat, khususnya generasi muda:
+                </p>
+                
+                <h4 style="color: var(--gold); font-family: 'Cinzel', serif; font-size: 1.1rem; margin: 20px 0 10px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 5px;">1. Ruang Pameran Virtual</h4>
+                <p style="color: var(--cream); font-family: 'Inter', sans-serif; line-height: 1.6; margin-bottom: 12px;">
+                    Fitur <strong>Pameran</strong> memungkinkan pengunjung untuk menelusuri lorong museum secara virtual. Setiap koleksi wayang disajikan dengan detail yang dapat diperbesar (zoom), lengkap dengan penjelasan audio dwi-bahasa (Indonesia & Inggris). Pengunjung dapat mempelajari sejarah, penjelasan visual, psikologi/karakter, serta silsilah dari setiap tokoh wayang.
+                </p>
+
+                <h4 style="color: var(--gold); font-family: 'Cinzel', serif; font-size: 1.1rem; margin: 20px 0 10px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 5px;">2. Jelajah & Pemindaian Interaktif</h4>
+                <p style="color: var(--cream); font-family: 'Inter', sans-serif; line-height: 1.6; margin-bottom: 12px;">
+                    Melalui fitur <strong>Jelajah</strong>, pengunjung yang berada di lokasi museum fisik dapat memindai kode QR pada setiap etalase. Sistem akan membuka informasi mendalam mengenai tokoh wayang yang dipindai, diakhiri dengan kuis edukatif singkat untuk menguji pemahaman pengunjung tentang karakter tersebut.
+                </p>
+
+                <h4 style="color: var(--gold); font-family: 'Cinzel', serif; font-size: 1.1rem; margin: 20px 0 10px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 5px;">3. Sistem Pencapaian (Gamifikasi)</h4>
+                <p style="color: var(--cream); font-family: 'Inter', sans-serif; line-height: 1.6; margin-bottom: 12px;">
+                    Untuk meningkatkan motivasi belajar, fitur <strong>Pencapaian</strong> mengadopsi sistem gamifikasi. Pengunjung akan diberikan lencana/gelar kehormatan secara otomatis (seperti 'Ki Dalang', 'Sang Waskita', atau 'Panglima Kaadilan') ketika mereka berhasil mencapai target edukasi tertentu, misalnya membaca dasar hukum pelestarian atau menyelesaikan sejumlah kuis.
+                </p>
+                <p style="color: var(--gold); font-family: 'Inter', sans-serif; line-height: 1.6; margin-top: 24px; text-align: center; font-style: italic;">
+                    "Kenali Budayamu, Cintai Bangsamu."
+                </p>
+            </div>
+            <div class="modal-foot">
+                <button class="btn-detail" onclick="tutupModalEdukasi()">TUTUP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION WAHANA -->
+    
+</div><!-- /#main-app -->
+
+<!-- HALAMAN PILIH KARAKTER AI -->
+<div id="ai-char-select" class="screen-overlay" style="position: fixed; inset: 0; background: rgba(0,0,0,.82); z-index: 9998; display: none; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(6px);">
+    <div class="modal-card" style="max-width: 800px; width: 100%; background: rgba(16,10,3,.97); border: 1px solid rgba(200,160,30,.42); border-radius: 14px; padding: 24px; text-align: center; position: relative;">
+        <button class="modal-close" onclick="tutupCharSelect()" style="position: absolute; right: 20px; top: 20px; font-size: 28px;">&times;</button>
+        <div style="margin-bottom: 25px; margin-top: 10px;">
+            <h2 class="wayang-title glow-gold" style="font-size: 1.6rem; margin-bottom: 5px;">Pilih Teman Dialog</h2>
+            <p style="color: var(--text-muted); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic;">Pilih karakter wayang yang ingin kamu ajak bicara</p>
+        </div>
+        <div id="ai-char-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; width: 100%; overflow-y: auto; max-height: 60vh; padding: 5px;">
+            <!-- Akan diisi melalui JS -->
+        </div>
+    </div>
+</div>
+
+<!-- HALAMAN CHAT KI SEMAR (full-screen overlay) -->
+<div id="chat-semar">
+
+    <!-- Header -->
+    <div class="chat-header">
+        <button class="chat-back-btn" onclick="tutupChatSemar()">Kembali</button>
+        <div class="chat-avatar-wrap">
+            <img id="chat-header-avatar" src="" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" onerror="this.src='data:image/svg+xml;utf8,<svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23c8a01e\' stroke-width=\'2\'><circle cx=\'12\' cy=\'8\' r=\'4\'/><path d=\'M4 20c0-4 3.6-7 8-7s8 3 8 7\'/></svg>'">
+        </div>
+        <div class="chat-header-info">
+            <div class="chat-ai-name" id="chat-header-name">Ki Semar</div>
+            <div class="chat-ai-status" id="chat-header-status">Pamong Pewayangan Nusantara</div>
+        </div>
+        <div id="chat-api-indicator" class="chat-api-indicator" onclick="showApiModal()" title="Klik untuk atur API Key" style="cursor:pointer;"></div>
+    </div>
+
+    <!-- Rekomendasi Pertanyaan -->
+    <div class="chat-suggestions-wrap">
+        <div class="chat-suggestions-label">Pertanyaan yang Disarankan</div>
+        <div class="chat-suggestions-row" id="chat-suggestions-row"></div>
+    </div>
+
+    <!-- Area Pesan -->
+    <div class="chat-messages" id="chat-messages">
+        <div class="chat-empty-state">
+            <div class="chat-empty-state-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+            </div>
+            <div class="chat-empty-title">Mulai Berdialog</div>
+            <div class="chat-empty-sub" id="chat-empty-sub">Sampaikan pertanyaanmu. AI siap berbagi kebijaksanaan tentang dunia pewayangan Nusantara.</div>
+        </div>
+
+        <!-- Typing indicator -->
+        <div class="chat-bubble-row ai typing-indicator" id="chat-typing">
+            <div class="bubble-avatar">
+                <img id="typing-avatar" src="" alt="AI" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" onerror="this.src='data:image/svg+xml;utf8,<svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23c8a01e\' stroke-width=\'2\'><circle cx=\'12\' cy=\'8\' r=\'4\'/><path d=\'M4 20c0-4 3.6-7 8-7s8 3 8 7\'/></svg>'">
+            </div>
+            <div class="typing-dots">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="chat-input-area">
+        <textarea id="chat-input" class="chat-input" placeholder="Tanya kepada Ki Semar..." rows="1"></textarea>
+        <button id="chat-send-btn" class="chat-send-btn" onclick="sendMessage()">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+        </button>
+    </div>
+
+</div><!-- /#chat-semar -->
+
+
+
+
+
+
+<div id="detail-zoom">
+    <div class="modal-card detail-card">
+        <div class="modal-head">
+            <div>
+                <div class="modal-nama" id="modal-nama">Nama Wayang</div>
+                <div class="modal-sub">Koleksi Museum Wayang Jakarta</div>
+            </div>
+            <button class="modal-close" onclick="tutupDetail()">✕</button>
+        </div>
+        <div class="detail-body">
+            <div class="detail-img-col">
+                <div class="modal-img-section" id="modal-img-section" onclick="toggleZoom()">
+                    <img class="modal-img" id="modal-img" src="" alt="Detail Wayang">
+                    <div class="zoom-hint">🔍 Tap untuk zoom</div>
+                </div>
+            </div>
+            <div class="detail-content-col">
+                <div class="detail-tabs" id="detail-tabs">
+                    <button class="detail-tab-btn active" data-tab="penjelasan">PENJELASAN WAYANG</button>
+                    <button class="detail-tab-btn" data-tab="psikologi">KARAKTER WAYANG</button>
+                    <button class="detail-tab-btn" data-tab="hubungan">HUBUNGAN WAYANG</button>
+                </div>
+                <div class="detail-tab-panel active" data-panel="penjelasan"><p class="detail-tab-text" id="tab-penjelasan"></p></div>
+                <div class="detail-tab-panel" data-panel="psikologi"><p class="detail-tab-text" id="tab-psikologi"></p></div>
+                <div class="detail-tab-panel" data-panel="hubungan"><p class="detail-tab-text" id="tab-hubungan"></p></div>
+            </div>
+        </div>
+        <div class="modal-audio-section">
+            <div class="audio-lang-toggle" id="audio-lang-toggle">
+                <button class="lang-btn active" data-lang="id">Bahasa Indonesia</button>
+                <button class="lang-btn" data-lang="en">English</button>
+            </div>
+            <div class="audio-player" id="audio-player-ui"></div>
+        </div>
+        <div class="modal-foot"><button class="btn-detail" onclick="tutupDetail()">TUTUP</button></div>
+    </div>
+</div>
+
+
+<script src="js/00-welcome.js"></script>
+<script src="js/01-navigation.js"></script>
+<script src="js/02-audio-modal-helpers.js"></script>
+<script src="js/03-pameran-data.js"></script>
+<script src="js/04-pameran.js"></script>
+<script src="js/05-jelajah-data.js"></script>
+<script src="js/06-jelajah.js"></script>
+<script src="js/07-pencapaian.js"></script>
+<script src="js/08-init.js"></script>
+<script src="js/09-artikel.js"></script>
+<script src="js/10-koleksi.js"></script>
+<script src="js/11-unesco.js"></script>
+<script src="js/12-edukasi.js"></script>
+<script src="js/13-chat-semar.js"></script>
+<script src="js/14-dalang-rhythm.js"></script>
+<script src="js/15-mbti-quiz.js"></script>
+<script src="js/16-photo-booth.js"></script>
+
+</body>
+</html>
+
+
+
+

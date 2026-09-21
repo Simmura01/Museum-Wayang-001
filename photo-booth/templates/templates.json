@@ -1,0 +1,6 @@
+{
+  "single": [{ "file": "template_001.png", "name": "Template 1" },
+             { "file": "template_002.png", "name": "Template 2" }
+            ],
+  "strip": []
+}

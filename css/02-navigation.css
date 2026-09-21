@@ -1,0 +1,16 @@
+/* ============================================================
+   02-NAVIGATION.CSS
+   Menu navigasi atas (#nav-menu) — Beranda / Pameran / Jelajah / Pencapaian
+   ============================================================ */
+#nav-menu{
+    position:fixed;top:16px;left:50%;transform:translateX(-50%);
+    background:rgba(10,7,3,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border:1px solid rgba(200,160,30,.28);border-radius:50px;
+    padding:7px 8px;display:none;flex-direction:row;align-items:center;gap:2px;
+    z-index:998;max-width:92vw;overflow-x:auto;scrollbar-width:none;
+    box-shadow:0 8px 30px rgba(0,0,0,.6),0 0 0 1px rgba(200,160,30,.08);
+}
+#nav-menu::-webkit-scrollbar{display:none}
+.nav-btn{background:transparent;color:var(--cream);border:none;padding:9px 18px;font-family:'Cinzel',serif;font-size:.68rem;font-weight:500;letter-spacing:1.2px;cursor:pointer;border-radius:30px;transition:all .2s;text-align:center;white-space:nowrap;flex-shrink:0}
+.nav-btn:hover{background:rgba(200,160,30,.14);color:var(--gold)}
+.nav-btn.active{background:var(--gold-grad);color:#0d0904;font-weight:700;box-shadow:var(--shadow-gold)}

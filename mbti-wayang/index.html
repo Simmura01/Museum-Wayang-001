@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../assets/video/logo.PNG" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz MBTI Wayang — Museum Wayang Jakarta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3VFEQFNBBJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3VFEQFNBBJ');
+</script>
+</head>
+<body>
+    <header class="site-header">
+        <button class="back-btn" onclick="window.location.href='../index.html'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg>
+          Kembali ke Museum
+        </button>
+        <div class="header-title">Museum Wayang Jakarta</div>
+        <div class="header-spacer"></div>
+    </header>
+    
+    <main>
+        <section id="heroScreen" class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">Quiz Kepribadian</div>
+                <h1 class="hero-title">Kamu adalah Tokoh Wayang yang mana?</h1>
+                <p class="hero-sub">Jawab 16 pertanyaan dan temukan karakter pewayangan yang mencerminkan kepribadian unikmu berdasarkan kerangka MBTI.</p>
+                <div class="lang-toggle" id="langToggle">
+                    <span class="lang-option active" data-lang="id">ID</span>
+                    <div class="lang-slider-track" id="langSliderTrack">
+                        <div class="lang-slider-thumb"></div>
+                    </div>
+                    <span class="lang-option" data-lang="en">EN</span>
+                </div>
+                <button id="startBtn" class="btn-start">Mulai Quiz &rarr;</button>
+            </div>
+        </section>
+
+        <section id="quizScreen" class="quiz-container hidden">
+            <div class="progress-bar">
+                <div class="progress-label">
+                    <span>Pertanyaan <span id="qNum">1</span> dari 16</span>
+                    <span id="qDim" class="dim-badge">E / I</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+            </div>
+            
+            <div id="questionCard" class="question-card">
+                <h2 id="questionText" class="question-text">Pertanyaan</h2>
+                <div class="choices">
+                    <button id="choiceABtn" class="choice-btn">
+                        <span class="choice-letter">A</span>
+                        <span id="choiceAText">Pilihan A</span>
+                    </button>
+                    <button id="choiceBBtn" class="choice-btn">
+                        <span class="choice-letter">B</span>
+                        <span id="choiceBText">Pilihan B</span>
+                    </button>
+                </div>
+                <button id="backBtn" class="nav-ghost-btn hidden">&larr; Sebelumnya</button>
+            </div>
+        </section>
+
+        <section id="resultScreen" class="result-screen hidden">
+            <div class="result-card">
+                <div class="result-ornament-top">
+                    <svg viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="0" y1="15" x2="75" y2="15" stroke="rgba(200,160,30,0.45)" stroke-width="1"/>
+                        <polygon points="100,3 115,15 100,27 85,15" fill="none" stroke="rgba(200,160,30,0.7)" stroke-width="1.2"/>
+                        <line x1="125" y1="15" x2="200" y2="15" stroke="rgba(200,160,30,0.45)" stroke-width="1"/>
+                    </svg>
+                </div>
+                <div id="resultType" class="result-mbti-type">MBTI</div>
+                <div id="resultArchetype" class="result-archetype">Archetype</div>
+                <div class="result-character-wrap">
+                    <div class="result-character-frame"><span id="resultIcon"></span></div>
+                    <div id="resultCharName" class="result-character-name">Nama Karakter</div>
+                    <div id="resultCharSubtitle" class="result-character-subtitle">Subtitle</div>
+                </div>
+                <p id="resultDesc" class="result-desc"></p>
+                <div class="result-quote-wrap">
+                    <p id="resultQuote" class="result-quote"></p>
+                    <p id="resultQuoteAttr" class="result-quote-attr"></p>
+                </div>
+                <div id="resultTraits" class="result-traits"></div>
+                <div class="mbti-explanation" id="mbtiExplanation">
+                    <div class="mbti-explanation-title" id="mbtiExplanationTitle">Tentang Tipe MBTI-mu</div>
+                    <p class="mbti-explanation-text" id="mbtiExplanationText"></p>
+                </div>
+                <div class="result-actions">
+                    <button id="photoBoothBtn" class="btn-primary">Abadikan di Photo Booth</button>
+                    <button id="retakeBtn" class="btn-secondary">Ulangi Quiz</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <span>Museum Wayang Jakarta &copy; 2025</span>
+        <span class="footer-sep">&middot;</span>
+        <span>Berbasis Kerangka Myers-Briggs Type Indicator (MBTI)</span>
+    </footer>
+
+    <script src="lang.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>
+
