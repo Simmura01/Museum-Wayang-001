@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="id">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="assets/video/logo.PNG" />
@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#0d0904">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Digitalisasi Museum Wayang</title>
+    <title>Digital Museum Wayang</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 
@@ -59,7 +59,7 @@
         </div>
     </div>
     <div class="welcome-text" id="welcome-text">
-        <h1>Selamat Datang</h1>
+        <h1>Welcome</h1>
         <p class="pulse-text">— Klik layar untuk melanjutkan —</p>
     </div>
     <div class="bottom-gold-bar">
@@ -73,11 +73,11 @@
 
 
 <div id="nav-menu">
-    <button class="nav-btn" data-page="beranda" onclick="window.location.href='beranda.html'">Beranda</button>
-    <button class="nav-btn active" data-page="pameran" onclick="window.location.href='pameran.html'">Pameran</button>
-    <button class="nav-btn" data-page="jelajah" onclick="window.location.href='jelajah.html'">Jelajah</button>
-    <button class="nav-btn" data-page="pencapaian" onclick="window.location.href='pencapaian.html'">Pencapaian</button>
-    <button class="nav-btn" data-page="wahana" onclick="window.location.href='wahana.html'">Wahana</button>
+    <button class="nav-btn" data-page="beranda" onclick="window.location.href='beranda.html'">Home</button>
+    <button class="nav-btn active" data-page="pameran" onclick="window.location.href='pameran.html'">Exhibition</button>
+    <button class="nav-btn" data-page="jelajah" onclick="window.location.href='jelajah.html'">Explore</button>
+    <button class="nav-btn" data-page="pencapaian" onclick="window.location.href='pencapaian.html'">Achievements</button>
+    <button class="nav-btn" data-page="wahana" onclick="window.location.href='wahana.html'">Activities</button>
 </div>
 
 <div id="main-app">
@@ -85,7 +85,7 @@
         <div class="deco-corner deco-tl"></div>
         <div class="deco-corner deco-br"></div>
         <div class="section-title-header">
-            <h2><span class="title-ornament">❧&ensp;</span>Lorong Pameran Wayang<span class="title-ornament">&ensp;❧</span></h2>
+            <h2><span class="title-ornament">❧&ensp;</span>Wayang Exhibition Gallery<span class="title-ornament">&ensp;❧</span></h2>
             <div class="current-view-sub" id="current-view-label">CURRENT VIEW: LANTAI 1, RUANG 1</div>
         </div>
         <div class="floor-nav-panel" id="floor-nav-panel">
@@ -115,8 +115,8 @@
     <div class="modal-card" style="max-width: 800px; width: 100%; background: rgba(16,10,3,.97); border: 1px solid rgba(200,160,30,.42); border-radius: 14px; padding: 24px; text-align: center; position: relative;">
         <button class="modal-close" onclick="tutupCharSelect()" style="position: absolute; right: 20px; top: 20px; font-size: 28px;">&times;</button>
         <div style="margin-bottom: 25px; margin-top: 10px;">
-            <h2 class="wayang-title glow-gold" style="font-size: 1.6rem; margin-bottom: 5px;">Pilih Teman Dialog</h2>
-            <p style="color: var(--text-muted); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic;">Pilih karakter wayang yang ingin kamu ajak bicara</p>
+            <h2 class="wayang-title glow-gold" style="font-size: 1.6rem; margin-bottom: 5px;">Choose Your Dialogue Partner</h2>
+            <p style="color: var(--text-muted); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic;">Choose the wayang character you want to talk to</p>
         </div>
         <div id="ai-char-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; width: 100%; overflow-y: auto; max-height: 60vh; padding: 5px;">
             <!-- Akan diisi melalui JS -->
@@ -129,20 +129,20 @@
 
     <!-- Header -->
     <div class="chat-header">
-        <button class="chat-back-btn" onclick="tutupChatSemar()">Kembali</button>
+        <button class="chat-back-btn" onclick="tutupChatSemar()">Back</button>
         <div class="chat-avatar-wrap">
             <img id="chat-header-avatar" src="" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" onerror="this.src='data:image/svg+xml;utf8,<svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23c8a01e\' stroke-width=\'2\'><circle cx=\'12\' cy=\'8\' r=\'4\'/><path d=\'M4 20c0-4 3.6-7 8-7s8 3 8 7\'/></svg>'">
         </div>
         <div class="chat-header-info">
             <div class="chat-ai-name" id="chat-header-name">Ki Semar</div>
-            <div class="chat-ai-status" id="chat-header-status">Pamong Pewayangan Nusantara</div>
+            <div class="chat-ai-status" id="chat-header-status">Guardian of Nusantara Wayang</div>
         </div>
-        <div id="chat-api-indicator" class="chat-api-indicator" onclick="showApiModal()" title="Klik untuk atur API Key" style="cursor:pointer;"></div>
+        <div id="chat-api-indicator" class="chat-api-indicator" onclick="showApiModal()" title="Click to set API Key" style="cursor:pointer;"></div>
     </div>
 
     <!-- Rekomendasi Pertanyaan -->
     <div class="chat-suggestions-wrap">
-        <div class="chat-suggestions-label">Pertanyaan yang Disarankan</div>
+        <div class="chat-suggestions-label">Suggested Questions</div>
         <div class="chat-suggestions-row" id="chat-suggestions-row"></div>
     </div>
 
@@ -154,8 +154,8 @@
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                 </svg>
             </div>
-            <div class="chat-empty-title">Mulai Berdialog</div>
-            <div class="chat-empty-sub" id="chat-empty-sub">Sampaikan pertanyaanmu. AI siap berbagi kebijaksanaan tentang dunia pewayangan Nusantara.</div>
+            <div class="chat-empty-title">Start a Dialogue</div>
+            <div class="chat-empty-sub" id="chat-empty-sub">Ask your questions. AI is ready to share wisdom about the world of Nusantara wayang.</div>
         </div>
 
         <!-- Typing indicator -->
@@ -173,7 +173,7 @@
 
     <!-- Input Area -->
     <div class="chat-input-area">
-        <textarea id="chat-input" class="chat-input" placeholder="Tanya kepada Ki Semar..." rows="1"></textarea>
+        <textarea id="chat-input" class="chat-input" placeholder="Ask Ki Semar..." rows="1"></textarea>
         <button id="chat-send-btn" class="chat-send-btn" onclick="sendMessage()">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="22" y1="2" x2="11" y2="13"/>
@@ -193,8 +193,8 @@
     <div class="modal-card detail-card">
         <div class="modal-head">
             <div>
-                <div class="modal-nama" id="modal-nama">Nama Wayang</div>
-                <div class="modal-sub">Koleksi Museum Wayang Jakarta</div>
+                <div class="modal-nama" id="modal-nama">Wayang Name</div>
+                <div class="modal-sub">Jakarta Museum Wayang Collection</div>
             </div>
             <button class="modal-close" onclick="tutupDetail()">✕</button>
         </div>
@@ -202,14 +202,14 @@
             <div class="detail-img-col">
                 <div class="modal-img-section" id="modal-img-section" onclick="toggleZoom()">
                     <img class="modal-img" id="modal-img" src="" alt="Detail Wayang">
-                    <div class="zoom-hint">🔍 Tap untuk zoom</div>
+                    <div class="zoom-hint">🔍 Tap to zoom</div>
                 </div>
             </div>
             <div class="detail-content-col">
                 <div class="detail-tabs" id="detail-tabs">
-                    <button class="detail-tab-btn active" data-tab="penjelasan">PENJELASAN WAYANG</button>
-                    <button class="detail-tab-btn" data-tab="psikologi">KARAKTER WAYANG</button>
-                    <button class="detail-tab-btn" data-tab="hubungan">HUBUNGAN WAYANG</button>
+                    <button class="detail-tab-btn active" data-tab="penjelasan">WAYANG DESCRIPTION</button>
+                    <button class="detail-tab-btn" data-tab="psikologi">WAYANG CHARACTER</button>
+                    <button class="detail-tab-btn" data-tab="hubungan">WAYANG RELATIONSHIPS</button>
                 </div>
                 <div class="detail-tab-panel active" data-panel="penjelasan"><p class="detail-tab-text" id="tab-penjelasan"></p></div>
                 <div class="detail-tab-panel" data-panel="psikologi"><p class="detail-tab-text" id="tab-psikologi"></p></div>
@@ -218,12 +218,12 @@
         </div>
         <div class="modal-audio-section">
             <div class="audio-lang-toggle" id="audio-lang-toggle">
-                <button class="lang-btn active" data-lang="id">Bahasa Indonesia</button>
+                <button class="lang-btn active" data-lang="en">Indonesian</button>
                 <button class="lang-btn" data-lang="en">English</button>
             </div>
             <div class="audio-player" id="audio-player-ui"></div>
         </div>
-        <div class="modal-foot"><button class="btn-detail" onclick="tutupDetail()">TUTUP</button></div>
+        <div class="modal-foot"><button class="btn-detail" onclick="tutupDetail()">CLOSE</button></div>
     </div>
 </div>
 
@@ -248,6 +248,7 @@
 
 </body>
 </html>
+
 
 
 

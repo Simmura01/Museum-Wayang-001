@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="id">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="assets/video/logo.PNG" />
@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#0d0904">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Digitalisasi Museum Wayang</title>
+    <title>Digital Museum Wayang</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 
@@ -59,7 +59,7 @@
         </div>
     </div>
     <div class="welcome-text" id="welcome-text">
-        <h1>Selamat Datang</h1>
+        <h1>Welcome</h1>
         <p class="pulse-text">— Klik layar untuk melanjutkan —</p>
     </div>
     <div class="bottom-gold-bar">
@@ -73,11 +73,11 @@
 
 
 <div id="nav-menu">
-    <button class="nav-btn active" data-page="beranda" onclick="window.location.href='beranda.html'">Beranda</button>
-    <button class="nav-btn" data-page="pameran" onclick="window.location.href='pameran.html'">Pameran</button>
-    <button class="nav-btn" data-page="jelajah" onclick="window.location.href='jelajah.html'">Jelajah</button>
-    <button class="nav-btn" data-page="pencapaian" onclick="window.location.href='pencapaian.html'">Pencapaian</button>
-    <button class="nav-btn" data-page="wahana" onclick="window.location.href='wahana.html'">Wahana</button>
+    <button class="nav-btn active" data-page="beranda" onclick="window.location.href='beranda.html'">Home</button>
+    <button class="nav-btn" data-page="pameran" onclick="window.location.href='pameran.html'">Exhibition</button>
+    <button class="nav-btn" data-page="jelajah" onclick="window.location.href='jelajah.html'">Explore</button>
+    <button class="nav-btn" data-page="pencapaian" onclick="window.location.href='pencapaian.html'">Achievements</button>
+    <button class="nav-btn" data-page="wahana" onclick="window.location.href='wahana.html'">Activities</button>
 </div>
 
 <div id="main-app">
@@ -96,42 +96,42 @@
             <div class="card-corner-ornament ccBL"><svg viewBox="0 0 30 30"><path d="M2 28 L2 2 L28 2" stroke-linecap="round"/><path d="M6 24 L6 6 L24 6" stroke-linecap="round" opacity="0.5"/></svg></div>
             <div class="card-corner-ornament ccBR"><svg viewBox="0 0 30 30"><path d="M2 28 L2 2 L28 2" stroke-linecap="round"/><path d="M6 24 L6 6 L24 6" stroke-linecap="round" opacity="0.5"/></svg></div>
             <h2>MUSEUM WAYANG</h2>
-            <p>Selamat datang di Digitalisasi Museum Wayang Jakarta Kota.<br>
-            Rasakan pengalaman menyusuri mahakarya Nusantara secara interaktif.<br><br>
+            <p>Welcome to the Digital Museum Wayang Jakarta.<br>
+            Experience the interactive journey through Nusantara's masterpieces.<br><br>
         </div>
         <div class="stats-row">
-            <div class="stat-card" onclick="bukaModalDaftarKoleksi()" style="cursor:pointer;" title="Lihat Daftar Koleksi"><img src="assets/icons/wayang.png" alt="Koleksi" class="stat-icon"><div class="stat-number">100+</div><div class="stat-label">Koleksi Wayang</div></div>
-            <div class="stat-card" onclick="bukaModalUnesco()" style="cursor:pointer;" title="Sertifikat UNESCO"><img src="assets/icons/unesco.png" alt="UNESCO" class="stat-icon"><div class="stat-number">2008</div><div class="stat-label">Warisan Budaya Tak Benda UNESCO</div></div>
-            <div class="stat-card" onclick="document.getElementById('hukum-card-section').scrollIntoView({behavior: 'smooth'})" style="cursor:pointer;" title="Lihat Landasan Hukum"><img src="assets/icons/law.png" alt="Hukum" class="stat-icon"><div class="stat-number">5</div><div class="stat-label">Landasan Hukum</div></div>
-            <div class="stat-card" onclick="bukaModalEdukasi()" style="cursor:pointer;" title="Lihat Fitur Edukasi"><img src="assets/icons/edu.png" alt="Edukasi" class="stat-icon"><div class="stat-number">Fitur</div><div class="stat-label">Edukasi & Literasi</div></div>
+            <div class="stat-card" onclick="bukaModalDaftarKoleksi()" style="cursor:pointer;" title="Lihat Daftar Koleksi"><img src="assets/icons/wayang.png" alt="Koleksi" class="stat-icon"><div class="stat-number">100+</div><div class="stat-label">Wayang Collection</div></div>
+            <div class="stat-card" onclick="bukaModalUnesco()" style="cursor:pointer;" title="Sertifikat UNESCO"><img src="assets/icons/unesco.png" alt="UNESCO" class="stat-icon"><div class="stat-number">2008</div><div class="stat-label">UNESCO Intangible Cultural Heritage</div></div>
+            <div class="stat-card" onclick="document.getElementById('hukum-card-section').scrollIntoView({behavior: 'smooth'})" style="cursor:pointer;" title="Lihat Legal Foundation"><img src="assets/icons/law.png" alt="Hukum" class="stat-icon"><div class="stat-number">5</div><div class="stat-label">Legal Foundation</div></div>
+            <div class="stat-card" onclick="bukaModalEdukasi()" style="cursor:pointer;" title="Lihat Fitur Edukasi"><img src="assets/icons/edu.png" alt="Edukasi" class="stat-icon"><div class="stat-number">Features</div><div class="stat-label">Education & Literacy</div></div>
         </div>
-        <div class="scroll-indicator">⌄ Geser untuk informasi lebih lanjut ⌄</div>
-        <div class="beranda-section-title"><span class="title-ornament">❧&ensp;</span>Pelestarian Budaya Bangsa<span class="title-ornament">&ensp;❧</span></div>
+        <div class="scroll-indicator">⌄ Scroll for more information ⌄</div>
+        <div class="beranda-section-title"><span class="title-ornament">❧&ensp;</span>National Cultural Preservation<span class="title-ornament">&ensp;❧</span></div>
         <div class="hukum-card" id="hukum-card-section">
             <img src="assets/icons/law.png" alt="Pelestarian" class="hukum-icon">
-            <h3>Kebanggaan  Pemajuan Kebudayaan  Pelestarian &amp; Hukum Budaya</h3>
-            <p>Pelestarian warisan budaya luhur, seperti wayang dan beragam tradisi Nusantara lainnya, adalah panggilan jiwa bagi setiap generasi. Daripada sekadar bereaksi saat terjadi klaim dari pihak luar, langkah terbaik dan paling bermartabat yang bisa kita lakukan adalah secara aktif merawat, mencatatkan, dan memajukan kekayaan budaya kita. Kerangka hukum nasional yang kuat, didukung oleh komitmen internasional, telah hadir bukan sekadar sebagai alat penyelesaian konflik, melainkan sebagai pedoman dan perisai bagi kita. Mari jadikan hukum sebagai landasan untuk melindungi keaslian tradisi, mempromosikan kekayaan intelektual (KIK), dan memastikan keberlanjutan budaya Nusantara di pentas global.</p>
+            <h3>Cultural Pride &middot; Cultural Advancement &middot; Preservation &amp; Cultural Law</h3>
+            <p>The preservation of noble cultural heritage, such as wayang and various other Nusantara traditions, is a calling of the soul for every generation. Rather than merely reacting when claims arise from outside parties, the best and most dignified step we can take is to actively care for, document, and advance our cultural wealth. A strong national legal framework, supported by international commitments, exists not merely as a conflict resolution tool, but as a guide and shield for us. Let us make the law a foundation for protecting the authenticity of traditions, promoting intellectual property (KIK), and ensuring the continuity of Nusantara's culture on the global stage.</p>
             <div class="hukum-divider"></div>
-            <h4 class="hukum-subheading">Landasan Hukum Pelestarian Budaya</h4>
+            <h4 class="hukum-subheading">Legal Foundation Pelestarian Budaya</h4>
             <ul class="hukum-list">
-                <li><span class="hukum-list-text">Undang-Undang Republik Indonesia Nomor 11 Tahun 2010 tentang Cagar Budaya — Mengajak kita untuk mengenali kriteria, mencatatkan ke dalam register nasional, serta memberikan kepastian pelindungan hukum bagi benda-benda cagar budaya agar tidak rusak atau hilang.</span><button class="btn-hukum" onclick="bukaModalUU('uu11-2010'); markHukumClicked('uu11-2010')">LIHAT UU NO. 11/2010</button></li>
-                <li><span class="hukum-list-text">Peraturan Presiden Nomor 78 Tahun 2007 tentang Pengesahan Konvensi UNESCO 2003 mengenai Perlindungan Warisan Budaya Takbenda — Bukti komitmen kita bersama dunia internasional dalam melestarikan budaya takbenda (seperti seni pertunjukan wayang, tradisi lisan, dan pengetahuan lokal) agar tetap hidup dan diwariskan ke generasi berikutnya.</span><button class="btn-hukum" onclick="bukaModalUU('perpres78-2007'); markHukumClicked('perpres78-2007')">LIHAT PERPRES NO. 78/2007</button></li>
-                <li><span class="hukum-list-text">Peraturan Pemerintah (PP) Nomor 1 Tahun 2022 tentang Register Nasional dan Pelestarian Cagar Budaya — Merupakan aturan pelaksana dari UU No. 11/2010 yang memberikan panduan teknis bagi masyarakat dan pemerintah untuk bersinergi dalam mendata dan melestarikan cagar budaya kita.</span><button class="btn-hukum" onclick="bukaModalUU('pp1-2022'); markHukumClicked('pp1-2022')">LIHAT PP NO. 1/2022</button></li>
-                <li><span class="hukum-list-text">Undang-Undang Nomor 5 Tahun 2017 tentang Pemajuan Kebudayaan — Landasan utama yang mengajak seluruh elemen masyarakat untuk tidak hanya melindungi, tetapi juga mengembangkan, memanfaatkan, dan membina objek pemajuan kebudayaan nasional agar kebudayaan Indonesia semakin tangguh.</span><button class="btn-hukum" onclick="bukaModalUU('uu5-2017'); markHukumClicked('uu5-2017')">LIHAT UU NO. 5/2017</button></li>
-                <li><span class="hukum-list-text"><strong>Membangun Persahabatan &amp; Kebanggaan Budaya di Mata Dunia</strong> — Melalui Pasal 35 dan Pasal 43 huruf i &amp; j UU No. 5 Tahun 2017, kita diamanatkan untuk melakukan diplomasi budaya yang damai, proaktif memperkenalkan kekayaan budaya kita, dan meningkatkan kerja sama internasional demi kejayaan kebudayaan Nusantara.</span><button class="btn-hukum" onclick="bukaModalUU('uu5-2017-diplomasi'); markHukumClicked('uu5-2017-diplomasi')">LIHAT UU NO. 5/2017 - PASAL 35 &amp; 43</button></li>
+                <li><span class="hukum-list-text">Undang-Undang Republik Indonesia Nomor 11 Tahun 2010 tentang Cagar Budaya — Mengajak kita untuk mengenali kriteria, mencatatkan ke dalam register nasional, serta memberikan kepastian pelindungan hukum bagi benda-benda cagar budaya agar tidak rusak atau hilang.</span><button class="btn-hukum" onclick="bukaModalUU('uu11-2010'); markHukumClicked('uu11-2010')">VIEW LAW NO. 11/2010</button></li>
+                <li><span class="hukum-list-text">Peraturan Presiden Nomor 78 Tahun 2007 tentang Pengesahan Konvensi UNESCO 2003 mengenai Perlindungan Warisan Budaya Takbenda — Bukti komitmen kita bersama dunia internasional dalam melestarikan budaya takbenda (seperti seni pertunjukan wayang, tradisi lisan, dan pengetahuan lokal) agar tetap hidup dan diwariskan ke generasi berikutnya.</span><button class="btn-hukum" onclick="bukaModalUU('perpres78-2007'); markHukumClicked('perpres78-2007')">VIEW PRESIDENTIAL REG. NO. 78/2007</button></li>
+                <li><span class="hukum-list-text">Peraturan Pemerintah (PP) Nomor 1 Tahun 2022 tentang Register Nasional dan Pelestarian Cagar Budaya — Merupakan aturan pelaksana dari UU No. 11/2010 yang memberikan panduan teknis bagi masyarakat dan pemerintah untuk bersinergi dalam mendata dan melestarikan cagar budaya kita.</span><button class="btn-hukum" onclick="bukaModalUU('pp1-2022'); markHukumClicked('pp1-2022')">VIEW GOV. REG. NO. 1/2022</button></li>
+                <li><span class="hukum-list-text">Undang-Undang Nomor 5 Tahun 2017 tentang Pemajuan Kebudayaan — Landasan utama yang mengajak seluruh elemen masyarakat untuk tidak hanya melindungi, tetapi juga mengembangkan, memanfaatkan, dan membina objek pemajuan kebudayaan nasional agar kebudayaan Indonesia semakin tangguh.</span><button class="btn-hukum" onclick="bukaModalUU('uu5-2017'); markHukumClicked('uu5-2017')">VIEW LAW NO. 5/2017</button></li>
+                <li><span class="hukum-list-text"><strong>Membangun Persahabatan &amp; Kebanggaan Budaya di Mata Dunia</strong> — Melalui Pasal 35 dan Pasal 43 huruf i &amp; j UU No. 5 Tahun 2017, kita diamanatkan untuk melakukan diplomasi budaya yang damai, proaktif memperkenalkan kekayaan budaya kita, dan meningkatkan kerja sama internasional demi kejayaan kebudayaan Nusantara.</span><button class="btn-hukum" onclick="bukaModalUU('uu5-2017-diplomasi'); markHukumClicked('uu5-2017-diplomasi')">VIEW LAW NO. 5/2017 - ARTICLES 35 &amp; 43</button></li>
             </ul>
-            <div class="hukum-tagline">Ayo, Rawat Warisan Nusantara</div>
+            <div class="hukum-tagline">Let's Preserve Nusantara's Heritage</div>
         </div>
 
         <!-- SECTION ARTIKEL -->
-        <div class="beranda-section-title"><span class="title-ornament">❧&ensp;</span>Artikel Wayang<span class="title-ornament">&ensp;❧</span></div>
+        <div class="beranda-section-title"><span class="title-ornament">❧&ensp;</span>Wayang Articles<span class="title-ornament">&ensp;❧</span></div>
         <div class="artikel-scroll-wrapper">
             <div class="artikel-row" id="artikel-row">
 
                 <!-- Artikel 1: Sejarah Wayang -->
                 <div class="artikel-card" onclick="bukaArtikel('sejarah')">
                     <div class="artikel-card-img-wrap">
-                        <div class="artikel-card-badge">Sejarah</div>
+                        <div class="artikel-card-badge">History</div>
                         <div class="artikel-card-img-placeholder">
                             <!-- Slot gambar ilustrasi portrait: ganti src dengan path gambar ilustrasi Anda -->
                             <img src="assets/images/artikel/sejarah.jpg" alt="Ilustrasi Sejarah Wayang" class="artikel-card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -139,16 +139,16 @@
                         </div>
                     </div>
                     <div class="artikel-card-body">
-                        <h3 class="artikel-card-title">Sejarah &amp; Asal-Usul Wayang Nusantara</h3>
-                        <p class="artikel-card-preview">Wayang merupakan seni pertunjukan yang telah hadir sejak lebih dari seribu tahun lalu di tanah Nusantara, menjadi cerminan jiwa dan filsafat masyarakat...</p>
-                        <div class="artikel-tap-hint"> Ketuk untuk detail</div>
+                        <h3 class="artikel-card-title">History &amp; Origins of Nusantara Wayang</h3>
+                        <p class="artikel-card-preview">Wayang is a performing art that has existed for more than a thousand years in Nusantara, reflecting the soul and philosophy of its people...</p>
+                        <div class="artikel-tap-hint"> Tap for details</div>
                     </div>
                 </div>
 
                 <!-- Artikel 2: UNESCO -->
                 <div class="artikel-card" onclick="bukaArtikel('unesco')">
                     <div class="artikel-card-img-wrap">
-                        <div class="artikel-card-badge">Internasional</div>
+                        <div class="artikel-card-badge">International</div>
                         <div class="artikel-card-img-placeholder">
                             <!-- Slot gambar ilustrasi portrait: ganti src dengan path gambar ilustrasi Anda -->
                             <img src="assets/images/artikel/images.jfif" alt="Ilustrasi UNESCO Wayang" class="artikel-card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -156,16 +156,16 @@
                         </div>
                     </div>
                     <div class="artikel-card-body">
-                        <h3 class="artikel-card-title">Wayang &amp; Pengakuan UNESCO 2003</h3>
-                        <p class="artikel-card-preview">Pada 7 November 2003, UNESCO secara resmi menetapkan Wayang sebagai Masterpiece of the Oral and Intangible Heritage of Humanity...</p>
-                        <div class="artikel-tap-hint">Ketuk untuk detail</div>
+                        <h3 class="artikel-card-title">Wayang &amp; UNESCO Recognition 2003</h3>
+                        <p class="artikel-card-preview">On November 7, 2003, UNESCO officially designated Wayang as a Masterpiece of the Oral and Intangible Heritage of Humanity...</p>
+                        <div class="artikel-tap-hint">Tap for details</div>
                     </div>
                 </div>
 
                 <!-- Artikel 3: Melestarikan Wayang (BARU) -->
                 <div class="artikel-card artikel-card-featured" onclick="bukaArtikel('pelestarian')">
                     <div class="artikel-card-img-wrap">
-                        <div class="artikel-card-badge">Pelestarian</div>
+                        <div class="artikel-card-badge">Conservation</div>
                         <div class="artikel-card-img-placeholder">
                             <!-- Slot gambar ilustrasi portrait: ganti src dengan path gambar ilustrasi Anda -->
                             <img src="assets/images/artikel/ngajar.jpeg" alt="Ilustrasi Pelestarian Wayang" class="artikel-card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -173,9 +173,9 @@
                         </div>
                     </div>
                     <div class="artikel-card-body">
-                        <h3 class="artikel-card-title">Melestarikan Wayang: Warisan Budaya untuk Generasi Mendatang</h3>
+                        <h3 class="artikel-card-title">Preserving Wayang: Cultural Heritage for Future Generations</h3>
                         <p class="artikel-card-preview">Pelestarian wayang bukan sekadar menjaga benda seni — ini adalah ikhtiar menjaga identitas bangsa, nilai luhur, dan kearifan lokal yang tertuang dalam landasan hukum...</p>
-                        <div class="artikel-tap-hint">Ketuk untuk detail</div>
+                        <div class="artikel-tap-hint">Tap for details</div>
                     </div>
                 </div>
 
@@ -189,8 +189,8 @@
         <div class="modal-card artikel-modal-card">
             <div class="modal-head">
                 <div>
-                    <div class="modal-nama" id="artikel-modal-judul">Judul Artikel</div>
-                    <div class="modal-sub" id="artikel-modal-kategori">Kategori</div>
+                    <div class="modal-nama" id="artikel-modal-judul">Article Title</div>
+                    <div class="modal-sub" id="artikel-modal-kategori">Category</div>
                 </div>
                 <button class="modal-close" onclick="tutupArtikel()">✕</button>
             </div>
@@ -198,7 +198,7 @@
                 <!-- Konten artikel akan diisi oleh JavaScript -->
             </div>
             <div class="modal-foot">
-                <button class="btn-detail" onclick="tutupArtikel()">TUTUP</button>
+                <button class="btn-detail" onclick="tutupArtikel()">CLOSE</button>
             </div>
         </div>
     </div>
@@ -208,7 +208,7 @@
         <div class="modal-card artikel-modal-card">
             <div class="modal-head">
                 <div>
-                    <div class="modal-nama">Daftar Koleksi Museum Wayang</div>
+                    <div class="modal-nama">Museum Wayang Collection List</div>
                     <div class="modal-sub">DKI Jakarta</div>
                     <a href="https://dinaskebudayaan.jakarta.go.id/koleksi-museum/museum-wayang" target="_blank" rel="noopener" style="font-size: 0.75rem; color: var(--gold); text-decoration: none; display: inline-block; margin-top: 4px;">🔗 Referensi: dinaskebudayaan.jakarta.go.id</a>
                 </div>
@@ -219,8 +219,8 @@
                     <table style="width:100%; border-collapse: collapse; text-align: left; font-family: 'Inter', sans-serif; font-size: 0.9rem;">
                         <thead>
                             <tr style="border-bottom: 2px solid var(--gold); color: var(--gold);">
-                                <th style="padding: 12px 16px;">Nama Koleksi</th>
-                                <th style="padding: 12px 16px;">Deskripsi / Ciri-Ciri</th>
+                                <th style="padding: 12px 16px;">Collection Name</th>
+                                <th style="padding: 12px 16px;">Description / Characteristics</th>
                             </tr>
                         </thead>
                         <tbody id="koleksi-list-body" style="color: var(--cream);">
@@ -230,7 +230,7 @@
                 </div>
             </div>
             <div class="modal-foot">
-                <button class="btn-detail" onclick="tutupModalKoleksi()">TUTUP</button>
+                <button class="btn-detail" onclick="tutupModalKoleksi()">CLOSE</button>
             </div>
         </div>
     </div>
@@ -240,9 +240,9 @@
         <div class="modal-card artikel-modal-card">
             <div class="modal-head">
                 <div>
-                    <div class="modal-nama">Warisan Budaya Tak Benda UNESCO</div>
+                    <div class="modal-nama">UNESCO Intangible Cultural Heritage</div>
                     <div class="modal-sub">Representative List of the Intangible Cultural Heritage of Humanity — 2008</div>
-                    <a href="https://ich.unesco.org/en/RL/wayang-puppet-theatre-00063" target="_blank" rel="noopener" style="font-size: 0.75rem; color: var(--gold); text-decoration: none; display: inline-block; margin-top: 4px;">🔗 Referensi Resmi: ich.unesco.org</a>
+                    <a href="https://ich.unesco.org/en/RL/wayang-puppet-theatre-00063" target="_blank" rel="noopener" style="font-size: 0.75rem; color: var(--gold); text-decoration: none; display: inline-block; margin-top: 4px;">🔗 Official Reference: ich.unesco.org</a>
                 </div>
                 <button class="modal-close" onclick="tutupModalUnesco()">✕</button>
             </div>
@@ -250,19 +250,19 @@
                 <div style="display:flex; gap:12px; margin-bottom: 20px; flex-wrap:wrap; justify-content:center;">
                     <img src="assets/images/artikel/sertifikat.avif" alt="Wayang kulit — foto resmi UNESCO ICH" style="flex:1; min-width:140px; max-width:48%; border-radius: 8px; border: 2px solid var(--gold); object-fit:cover;">
                 </div>
-                <p style="font-size:0.72rem; text-align:center; color:#999; margin-bottom:14px; font-style:italic;">📸 Foto resmi dari arsip ich.unesco.org</p>
+                <p style="font-size:0.72rem; text-align:center; color:#999; margin-bottom:14px; font-style:italic;">📸 Official photo from the ich.unesco.org archive</p>
                 <p style="color: var(--cream); font-family: 'Inter', sans-serif; line-height: 1.6; margin-bottom: 12px;">
                     Pada tahun <strong>2008</strong>, Wayang resmi dimasukkan ke dalam <strong>Daftar Representatif Warisan Budaya Tak Benda Umat Manusia</strong> (<em>Representative List of the Intangible Cultural Heritage of Humanity</em>) oleh UNESCO — sebuah pengakuan tertinggi di tingkat global yang memperkuat status wayang sebagai warisan budaya hidup yang harus terus dijaga dan diwariskan.
                 </p>
                 <p style="color: var(--cream); font-family: 'Inter', sans-serif; line-height: 1.6; margin-bottom: 12px;">
-                    Pengakuan ini merupakan lanjutan dari proklamasi awal pada <strong>7 November 2003</strong>, ketika UNESCO menetapkan wayang sebagai <em>Masterpiece of the Oral and Intangible Heritage of Humanity</em>. Pada 2008, sistem UNESCO diperbarui sehingga seluruh proklamasi tersebut diintegrasikan ke dalam Daftar Representatif yang berlaku hingga sekarang.
+                    This recognition is a continuation of the initial proclamation on <strong>November 7, 2003</strong>, when UNESCO designated wayang as a <em>Masterpiece of the Oral and Intangible Heritage of Humanity</em>. In 2008, the UNESCO system was updated so that all those proclamations were integrated into the Representative List that remains in force today.
                 </p>
                 <p style="color: var(--cream); font-family: 'Inter', sans-serif; line-height: 1.6;">
                     Seni wayang bukan sekadar hiburan — ia adalah media pendidikan moral, penyampaian nilai-nilai filosofi kehidupan, dan cerminan identitas budaya Nusantara yang kaya dan luhur.
                 </p>
             </div>
             <div class="modal-foot">
-                <button class="btn-detail" onclick="tutupModalUnesco()">TUTUP</button>
+                <button class="btn-detail" onclick="tutupModalUnesco()">CLOSE</button>
             </div>
         </div>
     </div>
@@ -272,8 +272,8 @@
         <div class="modal-card uu-modal-card">
             <div class="modal-head">
                 <div>
-                    <div class="modal-nama" id="uu-modal-judul">Judul Peraturan</div>
-                    <div class="modal-sub" id="uu-modal-jenis">Jenis Peraturan</div>
+                    <div class="modal-nama" id="uu-modal-judul">Regulation Title</div>
+                    <div class="modal-sub" id="uu-modal-jenis">Regulation Type</div>
                 </div>
                 <button class="modal-close" onclick="tutupModalUU()">✕</button>
             </div>
@@ -284,8 +284,8 @@
                 <!-- Sumber akan diisi oleh JavaScript -->
             </div>
             <div class="modal-foot">
-                <button class="btn-detail" id="uu-modal-btn-download" onclick="unduhUU()">⬇ UNDUH PDF</button>
-                <button class="btn-detail" onclick="tutupModalUU()">TUTUP</button>
+                <button class="btn-detail" id="uu-modal-btn-download" onclick="unduhUU()">⬇ DOWNLOAD PDF</button>
+                <button class="btn-detail" onclick="tutupModalUU()">CLOSE</button>
             </div>
         </div>
     </div>
@@ -299,8 +299,8 @@
     <div class="modal-card" style="max-width: 800px; width: 100%; background: rgba(16,10,3,.97); border: 1px solid rgba(200,160,30,.42); border-radius: 14px; padding: 24px; text-align: center; position: relative;">
         <button class="modal-close" onclick="tutupCharSelect()" style="position: absolute; right: 20px; top: 20px; font-size: 28px;">&times;</button>
         <div style="margin-bottom: 25px; margin-top: 10px;">
-            <h2 class="wayang-title glow-gold" style="font-size: 1.6rem; margin-bottom: 5px;">Pilih Teman Dialog</h2>
-            <p style="color: var(--text-muted); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic;">Pilih karakter wayang yang ingin kamu ajak bicara</p>
+            <h2 class="wayang-title glow-gold" style="font-size: 1.6rem; margin-bottom: 5px;">Choose Your Dialogue Partner</h2>
+            <p style="color: var(--text-muted); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic;">Choose the wayang character you want to talk to</p>
         </div>
         <div id="ai-char-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; width: 100%; overflow-y: auto; max-height: 60vh; padding: 5px;">
             <!-- Akan diisi melalui JS -->
@@ -313,20 +313,20 @@
 
     <!-- Header -->
     <div class="chat-header">
-        <button class="chat-back-btn" onclick="tutupChatSemar()">Kembali</button>
+        <button class="chat-back-btn" onclick="tutupChatSemar()">Back</button>
         <div class="chat-avatar-wrap">
             <img id="chat-header-avatar" src="" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" onerror="this.src='data:image/svg+xml;utf8,<svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23c8a01e\' stroke-width=\'2\'><circle cx=\'12\' cy=\'8\' r=\'4\'/><path d=\'M4 20c0-4 3.6-7 8-7s8 3 8 7\'/></svg>'">
         </div>
         <div class="chat-header-info">
             <div class="chat-ai-name" id="chat-header-name">Ki Semar</div>
-            <div class="chat-ai-status" id="chat-header-status">Pamong Pewayangan Nusantara</div>
+            <div class="chat-ai-status" id="chat-header-status">Guardian of Nusantara Wayang</div>
         </div>
-        <div id="chat-api-indicator" class="chat-api-indicator" onclick="showApiModal()" title="Klik untuk atur API Key" style="cursor:pointer;"></div>
+        <div id="chat-api-indicator" class="chat-api-indicator" onclick="showApiModal()" title="Click to set API Key" style="cursor:pointer;"></div>
     </div>
 
     <!-- Rekomendasi Pertanyaan -->
     <div class="chat-suggestions-wrap">
-        <div class="chat-suggestions-label">Pertanyaan yang Disarankan</div>
+        <div class="chat-suggestions-label">Suggested Questions</div>
         <div class="chat-suggestions-row" id="chat-suggestions-row"></div>
     </div>
 
@@ -338,8 +338,8 @@
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                 </svg>
             </div>
-            <div class="chat-empty-title">Mulai Berdialog</div>
-            <div class="chat-empty-sub" id="chat-empty-sub">Sampaikan pertanyaanmu. AI siap berbagi kebijaksanaan tentang dunia pewayangan Nusantara.</div>
+            <div class="chat-empty-title">Start a Dialogue</div>
+            <div class="chat-empty-sub" id="chat-empty-sub">Ask your questions. AI is ready to share wisdom about the world of Nusantara wayang.</div>
         </div>
 
         <!-- Typing indicator -->
@@ -357,7 +357,7 @@
 
     <!-- Input Area -->
     <div class="chat-input-area">
-        <textarea id="chat-input" class="chat-input" placeholder="Tanya kepada Ki Semar..." rows="1"></textarea>
+        <textarea id="chat-input" class="chat-input" placeholder="Ask Ki Semar..." rows="1"></textarea>
         <button id="chat-send-btn" class="chat-send-btn" onclick="sendMessage()">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="22" y1="2" x2="11" y2="13"/>
@@ -377,8 +377,8 @@
     <div class="modal-card detail-card">
         <div class="modal-head">
             <div>
-                <div class="modal-nama" id="modal-nama">Nama Wayang</div>
-                <div class="modal-sub">Koleksi Museum Wayang Jakarta</div>
+                <div class="modal-nama" id="modal-nama">Wayang Name</div>
+                <div class="modal-sub">Jakarta Museum Wayang Collection</div>
             </div>
             <button class="modal-close" onclick="tutupDetail()">✕</button>
         </div>
@@ -386,14 +386,14 @@
             <div class="detail-img-col">
                 <div class="modal-img-section" id="modal-img-section" onclick="toggleZoom()">
                     <img class="modal-img" id="modal-img" src="" alt="Detail Wayang">
-                    <div class="zoom-hint">🔍 Tap untuk zoom</div>
+                    <div class="zoom-hint">🔍 Tap to zoom</div>
                 </div>
             </div>
             <div class="detail-content-col">
                 <div class="detail-tabs" id="detail-tabs">
-                    <button class="detail-tab-btn active" data-tab="penjelasan">PENJELASAN WAYANG</button>
-                    <button class="detail-tab-btn" data-tab="psikologi">KARAKTER WAYANG</button>
-                    <button class="detail-tab-btn" data-tab="hubungan">HUBUNGAN WAYANG</button>
+                    <button class="detail-tab-btn active" data-tab="penjelasan">WAYANG DESCRIPTION</button>
+                    <button class="detail-tab-btn" data-tab="psikologi">WAYANG CHARACTER</button>
+                    <button class="detail-tab-btn" data-tab="hubungan">WAYANG RELATIONSHIPS</button>
                 </div>
                 <div class="detail-tab-panel active" data-panel="penjelasan"><p class="detail-tab-text" id="tab-penjelasan"></p></div>
                 <div class="detail-tab-panel" data-panel="psikologi"><p class="detail-tab-text" id="tab-psikologi"></p></div>
@@ -402,12 +402,12 @@
         </div>
         <div class="modal-audio-section">
             <div class="audio-lang-toggle" id="audio-lang-toggle">
-                <button class="lang-btn active" data-lang="id">Bahasa Indonesia</button>
+                <button class="lang-btn active" data-lang="en">Indonesian</button>
                 <button class="lang-btn" data-lang="en">English</button>
             </div>
             <div class="audio-player" id="audio-player-ui"></div>
         </div>
-        <div class="modal-foot"><button class="btn-detail" onclick="tutupDetail()">TUTUP</button></div>
+        <div class="modal-foot"><button class="btn-detail" onclick="tutupDetail()">CLOSE</button></div>
     </div>
 </div>
 
@@ -432,6 +432,7 @@
 
 </body>
 </html>
+
 
 
 

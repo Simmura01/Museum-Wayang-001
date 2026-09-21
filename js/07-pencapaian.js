@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    07-PENCAPAIAN.JS
    Logika halaman Pencapaian: 4 badge (scan, kuis, karakter,
    hukum) — dihitung dari localStorage & dari interaksi user
@@ -22,7 +22,7 @@ const TARGET_KARAKTER=10,TARGET_HUKUM=2;
 function setAchievement(key,unlocked,progressText,fillPct){
     const card=document.getElementById('ach-card-'+key);if(!card) return;
     card.classList.toggle('unlocked',unlocked);card.classList.toggle('locked',!unlocked);
-    const status=document.getElementById('ach-status-'+key);if(status) status.textContent=unlocked?'TERBUKA':'TERKUNCI';
+    const status=document.getElementById('ach-status-'+key);if(status) status.textContent=unlocked?'UNLOCKED':'LOCKED';
     const prog=document.getElementById('ach-progress-'+key);if(prog) prog.textContent=progressText;
     const fill=document.getElementById('ach-fill-'+key);if(fill) fill.style.width=(unlocked?100:fillPct)+'%';
     if(unlocked && typeof window.gtag === 'function') {
@@ -46,7 +46,7 @@ function bukaPencapaianDetail(key){
 
     document.getElementById('pd-nama').textContent=title;
     const pdStatus=document.getElementById('pd-status');
-    pdStatus.textContent=unlocked?'TERBUKA':'TERKUNCI';
+    pdStatus.textContent=unlocked?'UNLOCKED':'LOCKED';
     pdStatus.classList.toggle('unlocked',unlocked);
     document.getElementById('pd-desc').textContent=desc;
     document.getElementById('pd-progress').textContent=progressText;
@@ -63,11 +63,12 @@ function renderPencapaian(){
     const p=getProgress();const ALL=Object.keys(dataJelajah);
     let totalScanned=0,totalQuiz=0;
     ALL.forEach(id=>{if(p[id]?.scanned||p[id]?.quizDone) totalScanned++;if(p[id]?.quizDone) totalQuiz++;});
-    setAchievement('scan',totalScanned>=ALL.length,`${totalScanned} / ${ALL.length} koleksi dipindai`,totalScanned/ALL.length*100);
-    setAchievement('kuis',totalQuiz>=ALL.length,`${totalQuiz} / ${ALL.length} kuis terselesaikan`,totalQuiz/ALL.length*100);
+    setAchievement('scan',totalScanned>=ALL.length,`${totalScanned} / ${ALL.length} collections scanned`,totalScanned/ALL.length*100);
+    setAchievement('kuis',totalQuiz>=ALL.length,`${totalQuiz} / ${ALL.length} quizzes completed`,totalQuiz/ALL.length*100);
     const viewedCount=getViewedHotspots().length;
-    setAchievement('karakter',viewedCount>=TARGET_KARAKTER,`${Math.min(viewedCount,TARGET_KARAKTER)} / ${TARGET_KARAKTER} koleksi dipelajari`,viewedCount/TARGET_KARAKTER*100);
+    setAchievement('karakter',viewedCount>=TARGET_KARAKTER,`${Math.min(viewedCount,TARGET_KARAKTER)} / ${TARGET_KARAKTER} collections studied`,viewedCount/TARGET_KARAKTER*100);
     const hukumCount=getHukumClicks().length;
-    setAchievement('hukum',hukumCount>=TARGET_HUKUM,`${Math.min(hukumCount,TARGET_HUKUM)} / ${TARGET_HUKUM} dasar hukum dibaca`,hukumCount/TARGET_HUKUM*100);
+    setAchievement('hukum',hukumCount>=TARGET_HUKUM,`${Math.min(hukumCount,TARGET_HUKUM)} / ${TARGET_HUKUM} legal foundations read`,hukumCount/TARGET_HUKUM*100);
 }
+
 
