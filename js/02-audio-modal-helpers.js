@@ -129,23 +129,38 @@ function tutupModal(id){
 
 /* Pasang listener toggle bahasa ID/EN untuk kedua modal detail
    (Pameran & Jelajah) — dijalankan setelah DOM siap. */
-document.getElementById('audio-lang-toggle').addEventListener('click',function(e){
-    const btn=e.target.closest('.lang-btn');if(!btn) return;
-    const lang=btn.dataset.lang;if(lang===currentAudioLang) return;
-    document.querySelectorAll('#audio-lang-toggle .lang-btn').forEach(b=>b.classList.toggle('active',b===btn));
-    loadAudioForLang(lang,'audio-player-ui','audio-lang-toggle');
-});
-document.getElementById('scan-audio-lang-toggle').addEventListener('click',function(e){
-    const btn=e.target.closest('.lang-btn');if(!btn) return;
-    const lang=btn.dataset.lang;if(lang===currentAudioLang) return;
-    document.querySelectorAll('#scan-audio-lang-toggle .lang-btn').forEach(b=>b.classList.toggle('active',b===btn));
-    loadAudioForLang(lang,'scan-audio-player-ui','scan-audio-lang-toggle');
-});
-document.getElementById('detail-tabs').addEventListener('click',function(e){
-    const btn=e.target.closest('.detail-tab-btn');if(!btn) return;
-    switchDetailTab(btn.dataset.tab,'detail-tabs','#detail-zoom .detail-tab-panel');
-});
-document.getElementById('scan-detail-tabs').addEventListener('click',function(e){
-    const btn=e.target.closest('.detail-tab-btn');if(!btn) return;
-    switchDetailTab(btn.dataset.tab,'scan-detail-tabs','#modal-detail-scan .detail-tab-panel');
-});
+const audioLangToggle = document.getElementById('audio-lang-toggle');
+if (audioLangToggle) {
+    audioLangToggle.addEventListener('click',function(e){
+        const btn=e.target.closest('.lang-btn');if(!btn) return;
+        const lang=btn.dataset.lang;if(lang===currentAudioLang) return;
+        document.querySelectorAll('#audio-lang-toggle .lang-btn').forEach(b=>b.classList.toggle('active',b===btn));
+        loadAudioForLang(lang,'audio-player-ui','audio-lang-toggle');
+    });
+}
+
+const scanAudioLangToggle = document.getElementById('scan-audio-lang-toggle');
+if (scanAudioLangToggle) {
+    scanAudioLangToggle.addEventListener('click',function(e){
+        const btn=e.target.closest('.lang-btn');if(!btn) return;
+        const lang=btn.dataset.lang;if(lang===currentAudioLang) return;
+        document.querySelectorAll('#scan-audio-lang-toggle .lang-btn').forEach(b=>b.classList.toggle('active',b===btn));
+        loadAudioForLang(lang,'scan-audio-player-ui','scan-audio-lang-toggle');
+    });
+}
+
+const detailTabs = document.getElementById('detail-tabs');
+if (detailTabs) {
+    detailTabs.addEventListener('click',function(e){
+        const btn=e.target.closest('.detail-tab-btn');if(!btn) return;
+        switchDetailTab(btn.dataset.tab,'detail-tabs','#detail-zoom .detail-tab-panel');
+    });
+}
+
+const scanDetailTabs = document.getElementById('scan-detail-tabs');
+if (scanDetailTabs) {
+    scanDetailTabs.addEventListener('click',function(e){
+        const btn=e.target.closest('.detail-tab-btn');if(!btn) return;
+        switchDetailTab(btn.dataset.tab,'scan-detail-tabs','#modal-detail-scan .detail-tab-panel');
+    });
+}
